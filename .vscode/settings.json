@@ -1,7 +1,7 @@
 {
-    "npm.packageManager": "yarn",
-    "files.exclude": {
-      "**/node_modules/**": true,
-      "**/.next/**": true
-    }
+  "npm.packageManager": "yarn",
+  "files.exclude": {
+    "**/node_modules/**": true,
+    "**/.next/**": true
   }
+}

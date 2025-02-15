@@ -7,12 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "next lint && next build && playwright test"
+    "pretty": "prettier . --write",
+    "test": "prettier . --write && next lint && next build && playwright test"
   },
   "dependencies": {
     "@mantine/core": "7.16.3",
     "@mantine/hooks": "7.16.3",
     "next": "15.1.7",
+    "eslint-config-prettier": "^10.0.1",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
@@ -27,6 +29,7 @@
     "postcss": "^8.5.2",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
+    "prettier": "3.5.1",
     "typescript": "5.7.3"
   },
   "packageManager": "yarn@4.6.0"
