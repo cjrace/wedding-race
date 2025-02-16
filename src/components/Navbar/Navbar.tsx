@@ -12,7 +12,6 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
 
   const pages = ["Home", "Accomodation", "Timeline", "FAQs"];
 
-
   return (
     <AppShell
       header={{ height: 60 }}
@@ -28,11 +27,11 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group justify="space-between" style={{ flex: 1 }}>
             <Group ml="xl" gap={0} visibleFrom="sm">
-                {pages.map((page) => (
+              {pages.map((page) => (
                 <UnstyledButton key={page} className={classes.control}>
                   {page}
                 </UnstyledButton>
-                ))}
+              ))}
             </Group>
           </Group>
         </Group>
