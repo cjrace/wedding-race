@@ -27,7 +27,7 @@ You can run the development server (automatically opens a browser tab to preview
 yarn dev
 ```
 
-## Tests
+### Tests
 
 [Prettier](https://prettier.io/) is used for code formatting, [ESLint](https://eslint.org/) is used for linting and basic end to end tests have been set up using [Playwright](https://playwright.dev/).
 
@@ -45,6 +45,10 @@ View other available commands, including for running linting, formatting (includ
 yarn run
 ```
 
+### Pre-commit hooks
+
+[Husky](https://typicode.github.io/husky) is used to manage pre-commit hooks, currently this is used to enforce [Prettier](https://prettier.io/) formatting on all code.
+
 ## Deployment
 
-We'll eventually deploy this to https://www.wedding-race.com/
+We'll eventually deploy this to https://www.wedding-race.com/. Deploys will be automatically triggered from pushes to the main branch.
