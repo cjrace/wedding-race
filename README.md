@@ -21,6 +21,8 @@ Start by installing dependencies:
 yarn install
 ```
 
+Then you'll need to setup an .env file with the credentials needed to access the user database and manage the auth, follow the example from `.env.example`.
+
 You can run the development server (automatically opens a browser tab to preview the site):
 
 ```bash
