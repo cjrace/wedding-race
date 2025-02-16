@@ -15,6 +15,12 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm install -g yarn && yarn
+      - name: Check formatting
+        run: yarn prettier . --check
+      - name: Lint code
+        run: yarn lint
+      - name: Install Playwright Browsers
+        run: yarn playwright install
       - name: Build site
         run: yarn build
       - name: Install Playwright Browsers
