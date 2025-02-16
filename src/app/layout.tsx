@@ -1,5 +1,4 @@
 import "@mantine/core/styles.css";
-
 import React from "react";
 import {
   ColorSchemeScript,
@@ -7,6 +6,7 @@ import {
   MantineProvider,
 } from "@mantine/core";
 import { theme } from "../theme";
+import Navbar from "../components/Navbar/Navbar";
 
 export const metadata = {
   title: "Wedding Race",
@@ -25,7 +25,9 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <Navbar>{children}</Navbar>
+        </MantineProvider>
       </body>
     </html>
   );
