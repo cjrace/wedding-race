@@ -12,6 +12,7 @@ This project uses [Next.js App Router](https://nextjs.org/docs/app). Package man
 Styling and components
 
 - [Mantine](https://mantine.dev/)
+- [Tabler icons](https://tabler-icons.io/)
 
 ### Run locally
 
