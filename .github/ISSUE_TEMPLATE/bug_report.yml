@@ -1,0 +1,46 @@
+name: Bug report
+description: Tell us about an issue you have found
+title: "[Bug]: "
+labels: ["bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to tell us more!
+  - type: textarea
+    id: Overview
+    attributes:
+      label: Overview
+      description: |
+        Briefly describe the issue you encountered
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        * Describe the steps to reproduce the bug
+        * Include any relevant code snippets or screenshots
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe or show what you expected to happen instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional Information
+      description: |
+        Include any additional information you can, e.g.
+        - Operating system
+        - Installation version
+        - Browser (if applicable)

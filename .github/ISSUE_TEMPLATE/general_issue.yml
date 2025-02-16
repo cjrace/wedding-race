@@ -1,0 +1,20 @@
+name: General issue
+description: Template for any general issues relating to this project
+title: "[General]: "
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Briefly describe the issue or suggestion you'd like to raise.
+    validations:
+      required: true
+
+  - type: textarea
+    id: importance
+    attributes:
+      label: Why this is important?
+      description: Describe how this affects you and / or others who may use the project. What would happen if this wasn't addressed?
+    validations:
+      required: true

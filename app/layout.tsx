@@ -1,12 +1,16 @@
-import '@mantine/core/styles.css';
+import "@mantine/core/styles.css";
 
-import React from 'react';
-import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
-import { theme } from '../theme';
+import React from "react";
+import {
+  ColorSchemeScript,
+  mantineHtmlProps,
+  MantineProvider,
+} from "@mantine/core";
+import { theme } from "../theme";
 
 export const metadata = {
-  title: 'Wedding Race',
-  description: 'The wedding of the Race\'s!',
+  title: "Wedding Race",
+  description: "The wedding of the Race's!",
 };
 
 export default function RootLayout({ children }: { children: any }) {
