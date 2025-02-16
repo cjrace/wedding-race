@@ -28,7 +28,12 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
           <Group justify="space-between" style={{ flex: 1 }}>
             <Group ml="xl" gap={0} visibleFrom="sm">
               {pages.map((page) => (
-                <UnstyledButton key={page} className={classes.control}>
+                <UnstyledButton
+                  key={page}
+                  className={classes.control}
+                  component="a"
+                  href={page === "Home" ? "/" : `/${page.toLowerCase()}`}
+                >
                   {page}
                 </UnstyledButton>
               ))}
@@ -40,7 +45,12 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
       <AppShell.Navbar py="md" px={4}>
         <Group align="center" style={{ width: "100%" }}>
           {pages.map((page) => (
-            <UnstyledButton key={page} className={classes.control}>
+            <UnstyledButton
+              key={page}
+              className={classes.control}
+              component="a"
+              href={page === "Home" ? "/" : `/${page.toLowerCase()}`}
+            >
               {page}
             </UnstyledButton>
           ))}
