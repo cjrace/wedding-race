@@ -10,6 +10,9 @@ import { IconConfetti } from "@tabler/icons-react";
 export default function Navbar({ children }: { children: React.ReactNode }) {
   const [opened, { toggle }] = useDisclosure();
 
+  const pages = ["Home", "Accomodation", "Timeline", "FAQs"];
+
+
   return (
     <AppShell
       header={{ height: 60 }}
@@ -24,30 +27,25 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group justify="space-between" style={{ flex: 1 }}>
-            <IconConfetti size={30} />
             <Group ml="xl" gap={0} visibleFrom="sm">
-              <UnstyledButton className={classes.control}>Home</UnstyledButton>
-              <UnstyledButton className={classes.control}>
-                Accomodation
-              </UnstyledButton>
-              <UnstyledButton className={classes.control}>
-                Travel
-              </UnstyledButton>
-              <UnstyledButton className={classes.control}>
-                Support
-              </UnstyledButton>
+                {pages.map((page) => (
+                <UnstyledButton key={page} className={classes.control}>
+                  {page}
+                </UnstyledButton>
+                ))}
             </Group>
           </Group>
         </Group>
       </AppShell.Header>
 
       <AppShell.Navbar py="md" px={4}>
-        <UnstyledButton className={classes.control}>Home</UnstyledButton>
-        <UnstyledButton className={classes.control}>
-          Accomodation
-        </UnstyledButton>
-        <UnstyledButton className={classes.control}>Travel</UnstyledButton>
-        <UnstyledButton className={classes.control}>Support</UnstyledButton>
+        <Group align="center" style={{ width: "100%" }}>
+          {pages.map((page) => (
+            <UnstyledButton key={page} className={classes.control}>
+              {page}
+            </UnstyledButton>
+          ))}
+        </Group>
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>
