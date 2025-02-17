@@ -7,6 +7,7 @@ import {
 } from "@mantine/core";
 import { theme } from "../theme";
 import Navbar from "../components/Navbar/Navbar";
+import "../styles/global.css";
 
 export const metadata = {
   title: "Wedding Race",

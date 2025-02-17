@@ -1,10 +1,113 @@
-import { Text, Title } from "@mantine/core";
-import classes from "./Welcome.module.css";
+import { Text, Container, Space, Divider, SimpleGrid, Box, Center, Image, Flex, BackgroundImage } from "@mantine/core";
+import PageCard from "./pagecard";
 
 export function Welcome() {
+
+
+
   return (
     <>
-      <Title className={classes.title} ta="center" mt={100}>
+
+      <Container style={{ width: '100%', padding: 0 }}>
+        <Image
+          radius="sm"
+          src="images/tipi-outside.png"
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </Container>
+
+      <Space h="md" />
+
+      <Flex align="center" justify="center" gap="md">
+        <Text style={{ fontFamily: 'Courier New', fontSize: '4rem' }}>
+          LAURA
+        </Text>
+        <Text style={{ fontFamily: 'Courier New', fontSize: '2rem' }}>
+          and
+        </Text>
+        <Text style={{ fontFamily: 'Courier New', fontSize: '4rem' }}>
+          CAM
+        </Text>
+      </Flex>
+
+      <Space h="md" />
+
+      <Text ta="center"> Countdown to ceremony clock </Text>
+
+      <Divider my="md" />
+
+      <SimpleGrid cols={2}>
+        <div>
+          <Container>
+            <Center>
+              <Image
+                radius="sm"
+                src="images/cam-and-laura.png"
+                h={400}
+                w="auto"
+                fit="contain"
+              />
+            </Center>
+          </Container>
+        </div>
+        <div>
+          <Box>
+            <Text>
+              Hey there! We’re so excited to share this special journey with you. Right now, we’ve
+              got some high-level details up and running, but stay tuned—we’ll be updating with more
+              juicy info as the big day approaches.
+            </Text>
+
+            <Space h="md" />
+
+            <Text>
+              In the meantime, feel free to explore the navbar to find all you need to know about
+              the event, accommodation, and those burning questions you might have in the FAQs.
+            </Text>
+
+            <Space h="md" />
+
+            <Text>
+              Thanks for stopping by, and we can’t wait to celebrate with you!
+            </Text>
+          </Box>
+        </div>
+      </SimpleGrid>
+
+      <Space h="md" />
+
+      <SimpleGrid cols={3}>
+        <div>
+          <PageCard
+            imagePath="images/tipi-outside.png"
+            title="Accommodation"
+            description="More detail for what is on this page"
+            link="link string"
+            linktext="link text"
+          />
+        </div>
+        <div>
+          <PageCard
+            imagePath="images/tipi-outside.png"
+            title="Timeline"
+            description="More detail for what is on this page"
+            link="link string"
+            linktext="link text"
+          />
+        </div>
+        <div>
+          <PageCard
+            imagePath="images/tipi-outside.png"
+            title="FAQs"
+            description="More detail for what is on this page"
+            link="link string"
+            linktext="link text"
+          />
+        </div>
+      </SimpleGrid>
+
+      {/* 
+    <Title className={classes.title} ta="center" mt={100}>
         Welcome to the{" "}
         <Text
           inherit
@@ -19,6 +122,10 @@ export function Welcome() {
         We&apos;re excited to say that a fancy wedding website is coming soon!
         Stay tuned for updates.
       </Text>
+
+      */}
+
     </>
   );
 }
+
