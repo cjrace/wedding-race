@@ -8,6 +8,7 @@ import {
 import { theme } from "../theme";
 import Navbar from "../components/Navbar/Navbar";
 import "../styles/global.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Wedding Race",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
+        <Analytics />
         <MantineProvider theme={theme}>
           <Navbar>{children}</Navbar>
         </MantineProvider>
