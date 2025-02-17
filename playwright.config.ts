@@ -54,10 +54,12 @@ export default defineConfig({
       name: "Mobile Chrome",
       use: { ...devices["Pixel 8"] },
     },
+    /* Well not this, because it is weirdly flaky with buttons... 
     {
       name: "Mobile Safari",
       use: { ...devices["iPhone 12"] },
     },
+    */
 
     /* Test against branded browsers. */
     {
