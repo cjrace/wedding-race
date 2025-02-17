@@ -47,7 +47,12 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
             <Text style={{ textAlign: "center", fontWeight: 500, flex: 1 }}>
               Wedding Race
             </Text>
-            <Burger opened={opened} onClick={toggle} size="sm" />
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              size="sm"
+              aria-label="Show navigation"
+            />
           </Group>
           <Group justify="center" style={{ flex: 1 }}>
             <Group ml="xl" gap={0} visibleFrom="xs">
