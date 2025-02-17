@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
+    forceSwcTransforms: true,
     optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
   },
 };
