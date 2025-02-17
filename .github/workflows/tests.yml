@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Tests
 on:
   push:
     branches: [main]
@@ -19,8 +19,8 @@ jobs:
         run: yarn prettier . --check
       - name: Lint code
         run: yarn lint
-      - name: Install Playwright Browsers
-        run: yarn playwright install
+      - name: Jest tests
+        run: yarn jest
       - name: Build site
         run: yarn build
       - name: Install Playwright Browsers

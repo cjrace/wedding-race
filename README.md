@@ -1,4 +1,4 @@
-[![Playwright tests](https://github.com/cjrace/wedding-race/actions/workflows/playwright.yml/badge.svg)](https://github.com/cjrace/wedding-race/actions/workflows/playwright.yml)
+[![Tests](https://github.com/cjrace/wedding-race/actions/workflows/tests.yml/badge.svg)](https://github.com/cjrace/wedding-race/actions/workflows/tests.yml)
 [![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
 
 # Wedding Race
@@ -32,9 +32,9 @@ yarn dev
 
 ### Tests
 
-[Prettier](https://prettier.io/) is used for code formatting, [ESLint](https://eslint.org/) is used for linting and basic end to end tests have been set up using [Playwright](https://playwright.dev/).
+[Prettier](https://prettier.io/) is used for code formatting, [ESLint](https://eslint.org/) is used for linting, [Jest](https://jestjs.io/) is used for testing components and basic end to end tests have been set up using [Playwright](https://playwright.dev/).
 
-To format all scripts, run linting checks, compile a production build, and then run the end to end tests run:
+To format all scripts, run linting checks, run jest tests, compile a production build, and then run the end to end tests run:
 
 ```bash
 yarn test
