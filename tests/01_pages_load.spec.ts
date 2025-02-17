@@ -5,7 +5,8 @@ test("has title", async ({ page }) => {
   await page.goto("/");
 
   await expect(page).toHaveTitle("Wedding Race");
-  await expect(page.locator("h1")).toContainText("Race");
+  await expect(page.locator("text=Laura")).toBeVisible();
+  await expect(page.locator("text=Cam")).toBeVisible();
 });
 
 test("has navbar", async ({ page }) => {
