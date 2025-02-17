@@ -21,8 +21,6 @@ jobs:
         run: yarn lint
       - name: Jest tests
         run: yarn jest
-      - name: Install Playwright Browsers
-        run: yarn playwright install
       - name: Build site
         run: yarn build
       - name: Install Playwright Browsers
