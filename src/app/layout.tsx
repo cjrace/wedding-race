@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <Analytics />
-        <MantineProvider theme={theme}>
+        <MantineProvider theme={theme} defaultColorScheme="dark">
           <Navbar>{children}</Navbar>
         </MantineProvider>
       </body>

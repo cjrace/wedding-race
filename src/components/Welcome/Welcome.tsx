@@ -10,6 +10,7 @@ import {
   Flex,
 } from "@mantine/core";
 import PageCard from "./pagecard";
+import DaysToGo from "@/components/DaysToGo/DaysToGo";
 
 export function Welcome() {
   return (
@@ -35,7 +36,11 @@ export function Welcome() {
 
       <Space h="md" />
 
-      <Text ta="center"> Countdown to ceremony clock </Text>
+      <Text ta="center">Countdown to ceremony!</Text>
+
+      <Center>
+        <DaysToGo />
+      </Center>
 
       <Divider my="md" />
 
