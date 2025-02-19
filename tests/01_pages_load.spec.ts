@@ -34,7 +34,9 @@ test("can navigate using burger", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 667 });
 
   for (const pageName of pages) {
-    await page.getByRole("banner").getByRole("button").click();
+    const burgerButton = page.getByRole("banner").getByRole("button");
+    await burgerButton.waitFor({ state: "visible" });
+    await burgerButton.click({ force: true });
     await page.getByRole("link", { name: `${pageName}`, exact: true }).click();
     await expect(page.locator("body")).toContainText(pageName);
   }
