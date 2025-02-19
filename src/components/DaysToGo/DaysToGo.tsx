@@ -4,14 +4,14 @@ import { Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 
 const DaysToGo = () => {
-  const weddingDateString = process.env.NEXT_PUBLIC_WEDDING_DATE || "2026-12-25T12:00:00";
-  const weddingDate = new Date(weddingDateString);
-  console.log("Wedding Date from env:", weddingDateString);
-  console.log("Parsed Wedding Date:", weddingDate);
-
   const [timeRemaining, setTimeRemaining] = useState(0);
 
   useEffect(() => {
+    const weddingDateString =
+      process.env.NEXT_PUBLIC_WEDDING_DATE || "2026-12-25T12:00:00";
+    const weddingDate = new Date(weddingDateString);
+    /* console.log("Wedding Date from env:", weddingDateString); console.log("Parsed Wedding Date:", weddingDate); */
+
     const countdownInterval = setInterval(() => {
       const currentTime = new Date().getTime();
       const eventTime = weddingDate.getTime();
@@ -26,7 +26,7 @@ const DaysToGo = () => {
     }, 1000);
 
     return () => clearInterval(countdownInterval);
-  }, [weddingDate]);
+  }, []);
 
   const countdown = (time: number) => {
     const seconds = Math.floor((time / 1000) % 60);
