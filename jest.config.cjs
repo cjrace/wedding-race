@@ -12,6 +12,7 @@ const customJestConfig = {
   },
   testEnvironment: "jest-environment-jsdom",
   testPathIgnorePatterns: ["<rootDir>/tests/"],
+  modulePathIgnorePatterns: ["<rootDir>/.next/"], // Prevent occassional naming collison
 };
 
 module.exports = createJestConfig(customJestConfig);

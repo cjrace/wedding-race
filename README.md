@@ -3,7 +3,7 @@
 
 # Wedding Race
 
-Not just any old wedding race, but the wedding of Race!
+Not just any old wedding race, but the wedding of Race! Currently a static site holding overview information on the Wedding, though this will be expanded to include the ability for guests to login, RVSP and do all kinds of helpful things (hopefully...).
 
 ## Getting Started
 
@@ -14,15 +14,41 @@ Styling and components
 - [Mantine](https://mantine.dev/)
 - [Tabler icons](https://tabler-icons.io/)
 
-### Run locally
+[Docker](https://www.docker.com/) is used to help with deployments and can be used to run the project locally. General recommendation for this project is to use docker for building and manually testing the site, but then use `yarn test` frequently for testing the code itself.
 
-Start by installing dependencies:
+### Requirements
+
+You'll need to setup an .env file with the credentials needed to access the databases etc, follow the example from `.env.example`.
+
+### Run locally with Docker
+
+1. [Install Docker](https://docs.docker.com/get-docker/)
+
+2. Build a container
+
+```bash
+docker build -t wedding-race .
+```
+
+3. Run the container
+
+```bash
+docker run -p 3000:3000 wedding-race
+```
+
+### Run locally without Docker
+
+Being able to run the project without docker will allow you to run tests locally, so is worth doing.
+
+1. Install [node.js](https://nodejs.org/en/download)
+
+2. Install [yarn](https://yarnpkg.com/getting-started/install)
+
+3. Install dependencies from `yarn.lock`
 
 ```bash
 yarn install
 ```
-
-Then you'll need to setup an .env file with the credentials needed to access the user database and manage the auth, follow the example from `.env.example`.
 
 You can run the development server (automatically opens a browser tab to preview the site):
 

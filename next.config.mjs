@@ -5,6 +5,7 @@ const nextConfig = {
     forceSwcTransforms: true,
     optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
   },
+  output: "standalone",
 };
 
 export default nextConfig;

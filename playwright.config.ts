@@ -74,7 +74,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "npm run start",
+    /* Using this instead of next start to complement the output: standalone in next.config.mjs */
+    command: "node .next/standalone/server.js",
     url: "http://127.0.0.1:3000",
     reuseExistingServer: !process.env.CI,
   },
