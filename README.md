@@ -56,7 +56,7 @@ Being able to run the project without docker will allow you to run tests locally
 yarn install
 ```
 
-You can run the development server (automatically opens a browser tab to preview the site):
+4. Run the development server
 
 ```bash
 yarn dev
