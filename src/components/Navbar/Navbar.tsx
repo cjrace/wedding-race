@@ -6,7 +6,7 @@ import { AppShell, Burger, Text, Group, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "./Navbar.module.css";
 
-export const pages = ["Home", "Accomodation", "Timeline", "FAQs"];
+export const pages = ["Home", "Accommodation", "Timeline", "FAQs"];
 
 export default function Navbar({ children }: { children: React.ReactNode }) {
   const [opened, { toggle }] = useDisclosure();

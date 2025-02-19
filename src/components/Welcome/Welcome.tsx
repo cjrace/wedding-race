@@ -62,10 +62,10 @@ export function Welcome() {
         <div>
           <Box>
             <Text>
-              Hey there! We’re so excited to share this special journey with
-              you. Right now, we’ve got some high-level details up and running,
-              but stay tuned—we’ll be updating with more juicy info as the big
-              day approaches.
+              Hey there! We&apos;re so excited to share this special journey
+              with you. Right now, we&apos;ve got some high-level details up and
+              running, but stay tuned—we&apos;ll be updating with more juicy
+              info as the big day approaches.
             </Text>
 
             <Space h="md" />
@@ -79,7 +79,8 @@ export function Welcome() {
             <Space h="md" />
 
             <Text>
-              Thanks for stopping by, and we can’t wait to celebrate with you!
+              Thanks for stopping by, and we can&apos;t wait to celebrate with
+              you!
             </Text>
           </Box>
         </div>
@@ -94,7 +95,7 @@ export function Welcome() {
             title="Accommodation"
             description="More detail for what is on this page"
             link="/accommodation"
-            linktext="link text"
+            linktext="Accommmodation"
           />
         </div>
         <div>
@@ -103,7 +104,7 @@ export function Welcome() {
             title="Timeline"
             description="More detail for what is on this page"
             link="/timeline"
-            linktext="link text"
+            linktext="Timeline"
           />
         </div>
         <div>
@@ -112,29 +113,10 @@ export function Welcome() {
             title="FAQs"
             description="More detail for what is on this page"
             link="/faqs"
-            linktext="link text"
+            linktext="Frequently Asked Questions"
           />
         </div>
       </SimpleGrid>
-
-      {/* 
-    <Title className={classes.title} ta="center" mt={100}>
-        Welcome to the{" "}
-        <Text
-          inherit
-          variant="gradient"
-          component="span"
-          gradient={{ from: "orange", to: "yellow" }}
-        >
-          Race Wedding
-        </Text>
-      </Title>
-      <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-        We&apos;re excited to say that a fancy wedding website is coming soon!
-        Stay tuned for updates.
-      </Text>
-
-      */}
     </>
   );
 }

@@ -36,6 +36,12 @@ docker build -t wedding-race .
 docker run -p 3000:3000 wedding-race
 ```
 
+Or, just use the shortcut that runs both of these commands back to back as set in `package.json`
+
+```bash
+yarn docker
+```
+
 ### Run locally without Docker
 
 Being able to run the project without docker will allow you to run tests locally, so is worth doing.
@@ -84,9 +90,13 @@ We'll eventually deploy this to https://www.wedding-race.com/. Deploys will be a
 
 ---
 
-This application is currently deployed using Google Cloud Run. Set up for this was created following the [Vercel example for Next.js](https://github.com/vercel/next.js/tree/canary/examples/with-docker).
+This application is currently deployed using Google Cloud Run, which builds automatically from pushes to the main branch, using the docker container.
 
-Once you have the Google Cloud SDK installed (and have followed any prompts to authenticated) you can switch into the right project by:
+The URL is: https://wedding-race-95409422489.europe-west2.run.app.
+
+### Initial setup notes
+
+Once you have the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en) installed (and have followed any prompts to authenticate) you can switch into the right project by:
 
 1. Listing out projects you have
 
@@ -100,9 +110,13 @@ gcloud projects list
 gcloud config set project wedding-race
 ```
 
-### Initial setup notes
+I used europe-west2 as the region, you can make this your default region by running:
 
-Once set up with a Google Cloud project and the SDK, I ran the following to get the site deployed first time around.
+```bash
+gcloud config set run/region europe-west2
+```
+
+Once set up with a Google Cloud project and the SDK, I ran the following to get the site deployed (first time around - not neccessary anymore).
 
 1. Set up build container
 
@@ -116,14 +130,4 @@ gcloud builds submit --tag gcr.io/wedding-race/wedding-race --project wedding-ra
 gcloud run deploy --image gcr.io/wedding-race/wedding-race --project wedding-race --platform managed --allow-unauthenticated
 ```
 
-That then deployed to https://wedding-race-95409422489.europe-west2.run.app.
-
-I used europe-west2 as the region, you can make this your default region by running:
-
-```bash
-gcloud config set run/region europe-west2
-```
-
-Looking inside Google Cloud Platform itself there probably were ways to do this using the UI and automatically linking into the GitHub repo, but it worked to get us started!
-
-Next up I deleted that service instance, so I could build a CI pipeline running from the GitHub repo directly in the UI, I clicked some things and then this just seemed to work, so any pushes to main now automatically trigger a build and push of the container.
+Looking inside Google Cloud Platform itself I saw there were ways to do this using the UI and automatically link into the GitHub repo, so I deleted that initial service instance and then I create a new service instance in the UI by clicking some things to get to the setup we have now.

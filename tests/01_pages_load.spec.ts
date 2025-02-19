@@ -21,7 +21,7 @@ test("can navigate through each page", async ({ page }) => {
   for (const pageName of pages) {
     await page
       .getByRole("banner")
-      .getByRole("link", { name: `${pageName}` })
+      .getByRole("link", { name: `${pageName}`, exact: true })
       .click();
     await expect(page.locator("body")).toContainText(pageName);
   }
@@ -35,7 +35,7 @@ test("can navigate using burger", async ({ page }) => {
 
   for (const pageName of pages) {
     await page.getByRole("banner").getByRole("button").click();
-    await page.getByRole("link", { name: `${pageName}` }).click();
+    await page.getByRole("link", { name: `${pageName}`, exact: true }).click();
     await expect(page.locator("body")).toContainText(pageName);
   }
 });
