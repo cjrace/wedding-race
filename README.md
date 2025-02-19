@@ -81,3 +81,44 @@ yarn run
 ## Deployment
 
 We'll eventually deploy this to https://www.wedding-race.com/. Deploys will be automatically triggered from pushes to the main branch.
+
+---
+
+This application is currently deployed using Google Cloud Run. Set up for this was created following the [Vercel example for Next.js](https://github.com/vercel/next.js/tree/canary/examples/with-docker).
+
+Once you have the Google Cloud SDK installed (and have followed any prompts to authenticated) you can switch into the right project by:
+
+1. Listing out projects you have 
+
+```bash
+gcloud projects list
+```
+2. Switch into desired project (should have been in the list if you're authenticated)
+
+```bash
+gcloud config set project wedding-race
+```
+
+### Initial setup notes
+
+Once set up with a Google Cloud project and the SDK, I ran the following to get the site deployed first time around.
+
+1. Set up build container
+```bash
+gcloud builds submit --tag gcr.io/wedding-race/wedding-race --project wedding-race
+```
+
+2. Deploy a container image
+```bash
+gcloud run deploy --image gcr.io/wedding-race/wedding-race --project wedding-race --platform managed --allow-unauthenticated
+```
+
+That then deployed to https://wedding-race-95409422489.europe-west2.run.app.
+
+I used europe-west2 as the region, you can make this your default region by running:
+
+```bash
+gcloud config set run/region europe-west2
+```
+
+Looking inside Google Cloud Platform itself there probably were ways to do this using the UI and automatically linking into the GitHub repo, but it worked to get us started!
