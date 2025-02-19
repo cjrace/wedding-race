@@ -93,7 +93,7 @@ export function Welcome() {
             imagePath="images/tipi-outside.png"
             title="Accommodation"
             description="More detail for what is on this page"
-            link="link string"
+            link="/accommodation"
             linktext="link text"
           />
         </div>
@@ -102,7 +102,7 @@ export function Welcome() {
             imagePath="images/tipi-outside.png"
             title="Timeline"
             description="More detail for what is on this page"
-            link="link string"
+            link="/timeline"
             linktext="link text"
           />
         </div>
@@ -111,7 +111,7 @@ export function Welcome() {
             imagePath="images/tipi-outside.png"
             title="FAQs"
             description="More detail for what is on this page"
-            link="link string"
+            link="/faqs"
             linktext="link text"
           />
         </div>

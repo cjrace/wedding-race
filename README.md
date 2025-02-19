@@ -88,11 +88,12 @@ This application is currently deployed using Google Cloud Run. Set up for this w
 
 Once you have the Google Cloud SDK installed (and have followed any prompts to authenticated) you can switch into the right project by:
 
-1. Listing out projects you have 
+1. Listing out projects you have
 
 ```bash
 gcloud projects list
 ```
+
 2. Switch into desired project (should have been in the list if you're authenticated)
 
 ```bash
@@ -104,11 +105,13 @@ gcloud config set project wedding-race
 Once set up with a Google Cloud project and the SDK, I ran the following to get the site deployed first time around.
 
 1. Set up build container
+
 ```bash
 gcloud builds submit --tag gcr.io/wedding-race/wedding-race --project wedding-race
 ```
 
 2. Deploy a container image
+
 ```bash
 gcloud run deploy --image gcr.io/wedding-race/wedding-race --project wedding-race --platform managed --allow-unauthenticated
 ```
@@ -122,3 +125,5 @@ gcloud config set run/region europe-west2
 ```
 
 Looking inside Google Cloud Platform itself there probably were ways to do this using the UI and automatically linking into the GitHub repo, but it worked to get us started!
+
+Next up I deleted that service instance, so I could build a CI pipeline running from the GitHub repo directly in the UI, I clicked some things and then this just seemed to work, so any pushes to main now automatically trigger a build and push of the container.
