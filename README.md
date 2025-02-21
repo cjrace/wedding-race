@@ -7,6 +7,7 @@ Not just any old wedding race, but the wedding of Race! Currently a static site 
 
 ## Getting Started
 
+### Frontend
 This project uses [Next.js App Router](https://nextjs.org/docs/app). Package management is handled by [yarn](https://yarnpkg.com/getting-started). Main libraries used so far are:
 
 Styling and components
@@ -15,6 +16,11 @@ Styling and components
 - [Tabler icons](https://tabler-icons.io/)
 
 [Docker](https://www.docker.com/) is used to help with deployments and can be used to run the project locally. General recommendation for this project is to use docker for building and manually testing the site, but then use `yarn test` frequently for testing the code itself.
+
+If you go into the frontend folder using `cd wedding-race-frontend` you can then run all the existing README commands as normal.
+
+### Backend
+?
 
 ### Requirements
 
