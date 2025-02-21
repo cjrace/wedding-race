@@ -5,6 +5,9 @@
 **/.env.production.local
 **/.env.local
 
+# Backend project
+#wedding-race-backend/__pycache__*
+
 # Frontend project ------------------------------------------------------------
 # Logs
 wedding-race-frontend/logs
