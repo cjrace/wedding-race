@@ -137,7 +137,7 @@ The endpoints will then be visible at http://localhost:8000/, for example:
 
 ### Tests
 
-Tests for the backend project are written using pytest, to run them simply run:
+Tests for the backend project are written using [pytest](https://docs.pytest.org/en/stable/getting-started.html), to run them simply run:
 
 ```bash
 pytest
