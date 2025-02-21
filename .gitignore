@@ -6,7 +6,7 @@
 **/.env.local
 
 # Backend project
-#wedding-race-backend/__pycache__*
+wedding-race-backend/__pycache__*
 
 # Frontend project ------------------------------------------------------------
 # Logs
