@@ -1,14 +1,20 @@
 # Use a Python base image
-FROM python:3.12
+FROM python:3.13
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file (if you have one) first to leverage Docker's caching
-COPY requirements.txt /app/
+# Copy the poetry lock file and pyproject.toml
+COPY pyproject.toml poetry.lock /app/
 
-# Install dependencies
-RUN if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
+# Install Poetry
+RUN pip install poetry
+
+# Install dependencies using Poetry
+RUN poetry install --no-root
+
+# Ensure Poetry's virtual environment is in the PATH
+ENV PATH="/root/.local/share/pypoetry/venv/bin:$PATH"
 
 # Copy the rest of the application code
 COPY . /app/
@@ -17,4 +23,4 @@ COPY . /app/
 EXPOSE 8000
 
 # Start the Uvicorn server
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

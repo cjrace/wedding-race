@@ -1,6 +1,7 @@
 [![Frontend tests](https://github.com/cjrace/wedding-race/actions/workflows/frontend-tests.yml/badge.svg)](https://github.com/cjrace/wedding-race/actions/workflows/frontend-tests.yml)
 [![Backend Tests](https://github.com/cjrace/wedding-race/actions/workflows/backend-tests.yml/badge.svg)](https://github.com/cjrace/wedding-race/actions/workflows/backend-tests.yml)
 [![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # Wedding Race
 
@@ -105,18 +106,26 @@ yarn run
 ## Backend
 Currently the backend is a very simple service delivering the wedding date using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the frontend folder using `cd wedding-race-backend` before running any the commands below.
 
+[Poetry](https://python-poetry.org/) is used for managing the dependencies.
+
 1. [Install Python](https://www.python.org/downloads/)
+
+2. [Install Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
+
+- Follow the instructions for the official installer
+- Pay attention to the console output and add the environment variable to the path
+- Test you have it working by running `poetry --version`
 
 2. Install dependencies
 
 ```bash
-pip install -r requirements.txt
+poetry install
 ```
 
 3. Run the API server
 
 ```bash
-uvicorn main:app --reload
+poetry run uvicorn main:app --reload
 ```
 
 Or using docker...
@@ -140,7 +149,7 @@ The endpoints will then be visible at http://localhost:8000/, for example:
 Tests for the backend project are written using [pytest](https://docs.pytest.org/en/stable/getting-started.html), to run them simply run:
 
 ```bash
-pytest
+poetry run pytest
 ```
 
 ## Pre-commit hooks
