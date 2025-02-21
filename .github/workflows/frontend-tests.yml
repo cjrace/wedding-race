@@ -8,6 +8,10 @@ jobs:
   frontend-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wedding-race-frontend
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,28 +19,21 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm install -g yarn && yarn
-        working-directory: wedding-race-frontend
       - name: Check formatting
         run: yarn prettier . --check
-        working-directory: wedding-race-frontend
       - name: Lint code
         run: yarn lint
-        working-directory: wedding-race-frontend
       - name: Jest tests
         run: yarn jest
-        working-directory: wedding-race-frontend
       - name: Build site
         run: yarn build
-        working-directory: wedding-race-frontend
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
-        working-directory: wedding-race-frontend
       - name: Run Playwright tests
         run: yarn playwright test
-        working-directory: wedding-race-frontend
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: wedding-race-frontend/playwright-report/
+          path: playwright-report/
           retention-days: 30
