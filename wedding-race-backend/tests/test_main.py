@@ -3,7 +3,6 @@ from main import app
 
 client = TestClient(app)
 
-
 def test_get_wedding_date():
     response = client.get("/api/weddingdate")
     assert response.status_code == 200
