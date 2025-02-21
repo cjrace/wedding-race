@@ -23,11 +23,12 @@ const DaysToGo: React.FC<DaysToGoProps> = ({ date }) => {
     return target - now;
   };
 
-  const [remainingTime, setRemainingTime] = useState(
-    calculateTimeDifference(date),
-  );
+  const [remainingTime, setRemainingTime] = useState<number | null>(null);
 
   useEffect(() => {
+    const timeLeft = calculateTimeDifference(date);
+    setRemainingTime(timeLeft);
+
     const countdownInterval = setInterval(() => {
       const timeLeft = calculateTimeDifference(date);
       setRemainingTime(timeLeft);
@@ -39,16 +40,18 @@ const DaysToGo: React.FC<DaysToGoProps> = ({ date }) => {
     return () => clearInterval(countdownInterval);
   }, [date]);
 
+  if (remainingTime === null) {
+    return <Text>Calculating countdown...</Text>;
+  }
+
   const { days, hours, minutes, seconds } =
     calculateTimeRemaining(remainingTime);
 
   return (
     <Text>
-      {typeof window !== "undefined"
-        ? days === 0 && hours === 0 && minutes === 0 && seconds === 0
-          ? "It's party time!"
-          : `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
-        : "Calculating countdown..."}
+      {days === 0 && hours === 0 && minutes === 0 && seconds === 0
+        ? "It's party time!"
+        : `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}
     </Text>
   );
 };
