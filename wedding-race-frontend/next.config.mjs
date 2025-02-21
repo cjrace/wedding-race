@@ -10,8 +10,8 @@ const nextConfig = {
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
     return [
       {
-      source: '/api/:path*',
-      destination: `${backendUrl}/api/:path*`,
+        source: "/api/:path*",
+        destination: `${backendUrl}/api/:path*`,
       },
     ];
   },

@@ -21,7 +21,7 @@ export function Welcome() {
   useEffect(() => {
     const fetchWeddingDate = async () => {
       try {
-        const response = await fetch('/api/weddingdate');
+        const response = await fetch("/api/weddingdate");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
