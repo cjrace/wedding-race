@@ -3,6 +3,12 @@ services:
     build: ./wedding-race-backend
     ports:
       - "8000:8000"
+<<<<<<< HEAD
+=======
+    # If the backend needs to connect to the frontend, you'd reference the frontend service name
+    # depends_on:
+    #   - wedding-race-frontend
+>>>>>>> d3b921b (add docker compose)
     networks:
       - app-network
 
@@ -10,6 +16,7 @@ services:
     build: ./wedding-race-frontend
     ports:
       - "3000:3000"
+<<<<<<< HEAD
     depends_on:
       - wedding-race-backend
     networks:
@@ -19,3 +26,15 @@ services:
 
 networks:
   app-network:
+=======
+    # If the frontend needs to connect to the backend, you'd reference the backend service name
+    # depends_on:
+    #   - wedding-race-backend
+    networks:
+      - app-network
+    # environment: # if you need to pass environment variables to the frontend container
+    #   - NEXT_PUBLIC_BACKEND_URL=http://wedding-race-backend:8000 # Example, adjust as needed
+
+networks:
+  app-network: # Define a network to allow services to communicate with each other
+>>>>>>> d3b921b (add docker compose)
