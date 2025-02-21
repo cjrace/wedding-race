@@ -3,9 +3,6 @@ services:
     build: ./wedding-race-backend
     ports:
       - "8000:8000"
-    # If the backend needs to connect to the frontend, you'd reference the frontend service name
-    # depends_on:
-    #   - wedding-race-frontend
     networks:
       - app-network
 
@@ -13,13 +10,12 @@ services:
     build: ./wedding-race-frontend
     ports:
       - "3000:3000"
-    # If the frontend needs to connect to the backend, you'd reference the backend service name
-    # depends_on:
-    #   - wedding-race-backend
+    depends_on:
+      - wedding-race-backend
     networks:
       - app-network
-    # environment: # if you need to pass environment variables to the frontend container
-    #   - NEXT_PUBLIC_BACKEND_URL=http://wedding-race-backend:8000 # Example, adjust as needed
+    env_file:
+      - ./wedding-race-frontend/.env.local
 
 networks:
-  app-network: # Define a network to allow services to communicate with each other
+  app-network:

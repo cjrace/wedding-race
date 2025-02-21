@@ -6,6 +6,15 @@ const nextConfig = {
     optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
   },
   output: "standalone",
+  async rewrites() {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    return [
+      {
+      source: '/api/:path*',
+      destination: `${backendUrl}/api/:path*`,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

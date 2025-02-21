@@ -16,15 +16,21 @@ There are two separate projcets in this repo, designed to be deployed as separat
 
 ### Run projects
 
-For running everything quickly, first, [install Docker](https://docs.docker.com/get-docker/)
+For running everything quickly:
 
-You can run the whole thing together locally using docker compose:
+1. Create a `wedding-race-frontend/.env.local` file
+
+Copy from the `wedding-race-frontend/.env.example` file and add the appropiate environment variables
+
+2. [Install Docker](https://docs.docker.com/get-docker/).
+
+You can then run the whole thing together locally using docker compose:
 
 ```bash
 docker-compose up -d --build
 ```
 
-You can then visit the frontend and backend at the following:
+Visit the frontend and backend at the following:
 
 - http://localhost:3000/ (frontend)
 - http://localhost:8000/ (backend)

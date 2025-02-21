@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Text,
   Container,
@@ -11,9 +13,28 @@ import {
 } from "@mantine/core";
 import PageCard from "./pagecard";
 import DaysToGo from "../DaysToGo/DaysToGo";
+import { useEffect, useState } from "react";
 
 export function Welcome() {
-  const wedding_date = new Date("2025-04-01T00:00:00Z");
+  const [weddingDate, setWeddingDate] = useState<Date>();
+
+  useEffect(() => {
+    const fetchWeddingDate = async () => {
+      try {
+        const response = await fetch('/api/weddingdate');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setWeddingDate(new Date(data.wedding_date));
+      } catch (error) {
+        console.log("Error fetching wedding date, reverting to back up date");
+      }
+    };
+
+    fetchWeddingDate();
+  }, []);
+
   return (
     <>
       <Container style={{ width: "100%", padding: 0 }}>
@@ -40,7 +61,7 @@ export function Welcome() {
       <Text ta="center">Countdown to ceremony!</Text>
 
       <Center>
-        <DaysToGo date={wedding_date} />
+        <DaysToGo date={weddingDate ?? new Date("2095-08-08T19:17:08Z")} />
       </Center>
 
       <Divider my="md" />
