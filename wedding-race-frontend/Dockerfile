@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json yarn.lock* .yarnrc.yml* ./
 COPY .yarn .yarn
 # COPY sst-env.d.ts* ./
-RUN yarn --immutable
+RUN yarn install --immutable
 
 # Stage 2: Build the application
 FROM base AS builder
