@@ -8,7 +8,11 @@ WORKDIR /app
 COPY package.json yarn.lock* .yarnrc.yml* ./
 COPY .yarn .yarn
 # COPY sst-env.d.ts* ./
+<<<<<<< HEAD
 RUN yarn install --immutable
+=======
+RUN yarn --immutable
+>>>>>>> 958294f (move frontend into its own directory)
 
 # Stage 2: Build the application
 FROM base AS builder
