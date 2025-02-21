@@ -1,15 +1,11 @@
 import "@testing-library/jest-dom";
 import { MantineProvider } from "@mantine/core";
 import Navbar, { pages } from "./Navbar";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render } from "../../test-utils";
+import { screen } from "@testing-library/react";
 
 describe("Navbar", () => {
-  const renderNavbar = () =>
-    render(
-      <MantineProvider>
-        <Navbar>{undefined}</Navbar>
-      </MantineProvider>,
-    );
+  const renderNavbar = () => render(<Navbar>{undefined}</Navbar>);
 
   it("renders the navigation bar", () => {
     renderNavbar();

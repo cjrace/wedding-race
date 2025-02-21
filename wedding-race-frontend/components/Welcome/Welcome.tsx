@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Text,
   Container,
@@ -10,9 +12,29 @@ import {
   Flex,
 } from "@mantine/core";
 import PageCard from "./pagecard";
-import DaysToGo from "@/components/DaysToGo/DaysToGo";
+import DaysToGo from "../DaysToGo/DaysToGo";
+import { useEffect, useState } from "react";
 
 export function Welcome() {
+  const [weddingDate, setWeddingDate] = useState<Date>();
+
+  useEffect(() => {
+    const fetchWeddingDate = async () => {
+      try {
+        const response = await fetch("/api/weddingdate");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setWeddingDate(new Date(data.wedding_date));
+      } catch (error) {
+        console.log("Error fetching wedding date, reverting to back up date");
+      }
+    };
+
+    fetchWeddingDate();
+  }, []);
+
   return (
     <>
       <Container style={{ width: "100%", padding: 0 }}>
@@ -39,7 +61,7 @@ export function Welcome() {
       <Text ta="center">Countdown to ceremony!</Text>
 
       <Center>
-        <DaysToGo />
+        <DaysToGo date={weddingDate ?? new Date("2095-08-08T19:17:08Z")} />
       </Center>
 
       <Divider my="md" />
@@ -95,7 +117,6 @@ export function Welcome() {
             title="Accommodation"
             description="More detail for what is on this page"
             link="/accommodation"
-            linktext="Accommmodation"
           />
         </div>
         <div>
@@ -104,7 +125,6 @@ export function Welcome() {
             title="Timeline"
             description="More detail for what is on this page"
             link="/timeline"
-            linktext="Timeline"
           />
         </div>
         <div>
@@ -113,7 +133,6 @@ export function Welcome() {
             title="FAQs"
             description="More detail for what is on this page"
             link="/faqs"
-            linktext="Frequently Asked Questions"
           />
         </div>
       </SimpleGrid>

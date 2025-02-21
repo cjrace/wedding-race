@@ -1,13 +1,17 @@
-name: Tests
+name: Frontend tests
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
 jobs:
-  test:
+  frontend-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wedding-race-frontend
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

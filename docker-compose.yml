@@ -1,0 +1,21 @@
+services:
+  wedding-race-backend:
+    build: ./wedding-race-backend
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+
+  wedding-race-frontend:
+    build: ./wedding-race-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - wedding-race-backend
+    networks:
+      - app-network
+    env_file:
+      - ./wedding-race-frontend/.env.local
+
+networks:
+  app-network:

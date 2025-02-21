@@ -1,13 +1,12 @@
 "use client";
 
-import { Card, Text, Image, Button, Center, Stack } from "@mantine/core";
+import { Card, Text, Image, Center } from "@mantine/core";
 
 interface PageCardProps {
   imagePath: string;
   title: string;
   description: string;
   link: string;
-  linktext: string;
 }
 
 export default function PageCard({
@@ -15,7 +14,6 @@ export default function PageCard({
   title,
   description,
   link,
-  linktext,
 }: PageCardProps) {
   return (
     <Card
@@ -49,20 +47,6 @@ export default function PageCard({
         </Text>
         <Text c="dimmed">{description}</Text>
       </div>
-      {/** 
-
-      <Button
-        variant="default"
-        component="a"
-        size="md"
-        mt="md"
-        href={link}
-        style={{ marginTop: "auto" }} //This helps keep buttons aligned across cards
-      >
-        {linktext}
-      </Button>
-
-      */}
     </Card>
   );
 }

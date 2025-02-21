@@ -4,3 +4,6 @@ coverage
 
 # Ignore yarn directory (as is slow to prettify)
 .yarn/*
+.next/*
+playwright-report/*
+test-results/*

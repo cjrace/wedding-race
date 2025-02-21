@@ -1,5 +1,7 @@
-[![Tests](https://github.com/cjrace/wedding-race/actions/workflows/tests.yml/badge.svg)](https://github.com/cjrace/wedding-race/actions/workflows/tests.yml)
+[![Frontend tests](https://github.com/cjrace/wedding-race/actions/workflows/frontend-tests.yml/badge.svg)](https://github.com/cjrace/wedding-race/actions/workflows/frontend-tests.yml)
+[![Backend Tests](https://github.com/cjrace/wedding-race/actions/workflows/backend-tests.yml/badge.svg)](https://github.com/cjrace/wedding-race/actions/workflows/backend-tests.yml)
 [![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # Wedding Race
 
@@ -7,6 +9,39 @@ Not just any old wedding race, but the wedding of Race! Currently a static site 
 
 ## Getting Started
 
+There are two separate projcets in this repo, designed to be deployed as separate containers.
+
+- wedding-race-backend
+- wedding-race-frontend
+
+### Run projects
+
+For running everything quickly:
+
+1. Create a `wedding-race-frontend/.env.local` file
+
+Copy from the `wedding-race-frontend/.env.example` file and add the appropiate environment variables
+
+2. [Install Docker](https://docs.docker.com/get-docker/).
+
+You can then run the whole thing together locally using docker compose:
+
+```bash
+docker-compose up -d --build
+```
+
+Visit the frontend and backend at the following:
+
+- http://localhost:3000/ (frontend)
+- http://localhost:8000/ (backend)
+
+Close this down using
+
+```bash
+docker-compose down
+```
+
+## Frontend
 This project uses [Next.js App Router](https://nextjs.org/docs/app). Package management is handled by [yarn](https://yarnpkg.com/getting-started). Main libraries used so far are:
 
 Styling and components
@@ -14,26 +49,20 @@ Styling and components
 - [Mantine](https://mantine.dev/)
 - [Tabler icons](https://tabler-icons.io/)
 
-[Docker](https://www.docker.com/) is used to help with deployments and can be used to run the project locally. General recommendation for this project is to use docker for building and manually testing the site, but then use `yarn test` frequently for testing the code itself.
-
-### Requirements
-
-You'll need to setup an .env file with the credentials needed to access the databases etc, follow the example from `.env.example`.
+Remember to move into the frontend folder using `cd wedding-race-frontend` before running any the commands below.
 
 ### Run locally with Docker
 
-1. [Install Docker](https://docs.docker.com/get-docker/)
-
-2. Build a container
+1. Build a container
 
 ```bash
-docker build -t wedding-race .
+docker build -t wedding-race-frontend .
 ```
 
 3. Run the container
 
 ```bash
-docker run -p 3000:3000 wedding-race
+docker run -p 3000:3000 wedding-race-frontend
 ```
 
 Or, just use the shortcut that runs both of these commands back to back as set in `package.json`
@@ -80,9 +109,58 @@ View other available commands, including for running linting, formatting (includ
 yarn run
 ```
 
-### Pre-commit hooks
+## Backend
+Currently the backend is a very simple service delivering the wedding date using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the frontend folder using `cd wedding-race-backend` before running any the commands below.
 
-[Husky](https://typicode.github.io/husky) is used to manage pre-commit hooks, currently this is used to enforce [Prettier](https://prettier.io/) formatting on all code.
+[Poetry](https://python-poetry.org/) is used for managing the dependencies.
+
+1. [Install Python](https://www.python.org/downloads/)
+
+2. [Install Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
+
+- Follow the instructions for the official installer
+- Pay attention to the console output and add the environment variable to the path
+- Test you have it working by running `poetry --version`
+
+2. Install dependencies
+
+```bash
+poetry install
+```
+
+3. Run the API server
+
+```bash
+poetry run uvicorn main:app --reload
+```
+
+Or using docker...
+
+1. Build the image
+```bash
+docker build -t wedding-race-backend .
+```
+
+2. Run that container
+```bash
+docker run -p 8000:8000 wedding-race-backend
+```
+
+The endpoints will then be visible at http://localhost:8000/, for example:
+
+- http://localhost:8000/api/weddingdate
+
+### Tests
+
+Tests for the backend project are written using [pytest](https://docs.pytest.org/en/stable/getting-started.html), to run them simply run:
+
+```bash
+poetry run pytest
+```
+
+## Pre-commit hooks
+
+[Husky](https://typicode.github.io/husky) is used to manage pre-commit hooks, currently this is used to enforce [Prettier](https://prettier.io/) formatting in the frontend project.
 
 ## Deployment
 
@@ -90,44 +168,4 @@ We'll eventually deploy this to https://www.wedding-race.com/. Deploys will be a
 
 ---
 
-This application is currently deployed using Google Cloud Run, which builds automatically from pushes to the main branch, using the docker container.
-
-The URL is: https://wedding-race-95409422489.europe-west2.run.app.
-
-### Initial setup notes
-
-Once you have the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en) installed (and have followed any prompts to authenticate) you can switch into the right project by:
-
-1. Listing out projects you have
-
-```bash
-gcloud projects list
-```
-
-2. Switch into desired project (should have been in the list if you're authenticated)
-
-```bash
-gcloud config set project wedding-race
-```
-
-I used europe-west2 as the region, you can make this your default region by running:
-
-```bash
-gcloud config set run/region europe-west2
-```
-
-Once set up with a Google Cloud project and the SDK, I ran the following to get the site deployed (first time around - not neccessary anymore).
-
-1. Set up build container
-
-```bash
-gcloud builds submit --tag gcr.io/wedding-race/wedding-race --project wedding-race
-```
-
-2. Deploy a container image
-
-```bash
-gcloud run deploy --image gcr.io/wedding-race/wedding-race --project wedding-race --platform managed --allow-unauthenticated
-```
-
-Looking inside Google Cloud Platform itself I saw there were ways to do this using the UI and automatically link into the GitHub repo, so I deleted that initial service instance and then I create a new service instance in the UI by clicking some things to get to the setup we have now.
+This application is currently deployed using Google Cloud Run, which builds automatically from pushes to the main branch, using the docker container. The URL for the frontend currently is: https://wedding-race-95409422489.europe-west2.run.app.
