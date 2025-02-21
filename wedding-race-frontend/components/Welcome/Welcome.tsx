@@ -13,6 +13,7 @@ import PageCard from "./pagecard";
 import DaysToGo from "../DaysToGo/DaysToGo";
 
 export function Welcome() {
+  const wedding_date = new Date("2025-04-01T00:00:00Z");
   return (
     <>
       <Container style={{ width: "100%", padding: 0 }}>
@@ -39,7 +40,7 @@ export function Welcome() {
       <Text ta="center">Countdown to ceremony!</Text>
 
       <Center>
-        <DaysToGo />
+        <DaysToGo date={wedding_date} />
       </Center>
 
       <Divider my="md" />

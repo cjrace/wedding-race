@@ -3,45 +3,52 @@
 import { Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 
-const DaysToGo = () => {
-  const [timeRemaining, setTimeRemaining] = useState(0);
+interface DaysToGoProps {
+  date: Date;
+}
+
+const calculateTimeRemaining = (time: number) => {
+  const seconds = Math.floor((time / 1000) % 60);
+  const minutes = Math.floor((time / (1000 * 60)) % 60);
+  const hours = Math.floor((time / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(time / (1000 * 60 * 60 * 24));
+
+  return { days, hours, minutes, seconds };
+};
+
+const DaysToGo: React.FC<DaysToGoProps> = ({ date }) => {
+  const calculateTimeDifference = (targetDate: Date) => {
+    const now = new Date().getTime();
+    const target = new Date(targetDate).getTime();
+    return target - now;
+  };
+
+  const [remainingTime, setRemainingTime] = useState(
+    calculateTimeDifference(date),
+  );
 
   useEffect(() => {
-    const weddingDateString =
-      process.env.NEXT_PUBLIC_WEDDING_DATE || "2026-12-25T12:00:00";
-    const weddingDate = new Date(weddingDateString);
-    /* console.log("Wedding Date from env:", weddingDateString); console.log("Parsed Wedding Date:", weddingDate); */
-
     const countdownInterval = setInterval(() => {
-      const currentTime = new Date().getTime();
-      const eventTime = weddingDate.getTime();
-      const remainingTime = Math.max(eventTime - currentTime, 0);
-
-      setTimeRemaining(remainingTime);
-
-      if (remainingTime === 0) {
+      const timeLeft = calculateTimeDifference(date);
+      setRemainingTime(timeLeft);
+      if (timeLeft <= 0) {
         clearInterval(countdownInterval);
-        alert("It's party time!");
       }
     }, 1000);
 
     return () => clearInterval(countdownInterval);
-  }, []);
+  }, [date]);
 
-  const countdown = (time: number) => {
-    const seconds = Math.floor((time / 1000) % 60);
-    const minutes = Math.floor((time / (1000 * 60)) % 60);
-    const hours = Math.floor((time / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(time / (1000 * 60 * 60 * 24));
-
-    return { days, hours, minutes, seconds };
-  };
-
-  const { days, hours, minutes, seconds } = countdown(timeRemaining);
+  const { days, hours, minutes, seconds } =
+    calculateTimeRemaining(remainingTime);
 
   return (
     <Text>
-      {days} days, {hours} hours, {minutes} minutes, {seconds} seconds
+      {typeof window !== "undefined"
+        ? days === 0 && hours === 0 && minutes === 0 && seconds === 0
+          ? "It's party time!"
+          : `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
+        : "Calculating countdown..."}
     </Text>
   );
 };

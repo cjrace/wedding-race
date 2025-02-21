@@ -11,7 +11,7 @@ describe("DaysToGo countdown timer", () => {
 });
 
 test("renders text as expected", () => {
-  render(<DaysToGo />);
+  render(<DaysToGo date={new Date("2095-08-08T19:17:08Z")} />);
   const textElement = screen.getByText(
     /days, \d+ hours, \d+ minutes, \d+ seconds/i,
   );
@@ -19,7 +19,7 @@ test("renders text as expected", () => {
 });
 
 test("updates countdown after every second", () => {
-  render(<DaysToGo />);
+  render(<DaysToGo date={new Date("2095-08-08T00:00:00Z")} />);
   const checkCountdownUpdate = (
     time: number,
     regex: RegExp,
@@ -68,7 +68,9 @@ test("updates countdown after every second", () => {
 
 test("clears interval on unmount", () => {
   const clearIntervalSpy = jest.spyOn(global, "clearInterval");
-  const { unmount } = render(<DaysToGo />);
+  const { unmount } = render(
+    <DaysToGo date={new Date("2095-08-08T19:17:08Z")} />,
+  );
   unmount();
   expect(clearIntervalSpy).toHaveBeenCalledTimes(1);
   clearIntervalSpy.mockRestore();
