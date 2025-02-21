@@ -20,7 +20,41 @@ Styling and components
 If you go into the frontend folder using `cd wedding-race-frontend` you can then run all the existing README commands as normal.
 
 ### Backend
-?
+Currently the backend is a very simple service delivering the wedding date using [Python FastAPI](https://fastapi.tiangolo.com/).
+
+1. Install Python
+
+2. venv?
+
+3. Run the API server
+
+```bash
+uvicorn main:app --reload
+```
+
+#### Tests
+
+Tests for the backend project are written using pytest, to run them simply run:
+
+```bash
+pytest
+```
+
+#### Docker
+
+To build an image for the backend service
+
+```bash
+docker build -t wedding-race-backend .
+```
+
+Then run that container
+
+```bash
+docker run -p 8000:8000 wedding-race-backend
+```
+
+The endpoint will then be visible at http://localhost:8000/api/weddingdate
 
 ### Requirements
 
@@ -33,13 +67,13 @@ You'll need to setup an .env file with the credentials needed to access the data
 2. Build a container
 
 ```bash
-docker build -t wedding-race .
+docker build -t wedding-race-frontend .
 ```
 
 3. Run the container
 
 ```bash
-docker run -p 3000:3000 wedding-race
+docker run -p 3000:3000 wedding-race-frontend
 ```
 
 Or, just use the shortcut that runs both of these commands back to back as set in `package.json`
