@@ -8,9 +8,9 @@
 
 ## Checklist
 
-- [ ] I have tested these changes locally using `yarn test`
+- [ ] I have tested these changes locally using the automated tests
 - [ ] I have updated the documentation (if needed)
-- [ ] I have added or updated tests for these changes (if applicable)
+- [ ] I have added or updated existing tests for these changes (if applicable)
 
 ## Reviewer instructions
 

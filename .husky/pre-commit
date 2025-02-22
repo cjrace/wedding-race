@@ -1,1 +1,2 @@
-yarn lint-staged
+cd wedding-race-frontend && yarn lint-staged
+cd ../wedding-race-backend && poetry run black .

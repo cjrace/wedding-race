@@ -1,4 +1,4 @@
-# Contributing to Almost yellow
+# Contributing to Wedding Race
 
 ## Table of Contents
 
