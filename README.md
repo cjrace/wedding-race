@@ -16,6 +16,8 @@ There are two separate projcets in this repo, designed to be deployed as separat
 
 You'll need to work through getting each service running in it's own right and then you'll be able to run everything together using docker compose.
 
+If you want to edit any of the infrastructure you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).
+
 ## Frontend
 This project uses [Next.js App Router](https://nextjs.org/docs/app). Package management is handled by [yarn](https://yarnpkg.com/getting-started). Main libraries used so far are:
 
