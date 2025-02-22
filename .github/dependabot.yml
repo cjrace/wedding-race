@@ -5,7 +5,13 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/wedding-race-frontend"
+    schedule:
+      interval: "monthly"
+
+updates:
+  - package-ecosystem: "pip"
+    directory: "/wedding-race-backend"
     schedule:
       interval: "monthly"
