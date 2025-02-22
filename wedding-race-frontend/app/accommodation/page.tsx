@@ -1,9 +1,10 @@
-import { Title, Text, Space, List } from "@mantine/core";
+import { Title, Text, Space, Grid } from "@mantine/core";
 
 export default function AccommodationPage() {
   return (
     <>
       <Title order={1}>Accommodation</Title>
+      <Space h="lg" />
 
       <Text>
         Our wedding celebration will be over three days. We&apos;d love for you to join us the night before and stay
@@ -16,20 +17,34 @@ export default function AccommodationPage() {
       <Space h="md" />
 
       <Title order={2}>Lake Henry venue information</Title>
+      <Space h="md" />
 
-      <Text>
-        Lake Henry is just 15 minutes off the A1 and is reachable by train links to Darlington or Northallerton.
-      </Text>
-      <Text>
-        There&apos;s on-site accommodation for up to 79 of our guests, with the wedding village hosting our before and after party!
-      </Text>
-      <Text>
-        Add location google maps link - https://maps.app.goo.gl/9NA1tSsfbKEgFzMH8
-      </Text>
+      {/*<Grid>
+        <Grid.Col span={7}>*/}
+          <Text>
+            Lake Henry is just 15 minutes off the A1 and is reachable by train links to Darlington or Northallerton.
+          </Text>
+          <Text>
+            There&apos;s on-site accommodation for up to 79 of our guests, with the wedding village hosting our before and after party!
+          </Text>
+        {/*</Grid.Col>
+        <Grid.Col span={5}>*/}
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2320.389598430681!2d-1.5355666!3d54.4384095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487e9965dd84ecd7%3A0xa447869f2ba26fb7!2sAlexander%20Weddings%20%26%20Events!5e0!3m2!1sen!2suk!4v1740190936834!5m2!1sen!2suk"
+            width="600"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade">
+          </iframe>
+        {/*</Grid.Col>
+      </Grid>*/}      
 
       <Space h="md" />
 
       <Title order={2}>Wedding village</Title>
+      <Space h="md" />
 
       <Text>
         Stay in our 31 pod wedding village to be closest to the fun!
@@ -58,6 +73,7 @@ export default function AccommodationPage() {
       <Space h="md" />
 
       <Title order={2}>On site cottages</Title>
+      <Space h="md" />
 
       <Text>
         For those that want to stay on site but don&apos;t fancy the pod life, we also have two cottages with three double
@@ -74,15 +90,18 @@ export default function AccommodationPage() {
       <Space h="md" />
 
       <Title order={2}>Local hotels</Title>
+      <Space h="md" />
 
       <Text>
-        If you&apos;d prefer a local hotel, we&apos;d recommend looking in Darlington or Northallerton. You&apos;ll need to
-        pre-book taxis, we&apos;ll share recommended companies nearer the time.
+        If you&apos;d prefer a local hotel, we&apos;d recommend looking in Darlington or Northallerton, which are 15 and 20 
+        minutes away by car respectively. You&apos;ll need to pre-book taxis, we&apos;ll share recommended companies nearer the time.
       </Text>
+     {/* 
       <List>
         <List.Item>Darlington 15 minutes by car</List.Item>
         <List.Item>Northallerton 20 minutes by car </List.Item>
       </List>
+     */}
 
       <Space h="md" />
     </>
