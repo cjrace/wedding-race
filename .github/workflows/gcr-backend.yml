@@ -14,8 +14,7 @@ name: 'Build and Deploy Backend to Cloud Run'
 
 on:
   push:
-    branches:
-      - '"main"'
+    branches: [main]
 
 env:
   PROJECT_ID: 'wedding-race'
