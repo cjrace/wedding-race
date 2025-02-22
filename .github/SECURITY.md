@@ -6,7 +6,7 @@ If you find a security vulnerability, please:
 
 1. Avoid sharing the issue publicly until it is fixed.
 
-2. [Report the vulnerability privately via GitHub](https://github.com/cjrace/almostyellow/security/advisories/new).
+2. [Report the vulnerability privately via GitHub](https://github.com/cjrace/wedding-race/security/advisories/new).
 
 3. Include a description, steps to reproduce, and affected versions.
 

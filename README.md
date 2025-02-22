@@ -5,7 +5,7 @@
 
 # Wedding Race
 
-Not just any old wedding race, but the wedding of Race! Currently a static site holding overview information on the Wedding, though this will be expanded to include the ability for guests to login, RVSP and do all kinds of helpful things (hopefully...).
+Not just any old wedding race, but the wedding of Race! Currently a static site holding overview information on the Wedding, so the dual service set up and tests are complete overkill (though a fun learning experience), it's done this way as it will be expanded to include the ability for guests to login, RVSP and do all kinds of other helpful things later in the year (hopefully...).
 
 ## Getting Started
 
@@ -14,32 +14,7 @@ There are two separate projcets in this repo, designed to be deployed as separat
 - wedding-race-backend
 - wedding-race-frontend
 
-### Run projects
-
-For running everything quickly:
-
-1. Create a `wedding-race-frontend/.env.local` file
-
-Copy from the `wedding-race-frontend/.env.example` file and add the appropiate environment variables
-
-2. [Install Docker](https://docs.docker.com/get-docker/).
-
-You can then run the whole thing together locally using docker compose:
-
-```bash
-docker-compose up -d --build
-```
-
-Visit the frontend and backend at the following:
-
-- http://localhost:3000/ (frontend)
-- http://localhost:8000/ (backend)
-
-Close this down using
-
-```bash
-docker-compose down
-```
+You'll need to work through getting each service running in it's own right and then you'll be able to run everything together using docker compose.
 
 ## Frontend
 This project uses [Next.js App Router](https://nextjs.org/docs/app). Package management is handled by [yarn](https://yarnpkg.com/getting-started). Main libraries used so far are:
@@ -51,44 +26,32 @@ Styling and components
 
 Remember to move into the frontend folder using `cd wedding-race-frontend` before running any the commands below.
 
-### Run locally with Docker
+1. Create a `wedding-race-frontend/.env.local` file
 
-1. Build a container
+Copy from the `wedding-race-frontend/.env.example` file and add the appropiate environment variables
 
-```bash
-docker build -t wedding-race-frontend .
-```
+2. Install [node.js](https://nodejs.org/en/download)
 
-3. Run the container
+3. Install [yarn](https://yarnpkg.com/getting-started/install)
 
-```bash
-docker run -p 3000:3000 wedding-race-frontend
-```
-
-Or, just use the shortcut that runs both of these commands back to back as set in `package.json`
-
-```bash
-yarn docker
-```
-
-### Run locally without Docker
-
-Being able to run the project without docker will allow you to run tests locally, so is worth doing.
-
-1. Install [node.js](https://nodejs.org/en/download)
-
-2. Install [yarn](https://yarnpkg.com/getting-started/install)
-
-3. Install dependencies from `yarn.lock`
+4. Install dependencies from `yarn.lock`
 
 ```bash
 yarn install
 ```
 
-4. Run the development server
+5. Run the development server
 
 ```bash
 yarn dev
+```
+
+### Frontend container
+
+Assuming you have [docker](https://docs.docker.com/get-started/) installed and running, you can run the frontend service in it's own container, for simplicity you can use shortcut that both builds and runs the container image (set in `package.json`)
+
+```bash
+yarn docker
 ```
 
 ### Tests
@@ -103,18 +66,20 @@ yarn test
 
 ### Handy scripts
 
-View other available commands, including for running linting, formatting (including how to check format without making changes), compiling and more using:
+View other available commands for the frontend project, including for running linting, formatting (including how to check format without making changes), compiling and more using:
 
 ```bash
 yarn run
 ```
 
 ## Backend
-Currently the backend is a very simple service delivering the wedding date using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the frontend folder using `cd wedding-race-backend` before running any the commands below.
+Currently the backend is a very simple service using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the backend folder using `cd wedding-race-backend` before running any the commands below.
 
-[Poetry](https://python-poetry.org/) is used for managing the dependencies.
+[Poetry](https://python-poetry.org/) is used for managing the dependencies. [Black](https://black.readthedocs.io/en/stable/index.html) is used to format the Python files, use `poetry run black .` to style the code.
 
 1. [Install Python](https://www.python.org/downloads/)
+
+- Check your version using `python --version`
 
 2. [Install Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
 
@@ -122,19 +87,21 @@ Currently the backend is a very simple service delivering the wedding date using
 - Pay attention to the console output and add the environment variable to the path
 - Test you have it working by running `poetry --version`
 
-2. Install dependencies
+3. Install dependencies
 
 ```bash
 poetry install
 ```
 
-3. Run the API server
+4. Run the API server
 
 ```bash
 poetry run uvicorn main:app --reload
 ```
 
-Or using docker...
+### Backend container
+
+Like the frontend, you can run the backend service as a docker container
 
 1. Build the image
 ```bash
@@ -156,6 +123,25 @@ Tests for the backend project are written using [pytest](https://docs.pytest.org
 
 ```bash
 poetry run pytest
+```
+
+## Everything together
+
+You can run both services together locally in a single command using docker compose:
+
+```bash
+docker-compose up -d --build
+```
+
+Visit the frontend and backend at the following URLs:
+
+- http://localhost:3000/ (frontend)
+- http://localhost:8000/ (backend)
+
+Close this down using
+
+```bash
+docker-compose down
 ```
 
 ## Pre-commit hooks
