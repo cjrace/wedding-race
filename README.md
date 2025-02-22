@@ -75,7 +75,7 @@ yarn run
 ## Backend
 Currently the backend is a very simple service using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the backend folder using `cd wedding-race-backend` before running any the commands below.
 
-[Poetry](https://python-poetry.org/) is used for managing the dependencies. [Black](https://black.readthedocs.io/en/stable/index.html) is used to format the Python files.
+[Poetry](https://python-poetry.org/) is used for managing the dependencies. [Black](https://black.readthedocs.io/en/stable/index.html) is used to format the Python files, use `poetry run black .` to style the code.
 
 1. [Install Python](https://www.python.org/downloads/)
 
