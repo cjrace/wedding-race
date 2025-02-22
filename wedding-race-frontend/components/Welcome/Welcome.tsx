@@ -49,16 +49,16 @@ export function Welcome() {
       <Space h="md" />
 
       <Flex align="center" justify="center" gap="md">
-        <Text style={{ fontFamily: "Courier New", fontSize: "4rem" }}>
+        <Text style={{ fontFamily: "Courier New", fontSize: "4rem", color:"#F9AA8E"  }}>
           LAURA
         </Text>
-        <Text style={{ fontFamily: "Courier New", fontSize: "2rem" }}>and</Text>
-        <Text style={{ fontFamily: "Courier New", fontSize: "4rem" }}>CAM</Text>
+        <Text style={{ fontFamily: "Courier New", fontSize: "2rem", color:"#FFD9D9" }}>and</Text>
+        <Text style={{ fontFamily: "Courier New", fontSize: "4rem", color:"#F9AA8E"  }}>CAM</Text>
       </Flex>
 
       <Space h="md" />
 
-      <Text ta="center">Countdown to ceremony!</Text>
+      <Text ta="center">Countdown to our ceremony!</Text>
 
       <Center>
         <DaysToGo date={weddingDate ?? new Date("2095-08-08T19:17:08Z")} />
@@ -113,7 +113,7 @@ export function Welcome() {
       <SimpleGrid cols={3}>
         <div>
           <PageCard
-            imagePath="images/tipi-outside.png"
+            imagePath="images/village.png"
             title="Accommodation"
             description="More detail for what is on this page"
             link="/accommodation"
@@ -121,7 +121,7 @@ export function Welcome() {
         </div>
         <div>
           <PageCard
-            imagePath="images/tipi-outside.png"
+            imagePath="images/breakfast-tables.png"
             title="Timeline"
             description="More detail for what is on this page"
             link="/timeline"
@@ -129,7 +129,7 @@ export function Welcome() {
         </div>
         <div>
           <PageCard
-            imagePath="images/tipi-outside.png"
+            imagePath="images/faq.png"
             title="FAQs"
             description="More detail for what is on this page"
             link="/faqs"
