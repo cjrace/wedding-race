@@ -1,6 +1,5 @@
 import "@testing-library/jest-dom";
-import { MantineProvider } from "@mantine/core";
-import Navbar, { pages } from "./Navbar";
+import Navbar, { pages } from "../navbar";
 import { render } from "../../test-utils";
 import { screen } from "@testing-library/react";
 

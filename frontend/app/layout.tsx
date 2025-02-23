@@ -2,7 +2,7 @@ import "@mantine/core/styles.css";
 import React from "react";
 import { mantineHtmlProps, MantineProvider } from "@mantine/core";
 import { theme } from "../theme";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/navbar";
 import "../styles/global.css";
 
 export const metadata = {

@@ -4,7 +4,7 @@ import "@mantine/core/styles.css";
 import React from "react";
 import { AppShell, Burger, Text, Group, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import classes from "./Navbar.module.css";
+import classes from "../styles/navbar.module.css";
 
 export const pages = ["Home", "Accommodation", "Timeline", "FAQs"];
 

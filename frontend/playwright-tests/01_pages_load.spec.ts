@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { pages } from "../components/Navbar/Navbar";
+import { pages } from "../components/navbar";
 
 test("has title", async ({ page }) => {
   await page.goto("/");

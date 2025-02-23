@@ -159,7 +159,7 @@ yarn test
 cd ..
 ```
 
-### Prune redundant images
+### Prune redundant docker images
 
 Worth running this periodically if you haven't done anything else to clean up old dangling images.
 

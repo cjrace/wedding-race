@@ -11,7 +11,7 @@ const customJestConfig = {
     "^@/(.*)$": "<rootDir>/pages/$1",
   },
   testEnvironment: "jest-environment-jsdom",
-  testPathIgnorePatterns: ["<rootDir>/tests/"],
+  testPathIgnorePatterns: ["<rootDir>/playwright-tests/"],
   modulePathIgnorePatterns: ["<rootDir>/.next/"], // Prevent occassional naming collison
 };
 

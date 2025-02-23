@@ -9,13 +9,12 @@ import {
   Box,
   Center,
   Image,
-  Flex,
 } from "@mantine/core";
-import PageCard from "./pagecard";
-import DaysToGo from "../DaysToGo/DaysToGo";
+import PageCard from "@/components/pagecard";
+import DaysToGo from "@/components/countdown";
 import { useEffect, useState } from "react";
 
-export function Welcome() {
+export default function Homepage() {
   const [weddingDate, setWeddingDate] = useState<Date>();
 
   useEffect(() => {
@@ -37,49 +36,6 @@ export function Welcome() {
 
   return (
     <>
-      <Container style={{ width: "100%", padding: 0 }}>
-        <Image
-          radius="sm"
-          src="images/tipi-outside-arty-overlay.png"
-          alt="Welcome to the Race Wedding"
-          style={{ width: "100%", height: "auto" }}
-        />
-      </Container>
-
-      <Space h="md" />
-
-      <Flex align="center" justify="center" gap="md">
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "4rem",
-            color: "#F9AA8E",
-          }}
-        >
-          LAURA
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "2rem",
-            color: "#FFD9D9",
-          }}
-        >
-          and
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "4rem",
-            color: "#F9AA8E",
-          }}
-        >
-          CAM
-        </Text>
-      </Flex>
-
-      <Space h="md" />
-
       <Text ta="center">Countdown to our ceremony!</Text>
 
       <Center>

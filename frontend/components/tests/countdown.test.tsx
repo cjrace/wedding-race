@@ -1,17 +1,17 @@
 import { act } from "@testing-library/react";
-import DaysToGo from "./DaysToGo";
+import Countdown from "../countdown";
 import { render, screen } from "../../test-utils";
 
 // Use fake timers to control the passage of time in the tests
 jest.useFakeTimers();
 
-describe("DaysToGo countdown timer", () => {
+describe("Clear previous countdown timers", () => {
   // Clear all timers before each test to ensure no timers from previous tests interfere
   jest.clearAllTimers();
 });
 
 test("renders text as expected", () => {
-  render(<DaysToGo date={new Date("2095-08-08T19:17:08Z")} />);
+  render(<Countdown date={new Date("2095-08-08T19:17:08Z")} />);
   const textElement = screen.getByText(
     /days, \d+ hours, \d+ minutes, \d+ seconds/i,
   );
@@ -19,7 +19,7 @@ test("renders text as expected", () => {
 });
 
 test("updates countdown after every second", () => {
-  render(<DaysToGo date={new Date("2095-08-08T00:00:00Z")} />);
+  render(<Countdown date={new Date("2095-08-08T00:00:00Z")} />);
   const checkCountdownUpdate = (
     time: number,
     regex: RegExp,
@@ -69,7 +69,7 @@ test("updates countdown after every second", () => {
 test("clears interval on unmount", () => {
   const clearIntervalSpy = jest.spyOn(global, "clearInterval");
   const { unmount } = render(
-    <DaysToGo date={new Date("2095-08-08T19:17:08Z")} />,
+    <Countdown date={new Date("2095-08-08T19:17:08Z")} />,
   );
   unmount();
   expect(clearIntervalSpy).toHaveBeenCalledTimes(1);
