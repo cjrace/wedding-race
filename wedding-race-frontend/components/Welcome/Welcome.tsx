@@ -49,11 +49,33 @@ export function Welcome() {
       <Space h="md" />
 
       <Flex align="center" justify="center" gap="md">
-        <Text style={{ fontFamily: "Courier New", fontSize: "4rem", color: "#F9AA8E" }}>
+        <Text
+          style={{
+            fontFamily: "Courier New",
+            fontSize: "4rem",
+            color: "#F9AA8E",
+          }}
+        >
           LAURA
         </Text>
-        <Text style={{ fontFamily: "Courier New", fontSize: "2rem", color: "#FFD9D9" }}>and</Text>
-        <Text style={{ fontFamily: "Courier New", fontSize: "4rem", color: "#F9AA8E" }}>CAM</Text>
+        <Text
+          style={{
+            fontFamily: "Courier New",
+            fontSize: "2rem",
+            color: "#FFD9D9",
+          }}
+        >
+          and
+        </Text>
+        <Text
+          style={{
+            fontFamily: "Courier New",
+            fontSize: "4rem",
+            color: "#F9AA8E",
+          }}
+        >
+          CAM
+        </Text>
       </Flex>
 
       <Space h="md" />
@@ -82,7 +104,6 @@ export function Welcome() {
           </Container>
         </Grid.Col>
         <Grid.Col span={6}>
-
           <Box>
             <Text>
               Hey there! We&apos;re so excited to share this special journey
@@ -106,12 +127,11 @@ export function Welcome() {
               you!
             </Text>
           </Box>
-
         </Grid.Col>
       </Grid>
 
       <Space h="md" />
-      
+
       <Grid>
         <Grid.Col span={4}>
           <PageCard
@@ -138,7 +158,6 @@ export function Welcome() {
           />
         </Grid.Col>
       </Grid>
-
     </>
   );
 }
