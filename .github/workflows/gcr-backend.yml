@@ -20,7 +20,7 @@ env:
   PROJECT_ID: 'wedding-race'
   REGION: 'europe-west2'
   SERVICE: 'wr-backend'
-  WORKLOAD_IDENTITY_PROVIDER: 'projects/95409422489/locations/global/workloadIdentityPools/github/providers/wedding-race'
+  WORKLOAD_IDENTITY_PROVIDER: 'projects/95409422489/locations/global/workloadIdentityPools/github-pool/providers/github'
 
 jobs:
   deploy:
