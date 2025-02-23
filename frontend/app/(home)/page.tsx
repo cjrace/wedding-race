@@ -1,5 +1,5 @@
-import { Text, Container, Space, Image, Flex } from "@mantine/core";
-import Homepage from "./homepage";
+import { Container, Image } from "@mantine/core";
+import HomepageContent from "./homepageContent";
 
 export default function HomePage() {
   return (
@@ -13,41 +13,7 @@ export default function HomePage() {
         />
       </Container>
 
-      <Space h="md" />
-
-      <Flex align="center" justify="center" gap="md">
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "4rem",
-            color: "#F9AA8E",
-          }}
-        >
-          LAURA
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "2rem",
-            color: "#FFD9D9",
-          }}
-        >
-          and
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "4rem",
-            color: "#F9AA8E",
-          }}
-        >
-          CAM
-        </Text>
-      </Flex>
-
-      <Space h="md" />
-
-      <Homepage />
+      <HomepageContent />
     </>
   );
 }

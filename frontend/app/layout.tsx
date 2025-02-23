@@ -4,10 +4,21 @@ import { mantineHtmlProps, MantineProvider } from "@mantine/core";
 import { theme } from "../theme";
 import Navbar from "../components/navbar";
 import "../styles/global.css";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Wedding Race",
-  description: "The wedding of the Race's!",
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Wedding Race",
+    default: "Wedding Race",
+  },
+  description: "All the details about the wedding of the Race's!",
+  openGraph: {
+    title: "Wedding Race",
+    description: "All the details about the wedding of the Race's!",
+    type: "website",
+    url: "https://www.wedding-race.co.uk",
+    siteName: "Wedding Race",
+  },
 };
 
 export default function RootLayout({ children }: { children: any }) {
