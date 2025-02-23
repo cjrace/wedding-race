@@ -1,4 +1,14 @@
+/* Default styling for larger screens */
 body {
-  margin: 15px 400px 75px 400px;
-  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the body content */
+  padding: 0 20px; /* Add some padding for spacing */
+}
+
+/* Styling for smaller screens */
+@media (max-width: 768px) {
+  body {
+    max-width: 100%; /* Make the body full width */
+    padding: 0 10px; /* Adjust padding for smaller screens */
+  }
 }
