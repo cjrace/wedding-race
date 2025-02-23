@@ -156,4 +156,4 @@ We'll eventually deploy this to https://www.wedding-race.com/. Deploys will be a
 
 ---
 
-This application is currently deployed using Google Cloud Run, which builds automatically from pushes to the main branch, using the docker container. The URL for the frontend currently is: https://wedding-race-95409422489.europe-west2.run.app.
+Both applications are currently deployed using Google Cloud Run, which builds automatically from pushes to the main branch, using the respective docker containers. Though this will be simplified soon for the initial version of the site.
