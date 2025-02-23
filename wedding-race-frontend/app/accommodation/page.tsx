@@ -80,7 +80,7 @@ export default function AccommodationPage() {
         <Grid.Col span={4}>
           <Image
             radius="sm"
-            src="images/village-unaltered.png"
+            src="images/full-village.png"
             height="auto"
             width="100%"
             fit="contain"
@@ -98,7 +98,6 @@ export default function AccommodationPage() {
       <Grid>
         <Grid.Col span={7}>
           
-
           <Text>
             For those that want to stay on site but don&apos;t fancy the pod life, we also have two cottages with three double
             bedrooms in each.
@@ -110,7 +109,6 @@ export default function AccommodationPage() {
           <Text>
             If you&apos;d prefer one of the cottage rooms speak to us to arrange.
           </Text>
-
 
         </Grid.Col>
         <Grid.Col span={1}></Grid.Col>

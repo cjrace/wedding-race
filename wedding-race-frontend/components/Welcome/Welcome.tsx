@@ -5,7 +5,7 @@ import {
   Container,
   Space,
   Divider,
-  SimpleGrid,
+  Grid,
   Box,
   Center,
   Image,
@@ -49,11 +49,11 @@ export function Welcome() {
       <Space h="md" />
 
       <Flex align="center" justify="center" gap="md">
-        <Text style={{ fontFamily: "Courier New", fontSize: "4rem", color:"#F9AA8E"  }}>
+        <Text style={{ fontFamily: "Courier New", fontSize: "4rem", color: "#F9AA8E" }}>
           LAURA
         </Text>
-        <Text style={{ fontFamily: "Courier New", fontSize: "2rem", color:"#FFD9D9" }}>and</Text>
-        <Text style={{ fontFamily: "Courier New", fontSize: "4rem", color:"#F9AA8E"  }}>CAM</Text>
+        <Text style={{ fontFamily: "Courier New", fontSize: "2rem", color: "#FFD9D9" }}>and</Text>
+        <Text style={{ fontFamily: "Courier New", fontSize: "4rem", color: "#F9AA8E" }}>CAM</Text>
       </Flex>
 
       <Space h="md" />
@@ -66,8 +66,8 @@ export function Welcome() {
 
       <Divider my="md" />
 
-      <SimpleGrid cols={2}>
-        <div>
+      <Grid>
+        <Grid.Col span={6}>
           <Container>
             <Center>
               <Image
@@ -80,8 +80,9 @@ export function Welcome() {
               />
             </Center>
           </Container>
-        </div>
-        <div>
+        </Grid.Col>
+        <Grid.Col span={6}>
+
           <Box>
             <Text>
               Hey there! We&apos;re so excited to share this special journey
@@ -105,37 +106,39 @@ export function Welcome() {
               you!
             </Text>
           </Box>
-        </div>
-      </SimpleGrid>
+
+        </Grid.Col>
+      </Grid>
 
       <Space h="md" />
-
-      <SimpleGrid cols={3}>
-        <div>
+      
+      <Grid>
+        <Grid.Col span={4}>
           <PageCard
             imagePath="images/village.png"
             title="Accommodation"
             description="More detail for what is on this page"
             link="/accommodation"
           />
-        </div>
-        <div>
+        </Grid.Col>
+        <Grid.Col span={4}>
           <PageCard
             imagePath="images/breakfast-tables.png"
             title="Timeline"
             description="More detail for what is on this page"
             link="/timeline"
           />
-        </div>
-        <div>
+        </Grid.Col>
+        <Grid.Col span={4}>
           <PageCard
             imagePath="images/faq.png"
             title="FAQs"
             description="More detail for what is on this page"
             link="/faqs"
           />
-        </div>
-      </SimpleGrid>
+        </Grid.Col>
+      </Grid>
+
     </>
   );
 }
