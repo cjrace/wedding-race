@@ -79,8 +79,6 @@ Currently the backend is a very simple service using [Python FastAPI](https://fa
 
 [Poetry](https://python-poetry.org/) is used for managing the dependencies. [Black](https://black.readthedocs.io/en/stable/index.html) is used to format the Python files, use `poetry run black .` to style the code.
 
-[Poetry](https://python-poetry.org/) is used for managing the dependencies.
-
 1. [Install Python](https://www.python.org/downloads/)
 
 - Check your version using `python --version`
