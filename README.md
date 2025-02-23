@@ -146,6 +146,27 @@ Close this down using
 docker-compose down
 ```
 
+### Run all the tests
+
+In most terminals (e.g. Powershell within [VSCode](https://code.visualstudio.com/)) you can literally copy, paste and run the lot in one go...
+
+```bash
+cd backend
+poetry run black --check .
+poetry run pytest
+cd ../frontend
+yarn test
+cd ..
+```
+
+### Prune redundant images
+
+Worth running this periodically if you haven't done anything else to clean up old dangling images.
+
+```bash
+docker image prune
+```
+
 ## Pre-commit hooks
 
 [Husky](https://typicode.github.io/husky) is used to manage pre-commit hooks, currently this is used to enforce [Prettier](https://prettier.io/) formatting in the frontend project.
