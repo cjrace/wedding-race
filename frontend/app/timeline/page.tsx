@@ -1,6 +1,6 @@
 import { Title, Text, Space } from "@mantine/core";
 import { Metadata } from "next";
-import TimelineContent from "./timelineContent";
+import TimelineContent from "./_timelineContent";
 
 export const metadata: Metadata = {
   title: "Timeline",

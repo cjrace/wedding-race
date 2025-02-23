@@ -1,5 +1,5 @@
 import { Title, Space } from "@mantine/core";
-import FAQsContent from "./faqsContent";
+import FAQsContent from "./_faqsContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

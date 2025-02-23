@@ -37,8 +37,6 @@ export default function HomepageContent() {
 
   return (
     <>
-      <Space h="md" />
-
       <Flex align="center" justify="center" gap="md">
         <Text
           style={{

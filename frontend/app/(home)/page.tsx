@@ -1,5 +1,5 @@
-import { Container, Image } from "@mantine/core";
-import HomepageContent from "./homepageContent";
+import { Container, Image, Space } from "@mantine/core";
+import HomepageContent from "./_homepageContent";
 
 export default function HomePage() {
   return (
@@ -12,6 +12,8 @@ export default function HomePage() {
           style={{ width: "100%", height: "auto" }}
         />
       </Container>
+
+      <Space h="md" />
 
       <HomepageContent />
     </>

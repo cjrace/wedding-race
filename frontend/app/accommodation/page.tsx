@@ -1,4 +1,4 @@
-import AccommodationContent from "./accommodationContent";
+import AccommodationContent from "./_accommodationContent";
 import { Title, Space } from "@mantine/core";
 import { Metadata } from "next";
 
