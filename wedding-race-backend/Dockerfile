@@ -9,6 +9,7 @@ COPY pyproject.toml poetry.lock /app/
 
 # Install pip
 RUN python -m ensurepip --upgrade
+
 # Install Poetry
 RUN pip install poetry
 
