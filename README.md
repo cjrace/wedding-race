@@ -11,8 +11,8 @@ Not just any old wedding race, but the wedding of Race! Currently a static site 
 
 There are two separate projcets in this repo, designed to be deployed as separate containers.
 
-- wedding-race-backend
-- wedding-race-frontend
+- backend (Python - FastAPI)
+- frontend (React - Next.js)
 
 You'll need to work through getting each service running in it's own right and then you'll be able to run everything together using docker compose.
 
@@ -26,11 +26,11 @@ Styling and components
 - [Mantine](https://mantine.dev/)
 - [Tabler icons](https://tabler-icons.io/)
 
-Remember to move into the frontend folder using `cd wedding-race-frontend` before running any the commands below.
+Remember to move into the frontend folder using `cd frontend` before running any the commands below.
 
-1. Create a `wedding-race-frontend/.env.local` file
+1. Create a `frontend/.env.local` file
 
-Copy from the `wedding-race-frontend/.env.example` file and add the appropiate environment variables
+Copy from the `frontend/.env.example` file and add the appropiate environment variables
 
 2. Install [node.js](https://nodejs.org/en/download)
 
@@ -75,7 +75,7 @@ yarn run
 ```
 
 ## Backend
-Currently the backend is a very simple service using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the backend folder using `cd wedding-race-backend` before running any the commands below.
+Currently the backend is a very simple service using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the backend folder using `cd backend` before running any the commands below.
 
 [Poetry](https://python-poetry.org/) is used for managing the dependencies. [Black](https://black.readthedocs.io/en/stable/index.html) is used to format the Python files, use `poetry run black .` to style the code.
 
