@@ -14,9 +14,7 @@ There are two separate projcets in this repo, designed to be deployed as separat
 - backend (Python - FastAPI)
 - frontend (React - Next.js)
 
-You'll need to work through getting each service running in it's own right and then you'll be able to run everything together using docker compose.
-
-If you want to edit any of the infrastructure you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).
+You'll need to work through getting each service running in it's own right and then you'll be able to run everything together using `docker-compose`.
 
 ## Frontend
 This project uses [Next.js App Router](https://nextjs.org/docs/app). Package management is handled by [yarn](https://yarnpkg.com/getting-started). Main libraries used so far are:
@@ -173,8 +171,18 @@ docker image prune
 
 ## Deployment
 
-We'll eventually deploy this to https://www.wedding-race.com/. Deploys will be automatically triggered from pushes to the main branch.
+Deploys are automatically triggered from pushes to the main branch for the following:
 
----
+Backend (currently open, just as a proof of concept), using the docker container
+- https://wr-backend-95409422489.europe-west2.run.app/api/weddingdate ([Google Cloud Run](https://cloud.google.com/run))
 
-Both applications are currently deployed using Google Cloud Run, which builds automatically from pushes to the main branch, using the respective docker containers. Though this will be simplified soon for the initial version of the site.
+Frontend (we will settle on one eventually...)
+
+1. https://wedding-race.vercel.app/ ([Vercel](https://vercel.com/))
+
+...noch einmal, this time using the docker container
+2. https://wr-frontend-95409422489.europe-west2.run.app ([Google Cloud Run](https://cloud.google.com/run))
+
+For the initial version of the site we'll likely just be deploying the frontend through [Vercel](https://vercel.com/) to https://www.wedding-race.com/. 
+
+If you want to edit any of the infrastructure in Google Cloud you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).
