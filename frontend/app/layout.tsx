@@ -4,6 +4,7 @@ import { mantineHtmlProps, MantineProvider } from "@mantine/core";
 import { theme } from "../theme";
 import Navbar from "../components/navbar";
 import "../styles/global.css";
+import { ColorSchemeScript } from "@mantine/core";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -26,10 +27,7 @@ export default function RootLayout({ children }: { children: any }) {
     <html lang="en" {...mantineHtmlProps}>
       <head>
         <link rel="shortcut icon" href="/favicon.svg" />
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
-        />
+        <ColorSchemeScript defaultColorScheme="dark" />
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
