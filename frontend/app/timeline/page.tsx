@@ -16,6 +16,8 @@ export default function TimelinePage() {
     <>
       <Title order={1}>Timeline</Title>
 
+      <Space h="lg" />
+
       <Text>
         Our wedding celebration will be over three days. We&apos;d love for you
         to join us the night before and stay until the morning after if
