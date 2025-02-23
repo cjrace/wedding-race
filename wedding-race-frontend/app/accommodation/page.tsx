@@ -1,4 +1,6 @@
-import { Title, Text, Space, Grid } from "@mantine/core";
+'use client';
+
+import { Title, Text, Space, Grid, List } from "@mantine/core";
 
 export default function AccommodationPage() {
   return (
@@ -19,16 +21,16 @@ export default function AccommodationPage() {
       <Title order={2}>Lake Henry venue information</Title>
       <Space h="md" />
 
-      {/*<Grid>
-        <Grid.Col span={7}>*/}
+      <Grid>
+        <Grid.Col span={7}>
           <Text>
             Lake Henry is just 15 minutes off the A1 and is reachable by train links to Darlington or Northallerton.
           </Text>
           <Text>
             There&apos;s on-site accommodation for up to 79 of our guests, with the wedding village hosting our before and after party!
           </Text>
-        {/*</Grid.Col>
-        <Grid.Col span={5}>*/}
+        </Grid.Col>
+        <Grid.Col span={5}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2320.389598430681!2d-1.5355666!3d54.4384095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487e9965dd84ecd7%3A0xa447869f2ba26fb7!2sAlexander%20Weddings%20%26%20Events!5e0!3m2!1sen!2suk!4v1740190936834!5m2!1sen!2suk"
             width="600"
@@ -38,8 +40,8 @@ export default function AccommodationPage() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade">
           </iframe>
-        {/*</Grid.Col>
-      </Grid>*/}      
+        </Grid.Col>
+      </Grid>    
 
       <Space h="md" />
 
@@ -95,13 +97,11 @@ export default function AccommodationPage() {
       <Text>
         If you&apos;d prefer a local hotel, we&apos;d recommend looking in Darlington or Northallerton, which are 15 and 20 
         minutes away by car respectively. You&apos;ll need to pre-book taxis, we&apos;ll share recommended companies nearer the time.
-      </Text>
-     {/* 
+      </Text> 
       <List>
         <List.Item>Darlington 15 minutes by car</List.Item>
         <List.Item>Northallerton 20 minutes by car </List.Item>
       </List>
-     */}
 
       <Space h="md" />
     </>
