@@ -3,7 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     forceSwcTransforms: true,
-    optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
+    optimizePackageImports: [
+      "@mantine/core",
+      "@mantine/hooks",
+      "@tabler/icons-react",
+    ],
   },
   output: "standalone",
   async rewrites() {

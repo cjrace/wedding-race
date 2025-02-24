@@ -5,7 +5,7 @@ import { render, screen } from "../../test-utils";
 // Use fake timers to control the passage of time in the tests
 jest.useFakeTimers();
 
-describe("Clear previous countdown timers", () => {
+beforeEach(() => {
   // Clear all timers before each test to ensure no timers from previous tests interfere
   jest.clearAllTimers();
 });
@@ -18,30 +18,27 @@ test("renders text as expected", () => {
   expect(textElement).toBeInTheDocument();
 });
 
+const checkCountdownUpdate = (time: number, regex: RegExp, change: boolean) => {
+  const elements = Array.from(screen.getAllByText(regex));
+  const getTextContent = () =>
+    elements.map((element) => element.textContent).join(" ");
+
+  const initialText = getTextContent();
+
+  act(() => {
+    jest.advanceTimersByTime(time);
+  });
+
+  const updatedText = getTextContent();
+  if (change) {
+    expect(updatedText).not.toBe(initialText);
+  } else {
+    expect(updatedText).toBe(initialText);
+  }
+};
+
 test("updates countdown after every second", () => {
   render(<Countdown date={new Date("2095-08-08T00:00:00Z")} />);
-  const checkCountdownUpdate = (
-    time: number,
-    regex: RegExp,
-    change: boolean,
-  ) => {
-    const elements = Array.from(screen.getAllByText(regex));
-    const getTextContent = () =>
-      elements.map((element) => element.textContent).join(" ");
-
-    const initialText = getTextContent();
-
-    act(() => {
-      jest.advanceTimersByTime(time);
-    });
-
-    const updatedText = getTextContent();
-    if (change) {
-      expect(updatedText).not.toBe(initialText);
-    } else {
-      expect(updatedText).toBe(initialText);
-    }
-  };
 
   // Check the seconds have changed after 1 and 2 seconds
   checkCountdownUpdate(1000, /\d+ seconds/i, true);
@@ -68,10 +65,13 @@ test("updates countdown after every second", () => {
 
 test("clears interval on unmount", () => {
   const clearIntervalSpy = jest.spyOn(global, "clearInterval");
-  const { unmount } = render(
-    <Countdown date={new Date("2095-08-08T19:17:08Z")} />,
-  );
-  unmount();
-  expect(clearIntervalSpy).toHaveBeenCalledTimes(1);
-  clearIntervalSpy.mockRestore();
+  try {
+    const { unmount } = render(
+      <Countdown date={new Date("2095-08-08T19:17:08Z")} />,
+    );
+    unmount();
+    expect(clearIntervalSpy).toHaveBeenCalledTimes(1);
+  } finally {
+    clearIntervalSpy.mockRestore();
+  }
 });

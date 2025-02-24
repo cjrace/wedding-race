@@ -7,7 +7,6 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json yarn.lock* .yarnrc.yml* ./
 COPY .yarn .yarn
-# COPY sst-env.d.ts* ./
 RUN yarn install --immutable
 
 # Stage 2: Build the application

@@ -23,35 +23,37 @@ const DaysToGo: React.FC<DaysToGoProps> = ({ date }) => {
     return target - now;
   };
 
-  const [remainingTime, setRemainingTime] = useState<number | null>(null);
+  const [remainingTime, setRemainingTime] = useState<number>(
+    calculateTimeDifference(date),
+  );
 
   useEffect(() => {
-    const timeLeft = calculateTimeDifference(date);
-    setRemainingTime(timeLeft);
+    const initialTimeLeft = calculateTimeDifference(date);
+    setRemainingTime(initialTimeLeft);
 
     const countdownInterval = setInterval(() => {
-      const timeLeft = calculateTimeDifference(date);
-      setRemainingTime(timeLeft);
-      if (timeLeft <= 0) {
+      const updatedTimeLeft = calculateTimeDifference(date);
+      setRemainingTime(updatedTimeLeft);
+      if (updatedTimeLeft <= 0) {
+        setRemainingTime(0);
         clearInterval(countdownInterval);
       }
     }, 1000);
 
     return () => clearInterval(countdownInterval);
-  }, [date]);
+  }, [date, remainingTime]);
 
   if (remainingTime === null) {
     return <Text>Calculating countdown...</Text>;
   }
 
-  const { days, hours, minutes, seconds } =
-    calculateTimeRemaining(remainingTime);
-
   return (
     <Text>
-      {days === 0 && hours === 0 && minutes === 0 && seconds === 0
-        ? "It's party time!"
-        : `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}
+      {(() => {
+        const { days, hours, minutes, seconds } =
+          calculateTimeRemaining(remainingTime);
+        return `${days === 0 && hours === 0 && minutes === 0 && seconds === 0 ? "It's party time!" : `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}`;
+      })()}
     </Text>
   );
 };

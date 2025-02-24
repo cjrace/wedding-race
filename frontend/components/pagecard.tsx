@@ -33,7 +33,7 @@ export default function PageCard({
         <Center>
           <Image
             aria-hidden
-            alt=""
+            alt={title}
             src={imagePath}
             h={200}
             w="auto"

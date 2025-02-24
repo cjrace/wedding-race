@@ -1,10 +1,13 @@
 import "@mantine/core/styles.css";
 import React from "react";
-import { mantineHtmlProps, MantineProvider } from "@mantine/core";
+import {
+  MantineProvider,
+  ColorSchemeScript,
+  mantineHtmlProps,
+} from "@mantine/core";
 import { theme } from "../theme";
 import Navbar from "../components/navbar";
 import "../styles/global.css";
-import { ColorSchemeScript } from "@mantine/core";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,7 +25,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: any }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>

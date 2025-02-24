@@ -32,6 +32,25 @@ export default function TimelineContent() {
 
   return (
     <>
+      <Text>
+        Our wedding celebration will be over three days. We&apos;d love for you
+        to join us the night before and stay until the morning after if
+        you&apos;re able. If that&apos;s not possible, no worries, just come for
+        the wedding day.
+      </Text>
+
+      <Text>
+        We&apos;re so excited to share what we have planned with you, and to see
+        you there!
+      </Text>
+
+      <Text>
+        This is a high level outline, we don&apos;t want to give it all away and
+        it&apos;s still ages away so we may add or change stuff as we go...
+      </Text>
+
+      <Space h="lg" />
+
       <Grid>
         <Grid.Col span={4}>
           <Title order={2}>Day 1</Title>
@@ -67,7 +86,7 @@ export default function TimelineContent() {
               <List c="dimmed" size="sm">
                 <List.Item>Music and games</List.Item>
                 <List.Item>Food: homemade pizzas and other snacks</List.Item>
-                <List.Item>Pleny of drinks to keep us going</List.Item>
+                <List.Item>Plenty of drinks to keep us going</List.Item>
               </List>
               <Text c="dimmed" size="sm">
                 Those not staying at the village are still welcome to join in,
@@ -277,7 +296,7 @@ export default function TimelineContent() {
                 >
                   <Text>
                     The pods all have plenty of get ready space but for
-                    something more sociable guest can get ready together in the
+                    something more sociable guests can get ready together in the
                     makeup hut, there&apos;ll be a bottle of fizz ready for you!
                   </Text>
                 </Box>
