@@ -3,7 +3,7 @@
 import { Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 
-interface DaysToGoProps {
+interface CountdownProps {
   date: Date;
 }
 
@@ -16,7 +16,7 @@ const calculateTimeRemaining = (time: number) => {
   return { days, hours, minutes, seconds };
 };
 
-const DaysToGo: React.FC<DaysToGoProps> = ({ date }) => {
+const Countdown: React.FC<CountdownProps> = ({ date }) => {
   const calculateTimeDifference = (targetDate: Date) => {
     const now = new Date().getTime();
     const target = new Date(targetDate).getTime();
@@ -48,7 +48,7 @@ const DaysToGo: React.FC<DaysToGoProps> = ({ date }) => {
   }
 
   return (
-    <Text>
+    <Text suppressHydrationWarning={true}>
       {(() => {
         const { days, hours, minutes, seconds } =
           calculateTimeRemaining(remainingTime);
@@ -58,4 +58,4 @@ const DaysToGo: React.FC<DaysToGoProps> = ({ date }) => {
   );
 };
 
-export default DaysToGo;
+export default Countdown;

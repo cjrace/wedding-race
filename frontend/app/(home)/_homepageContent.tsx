@@ -12,7 +12,7 @@ import {
   Flex,
 } from "@mantine/core";
 import PageCard from "@/components/pagecard";
-import DaysToGo from "@/components/countdown";
+import Countdown from "@/components/countdown";
 
 export default function HomepageContent() {
   /* API call if we want to go back to fetching it from the server
@@ -75,7 +75,7 @@ export default function HomepageContent() {
       <Text ta="center">Countdown to our ceremony!</Text>
 
       <Center>
-        <DaysToGo date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
+        <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
       </Center>
 
       <Divider my="md" />
