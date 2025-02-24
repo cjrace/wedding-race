@@ -13,11 +13,9 @@ import {
 } from "@mantine/core";
 import PageCard from "@/components/pagecard";
 import DaysToGo from "@/components/countdown";
-import { useEffect, useState } from "react";
 
 export default function HomepageContent() {
-  const [weddingDate, setWeddingDate] = useState<Date>();
-
+  /* API call if we want to go back to fetching it from the server
   useEffect(() => {
     const fetchWeddingDate = async () => {
       try {
@@ -34,6 +32,11 @@ export default function HomepageContent() {
 
     fetchWeddingDate();
   }, []);
+  */
+
+  const weddingDateEnv = process.env.NEXT_PUBLIC_WEDDING_DATETIME
+    ? new Date(process.env.NEXT_PUBLIC_WEDDING_DATETIME)
+    : undefined;
 
   return (
     <>
@@ -72,7 +75,7 @@ export default function HomepageContent() {
       <Text ta="center">Countdown to our ceremony!</Text>
 
       <Center>
-        <DaysToGo date={weddingDate ?? new Date("2095-08-08T19:17:08Z")} />
+        <DaysToGo date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
       </Center>
 
       <Divider my="md" />
