@@ -4,6 +4,7 @@ import "@mantine/core/styles.css";
 import React from "react";
 import { AppShell, Burger, Text, Group, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import GitButton from "./gitbutton";
 import classes from "../styles/navbar.module.css";
 
 export const pages = ["Home", "Accommodation", "Timeline", "FAQs"];
@@ -57,14 +58,18 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
           <Group justify="center" style={{ flex: 1 }}>
             <Group ml="xl" gap={0} visibleFrom="xs">
               {renderPages()}
+              <GitButton data-testid="git-button-burger" />
             </Group>
           </Group>
         </Group>
       </AppShell.Header>
 
       <AppShell.Navbar py="md">
-        <Group align="center" justify="center" style={{ width: "100%" }}>
-          {renderPages()}
+        <Group align="center" justify="space-between" style={{ width: "100%" }}>
+          <Group align="center" justify="center">
+            {renderPages()}
+            <GitButton data-testid="git-button-nav" />
+          </Group>
         </Group>
       </AppShell.Navbar>
 

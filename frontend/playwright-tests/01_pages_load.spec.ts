@@ -25,6 +25,10 @@ test("can navigate through each page", async ({ page }) => {
       .click();
     await expect(page.locator("body")).toContainText(pageName);
   }
+
+  await expect(
+    page.getByRole("banner").getByTestId("github-button-nav"),
+  ).toBeVisible();
 });
 
 test("can navigate using burger", async ({ page }) => {
@@ -40,4 +44,8 @@ test("can navigate using burger", async ({ page }) => {
     await page.getByRole("link", { name: `${pageName}`, exact: true }).click();
     await expect(page.locator("body")).toContainText(pageName);
   }
+
+  await expect(
+    page.getByRole("banner").getByTestId("github-button-burger"),
+  ).toBeVisible();
 });

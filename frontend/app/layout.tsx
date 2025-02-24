@@ -9,6 +9,7 @@ import { theme } from "../theme";
 import Navbar from "../components/navbar";
 import "../styles/global.css";
 import { Metadata } from "next";
+import BackToTop from "@/components/backtotop";
 
 export const metadata: Metadata = {
   title: {
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
           <Navbar>{children}</Navbar>
+          <BackToTop />
         </MantineProvider>
       </body>
     </html>
