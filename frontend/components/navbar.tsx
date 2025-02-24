@@ -2,10 +2,18 @@
 
 import "@mantine/core/styles.css";
 import React from "react";
-import { AppShell, Burger, Text, Group, UnstyledButton } from "@mantine/core";
+import {
+  AppShell,
+  Burger,
+  Text,
+  Group,
+  UnstyledButton,
+  Anchor,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import GitButton from "./gitbutton";
 import classes from "../styles/navbar.module.css";
+import skip from "@/styles/skip.module.css";
 
 export const pages = ["Home", "Accommodation", "Timeline", "FAQs"];
 
@@ -26,54 +34,63 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
     ));
 
   return (
-    <AppShell
-      header={{
-        height: { base: 60, xs: 60, sm: 100 },
-      }}
-      navbar={{
-        width: 300,
-        breakpoint: "xs",
-        collapsed: { desktop: true, mobile: !opened },
-      }}
-      padding="md"
-    >
-      <AppShell.Header>
-        <Group h="100%" px="md">
-          <Group
-            gap="md"
-            justify="space-between"
-            style={{ width: "100%", height: "60px" }}
-            hiddenFrom="xs"
-          >
-            <Text style={{ textAlign: "center", fontWeight: 500, flex: 1 }}>
-              Wedding Race
-            </Text>
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              size="sm"
-              aria-label="Show navigation"
-            />
-          </Group>
-          <Group justify="center" style={{ flex: 1 }}>
-            <Group ml="xl" gap={0} visibleFrom="xs">
-              {renderPages()}
-              <GitButton data-testid="git-button-burger" />
+    <>
+      <Anchor className={skip.skip} href="#main">
+        Skip to main content
+      </Anchor>
+      <AppShell
+        header={{
+          height: { base: 60, xs: 60, sm: 100 },
+        }}
+        navbar={{
+          width: 300,
+          breakpoint: "xs",
+          collapsed: { desktop: true, mobile: !opened },
+        }}
+        padding="md"
+      >
+        <AppShell.Header>
+          <Group h="100%" px="md">
+            <Group
+              gap="md"
+              justify="space-between"
+              style={{ width: "100%", height: "60px" }}
+              hiddenFrom="xs"
+            >
+              <Text style={{ textAlign: "center", fontWeight: 500, flex: 1 }}>
+                Wedding Race
+              </Text>
+              <Burger
+                opened={opened}
+                onClick={toggle}
+                size="sm"
+                aria-label="Show navigation"
+              />
+            </Group>
+            <Group justify="center" style={{ flex: 1 }}>
+              <Group ml="xl" gap={0} visibleFrom="xs">
+                {renderPages()}
+                <GitButton data-testid="git-button-burger" />
+              </Group>
             </Group>
           </Group>
-        </Group>
-      </AppShell.Header>
+        </AppShell.Header>
 
-      <AppShell.Navbar py="md">
-        <Group align="center" justify="space-between" style={{ width: "100%" }}>
-          <Group align="center" justify="center">
-            {renderPages()}
-            <GitButton data-testid="git-button-nav" />
+        <AppShell.Navbar py="md">
+          <Group
+            align="center"
+            justify="space-between"
+            style={{ width: "100%" }}
+          >
+            <Group align="center" justify="center">
+              {renderPages()}
+              <GitButton data-testid="git-button-nav" />
+            </Group>
           </Group>
-        </Group>
-      </AppShell.Navbar>
+        </AppShell.Navbar>
 
-      <AppShell.Main>{children}</AppShell.Main>
-    </AppShell>
+        <AppShell.Main>{children}</AppShell.Main>
+      </AppShell>
+    </>
   );
 }
