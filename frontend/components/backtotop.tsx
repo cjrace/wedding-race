@@ -13,9 +13,11 @@ const BackToTop: React.FC = () => {
         {(transitionStyles) => (
           <Button
             leftSection={
-              <IconArrowUp style={{ width: rem(16), height: rem(16) }} />
+              <IconArrowUp
+                style={{ width: rem(16), height: rem(16), color: "#242424" }}
+              />
             }
-            style={transitionStyles}
+            style={{ ...transitionStyles, color: "#242424" }}
             onClick={() => scrollTo({ y: 0 })}
           >
             Back to top
