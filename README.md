@@ -11,12 +11,10 @@ Not just any old wedding race, but the wedding of Race! Currently a static site 
 
 There are two separate projcets in this repo, designed to be deployed as separate containers.
 
-- wedding-race-backend
-- wedding-race-frontend
+- backend (Python - FastAPI)
+- frontend (React - Next.js)
 
-You'll need to work through getting each service running in it's own right and then you'll be able to run everything together using docker compose.
-
-If you want to edit any of the infrastructure you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).
+You'll need to work through getting each service running in it's own right and then you'll be able to run everything together using `docker-compose`.
 
 ## Frontend
 This project uses [Next.js App Router](https://nextjs.org/docs/app). Package management is handled by [yarn](https://yarnpkg.com/getting-started). Main libraries used so far are:
@@ -26,11 +24,11 @@ Styling and components
 - [Mantine](https://mantine.dev/)
 - [Tabler icons](https://tabler-icons.io/)
 
-Remember to move into the frontend folder using `cd wedding-race-frontend` before running any the commands below.
+Remember to move into the frontend folder using `cd frontend` before running any the commands below.
 
-1. Create a `wedding-race-frontend/.env.local` file
+1. Create a `frontend/.env.local` file
 
-Copy from the `wedding-race-frontend/.env.example` file and add the appropiate environment variables
+Copy from the `frontend/.env.example` file and add the appropiate environment variables
 
 2. Install [node.js](https://nodejs.org/en/download)
 
@@ -75,7 +73,7 @@ yarn run
 ```
 
 ## Backend
-Currently the backend is a very simple service using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the backend folder using `cd wedding-race-backend` before running any the commands below.
+Currently the backend is a very simple service using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the backend folder using `cd backend` before running any the commands below.
 
 [Poetry](https://python-poetry.org/) is used for managing the dependencies. [Black](https://black.readthedocs.io/en/stable/index.html) is used to format the Python files, use `poetry run black .` to style the code.
 
@@ -146,14 +144,45 @@ Close this down using
 docker-compose down
 ```
 
+### Run all the tests
+
+In most terminals (e.g. Powershell within [VSCode](https://code.visualstudio.com/)) you can literally copy, paste and run the lot in one go...
+
+```bash
+cd backend
+poetry run black --check .
+poetry run pytest
+cd ../frontend
+yarn test
+cd ..
+```
+
+### Prune redundant docker images
+
+Worth running this periodically if you haven't done anything else to clean up old dangling images.
+
+```bash
+docker image prune
+```
+
 ## Pre-commit hooks
 
 [Husky](https://typicode.github.io/husky) is used to manage pre-commit hooks, currently this is used to enforce [Prettier](https://prettier.io/) formatting in the frontend project.
 
 ## Deployment
 
-We'll eventually deploy this to https://www.wedding-race.com/. Deploys will be automatically triggered from pushes to the main branch.
+Deploys are automatically triggered from pushes to the main branch for the following:
 
----
+Backend (currently open, just as a proof of concept), using the docker container
+- https://wr-backend-95409422489.europe-west2.run.app/api/weddingdate ([Google Cloud Run](https://cloud.google.com/run))
 
-Both applications are currently deployed using Google Cloud Run, which builds automatically from pushes to the main branch, using the respective docker containers. Though this will be simplified soon for the initial version of the site.
+Frontend (we will settle on one eventually...)
+
+1. https://wedding-race.vercel.app/ ([Vercel](https://vercel.com/))
+
+...noch einmal, this time using the docker container
+2. https://wr-frontend-95409422489.europe-west2.run.app ([Google Cloud Run](https://cloud.google.com/run))
+
+For the initial version of the site we'll likely just be deploying the frontend through [Vercel](https://vercel.com/) to https://www.wedding-race.com/. 
+
+If you want to edit any of the infrastructure in Google Cloud you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).

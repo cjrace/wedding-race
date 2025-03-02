@@ -2,5 +2,5 @@
 * text eol=lf
 
 # Declare special files that shouldn't be forced to LF line endings
-wedding-race-frontend/public/* -text
-wedding-race-frontend/public/images/* -text
+frontend/public/* -text
+frontend/public/images/* -text

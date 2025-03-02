@@ -6,12 +6,12 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/wedding-race-frontend"
+    directory: "/frontend"
     schedule:
       interval: "monthly"
 
 updates:
   - package-ecosystem: "pip"
-    directory: "/wedding-race-backend"
+    directory: "/backend"
     schedule:
       interval: "monthly"
