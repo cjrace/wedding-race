@@ -5,10 +5,10 @@ export default function FAQsContent() {
     <>
 
       <Title order={2}>
-        Will there be a formal invite?
+        Will there be a formal invite at some point?
       </Title>
       <Text>
-         ???
+         Yes, we&apos;ll send formal invites once we&apos;re ready to collect RSVPs and the accomodation booking link is open, expected November 2025.
       </Text>
 
       <Space h="md" />
@@ -61,10 +61,10 @@ export default function FAQsContent() {
 
       <Space h="md" />
       <Title order={2}>
-        Do I need to join in for everything or is it okay to chill in my pod?
+        I&apos;ll be there the evening before, do I need to join in for everything or is it okay if I just chill in my pod?
       </Title>
       <Text>
-        We want you to feel comfortable and enjoy your stay so you can do as much or as little as you like. 
+        Of course! We want you to feel comfortable and enjoy your stay so you can do as much or as little as you like. 
       </Text>
 
       <Space h="md" />
@@ -98,7 +98,7 @@ export default function FAQsContent() {
       <Text>
         The wedding village pods are spacious enough that getting ready shouldn&apos;t be a problem but for somethign more socialble we have a dedicated makeup shack for beautifying yourself with company. For bridesmiads we&apos;ll be getting ready in the cottages, which has a separate room for make up and hair. 
         </Text>
-        
+
       <Space h="md" />
 
     </>
