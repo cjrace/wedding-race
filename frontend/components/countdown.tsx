@@ -44,17 +44,51 @@ const Countdown: React.FC<CountdownProps> = ({ date }) => {
   }, [date, remainingTime]);
 
   if (remainingTime === null) {
-    return <Text>Calculating countdown...</Text>;
+    return <div suppressHydrationWarning={true}>Calculating countdown...</div>;
   }
 
   return (
-    <Text suppressHydrationWarning={true}>
+    <div suppressHydrationWarning={true}>
       {(() => {
         const { days, hours, minutes, seconds } =
           calculateTimeRemaining(remainingTime);
-        return `${days === 0 && hours === 0 && minutes === 0 && seconds === 0 ? "It's party time!" : `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}`;
+            return (
+            <>
+              {days === 0 && hours === 0 && minutes === 0 && seconds === 0 ? (
+              <div>It's party time!</div>
+              ) : (
+              
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', textAlign: 'center', fontFamily: "Courier New", fontWeight: 'bold', gap: '10px', border: '2px solid #F9AA8E', padding: '10px', borderRadius: '10px' }}>
+              <div style={{ backgroundColor: '#ffd7d3', color: '#242424', padding: '10px', borderRadius: '10px'  }}>
+                  <div style={{ fontSize: '2rem' }}>
+                    {days}</div>
+                  <div>days</div>
+                </div>
+                
+                <div style={{ backgroundColor: '#ffd7d3', color: '#242424', padding: '10px', borderRadius: '10px'  }}>
+                <div style={{ fontSize: '2rem' }}>
+                {hours}</div>
+                  <div>hours</div>
+                </div>
+                <div style={{ backgroundColor: '#ffd7d3', color: '#242424', padding: '10px', borderRadius: '10px'  }}>
+                <div style={{ fontSize: '2rem' }}>
+                {minutes}</div>
+                  <div>minutes</div>
+                </div>
+                <div style={{ backgroundColor: '#ffd7d3', color: '#242424', padding: '10px', borderRadius: '10px'   }}>
+                  <div style={{ fontSize: '2rem' }}>
+                    {seconds}</div>
+                  <div>seconds</div>
+                </div>
+              </div>
+         
+              
+              )}
+            </>
+            );
+       {/* return `${days === 0 && hours === 0 && minutes === 0 && seconds === 0 ? "It's party time!" : `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}`; */}
       })()}
-    </Text>
+    </div>
   );
 };
 
