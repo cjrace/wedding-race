@@ -40,7 +40,42 @@ export default function HomepageContent() {
 
   return (
     <>
-      <Flex align="center" justify="center" gap="md">
+      
+
+      
+
+      {/* 
+
+      <Space h="sm" />
+      
+      <Text ta="center">Countdown to our ceremony!</Text>
+
+      */}
+
+      <Center>
+        <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
+      </Center>
+
+      <Divider my="md" />
+
+      <Grid>
+        <Grid.Col span={6}>
+          <Container>
+            <Center>
+              <Image
+                radius="sm"
+                src="images/cam-and-laura.png"
+                h={400}
+                w="auto"
+                fit="contain"
+                alt=""
+              />
+            </Center>
+          </Container>
+        </Grid.Col>
+        <Grid.Col span={6}>
+
+        <Flex align="center" justify="center" gap="md">
         <Text
           style={{
             fontFamily: "Courier New",
@@ -69,35 +104,9 @@ export default function HomepageContent() {
           CAM
         </Text>
       </Flex>
-
-      <Space h="md" />
-
-      <Text ta="center">Countdown to our ceremony!</Text>
-
-      <Center>
-        <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
-      </Center>
-
-      <Divider my="md" />
-
-      <Grid>
-        <Grid.Col span={6}>
-          <Container>
-            <Center>
-              <Image
-                radius="sm"
-                src="images/cam-and-laura.png"
-                h={400}
-                w="auto"
-                fit="contain"
-                alt=""
-              />
-            </Center>
-          </Container>
-        </Grid.Col>
-        <Grid.Col span={6}>
+      
           <Box>
-            <Text>
+            <Text style={{fontFamily: "Courier New"}}>
               Hey there! We&apos;re so excited to share this special journey
               with you. Right now, we&apos;ve got some high-level details up and
               running, but stay tuned—we&apos;ll be updating with more juicy
@@ -106,7 +115,7 @@ export default function HomepageContent() {
 
             <Space h="md" />
 
-            <Text>
+            <Text style={{fontFamily: "Courier New"}}>
               In the meantime, feel free to explore the navbar to find all you
               need to know about the event, accommodation, and those burning
               questions you might have in the FAQs.
@@ -114,7 +123,7 @@ export default function HomepageContent() {
 
             <Space h="md" />
 
-            <Text>
+            <Text style={{fontFamily: "Courier New"}}>
               Thanks for stopping by, and we can&apos;t wait to celebrate with
               you!
             </Text>
