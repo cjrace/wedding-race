@@ -34,4 +34,5 @@
   -webkit-user-select: text;
   user-select: text;
   margin-bottom: 20px;
+  z-index: 1000; /* Ensure the skip link appears on top of other elements */
 }
