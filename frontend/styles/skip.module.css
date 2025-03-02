@@ -1,10 +1,10 @@
 .skiplink {
-  background-color: #e8590c;
+  background-color: #f9aa8e;
   color: #000000;
   position: absolute;
-  width: 1px;
+  width: 100%;
   height: 1px;
-  margin: 100px;
+  margin: 0;
   overflow: hidden;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -19,11 +19,11 @@
   line-height: 1.1428571429;
   display: block;
   padding: 10px 15px;
+  left: 0;
 }
 
 .skiplink:focus {
-  position: static;
-  width: auto;
+  width: 100%;
   height: auto;
   margin: inherit;
   overflow: visible;
@@ -34,4 +34,6 @@
   -webkit-user-select: text;
   user-select: text;
   margin-bottom: 20px;
+  z-index: 9999;
+  left: 0;
 }

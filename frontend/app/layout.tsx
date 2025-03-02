@@ -4,12 +4,14 @@ import {
   MantineProvider,
   ColorSchemeScript,
   mantineHtmlProps,
+  Anchor,
 } from "@mantine/core";
 import { theme } from "../theme";
 import Navbar from "../components/navbar";
 import "../styles/global.css";
 import { Metadata } from "next";
 import BackToTop from "@/components/backtotop";
+import skip from "@/styles/skip.module.css";
 
 export const metadata: Metadata = {
   title: {
@@ -39,6 +41,9 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
+          <Anchor className={skip.skiplink} href="#main">
+            Skip to main content
+          </Anchor>
           <Navbar>
             <main id="main">{children}</main>
           </Navbar>

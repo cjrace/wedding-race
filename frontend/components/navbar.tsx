@@ -2,18 +2,10 @@
 
 import "@mantine/core/styles.css";
 import React from "react";
-import {
-  AppShell,
-  Burger,
-  Text,
-  Group,
-  UnstyledButton,
-  Anchor,
-} from "@mantine/core";
+import { AppShell, Burger, Text, Group, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import GitButton from "./gitbutton";
 import classes from "../styles/navbar.module.css";
-import skip from "@/styles/skip.module.css";
 
 export const pages = ["Home", "Accommodation", "Timeline", "FAQs"];
 
@@ -35,9 +27,6 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <Anchor className={skip.skip} href="#main">
-        Skip to main content
-      </Anchor>
       <AppShell
         header={{
           height: { base: 60, xs: 60, sm: 100 },
@@ -49,7 +38,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
         }}
         padding="md"
       >
-        <AppShell.Header>
+        <AppShell.Header zIndex={1}>
           <Group h="100%" px="md">
             <Group
               gap="md"
@@ -70,7 +59,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
             <Group justify="center" style={{ flex: 1 }}>
               <Group ml="xl" gap={0} visibleFrom="xs">
                 {renderPages()}
-                <GitButton data-testid="git-button-burger" />
+                <GitButton testId="github-button-nav" />
               </Group>
             </Group>
           </Group>
@@ -84,7 +73,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
           >
             <Group align="center" justify="center">
               {renderPages()}
-              <GitButton data-testid="git-button-nav" />
+              <GitButton testId="github-button-burger" />
             </Group>
           </Group>
         </AppShell.Navbar>
