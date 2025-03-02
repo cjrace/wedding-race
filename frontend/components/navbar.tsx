@@ -2,10 +2,18 @@
 
 import "@mantine/core/styles.css";
 import React from "react";
-import { AppShell, Burger, Text, Group, UnstyledButton } from "@mantine/core";
+import {
+  AppShell,
+  Burger,
+  Text,
+  Group,
+  UnstyledButton,
+  Anchor,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import GitButton from "./gitbutton";
 import classes from "../styles/navbar.module.css";
+import skip from "@/styles/skip.module.css";
 
 export const pages = ["Home", "Accommodation", "Timeline", "FAQs"];
 
@@ -27,6 +35,9 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <Anchor className={skip.skip} href="#main">
+        Skip to main content
+      </Anchor>
       <AppShell
         header={{
           height: { base: 60, xs: 60, sm: 100 },
@@ -59,7 +70,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
             <Group justify="center" style={{ flex: 1 }}>
               <Group ml="xl" gap={0} visibleFrom="xs">
                 {renderPages()}
-                <GitButton testId="github-button-nav" />
+                <GitButton data-testid="git-button-burger" />
               </Group>
             </Group>
           </Group>
@@ -73,7 +84,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
           >
             <Group align="center" justify="center">
               {renderPages()}
-              <GitButton testId="github-button-burger" />
+              <GitButton data-testid="git-button-nav" />
             </Group>
           </Group>
         </AppShell.Navbar>
