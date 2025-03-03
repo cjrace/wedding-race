@@ -3,8 +3,10 @@ import HomepageContent from "./_homepageContent";
 
 export default function HomePage() {
   return (
-    <>    
-      <Container style={{ width: "100%", padding: 0, margin: 0, maxWidth: "100%" }}>
+    <>
+      <Container
+        style={{ width: "100%", padding: 0, margin: 0, maxWidth: "100%" }}
+      >
         <Image
           radius="sm"
           src="images/tipi-outside-arty-overlay.svg"

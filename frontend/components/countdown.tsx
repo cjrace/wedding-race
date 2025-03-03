@@ -1,6 +1,5 @@
 "use client";
 
-import { Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 
 interface CountdownProps {
@@ -48,27 +47,68 @@ const Countdown: React.FC<CountdownProps> = ({ date }) => {
   return (
     <div suppressHydrationWarning={true}>
       {(() => {
-        const { days, hours, minutes, seconds } = calculateTimeRemaining(remainingTime);
+        const { days, hours, minutes, seconds } =
+          calculateTimeRemaining(remainingTime);
         return (
           <>
             {days === 0 && hours === 0 && minutes === 0 && seconds === 0 ? (
-              <div>It's party time!</div>
+              <div>It&apos;s party time!</div>
             ) : (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', textAlign: 'center', fontFamily: "Courier New", fontWeight: 'bold', gap: '10px', border: '2px solid #F9AA8E', padding: '10px', borderRadius: '10px' }}>
-                <div style={{ backgroundColor: '#ffd7d3', color: '#242424', padding: '10px', borderRadius: '10px'  }}>
-                  <div style={{ fontSize: '2rem' }}>{days}</div>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(4, 1fr)",
+                  textAlign: "center",
+                  fontFamily: "Courier New",
+                  fontWeight: "bold",
+                  gap: "10px",
+                  border: "2px solid #F9AA8E",
+                  padding: "10px",
+                  borderRadius: "10px",
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: "#ffd7d3",
+                    color: "#242424",
+                    padding: "10px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <div style={{ fontSize: "2rem" }}>{days}</div>
                   <div>days</div>
                 </div>
-                <div style={{ backgroundColor: '#ffd7d3', color: '#242424', padding: '10px', borderRadius: '10px'  }}>
-                  <div style={{ fontSize: '2rem' }}>{hours}</div>
+                <div
+                  style={{
+                    backgroundColor: "#ffd7d3",
+                    color: "#242424",
+                    padding: "10px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <div style={{ fontSize: "2rem" }}>{hours}</div>
                   <div>hours</div>
                 </div>
-                <div style={{ backgroundColor: '#ffd7d3', color: '#242424', padding: '10px', borderRadius: '10px'  }}>
-                  <div style={{ fontSize: '2rem' }}>{minutes}</div>
+                <div
+                  style={{
+                    backgroundColor: "#ffd7d3",
+                    color: "#242424",
+                    padding: "10px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <div style={{ fontSize: "2rem" }}>{minutes}</div>
                   <div>minutes</div>
                 </div>
-                <div style={{ backgroundColor: '#ffd7d3', color: '#242424', padding: '10px', borderRadius: '10px'   }}>
-                  <div style={{ fontSize: '2rem' }}>{seconds}</div>
+                <div
+                  style={{
+                    backgroundColor: "#ffd7d3",
+                    color: "#242424",
+                    padding: "10px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <div style={{ fontSize: "2rem" }}>{seconds}</div>
                   <div>seconds</div>
                 </div>
               </div>
