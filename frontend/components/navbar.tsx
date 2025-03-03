@@ -33,7 +33,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
         }}
         navbar={{
           width: 300,
-          breakpoint: "xs",
+          breakpoint: "sm",
           collapsed: { desktop: true, mobile: !opened },
         }}
         padding="md"
@@ -44,7 +44,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
               gap="md"
               justify="space-between"
               style={{ width: "100%", height: "60px" }}
-              hiddenFrom="xs"
+              hiddenFrom="sm"
             >
               <Text style={{ textAlign: "center", fontWeight: 500, flex: 1 }}>
                 Wedding Race
@@ -57,7 +57,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
               />
             </Group>
             <Group justify="center" style={{ flex: 1 }}>
-              <Group ml="xl" gap={0} visibleFrom="xs">
+              <Group ml="xl" gap={0} visibleFrom="sm">
                 {renderPages()}
                 <GitButton testId="github-button-nav" />
               </Group>
