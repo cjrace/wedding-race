@@ -47,7 +47,7 @@ export default function HomepageContent() {
       <Divider my="md" />
 
       <Grid>
-        <Grid.Col span={5}>
+        <Grid.Col span={{ base: 12, md: 5 }}>
           <Container>
             <Center>
               <Image
@@ -60,8 +60,13 @@ export default function HomepageContent() {
             </Center>
           </Container>
         </Grid.Col>
-        <Grid.Col span={7}>
-          <Flex align="center" justify="center" gap="md">
+        <Grid.Col span={{ base: 12, md: 7 }}>
+          <Flex
+            align="center"
+            justify="center"
+            gap="md"
+            direction={{ base: "column", md: "row" }}
+          >
             <Text
               style={{
                 fontFamily: "Courier New",
@@ -128,7 +133,7 @@ export default function HomepageContent() {
       <Space h="md" />
 
       <Grid>
-        <Grid.Col span={4}>
+        <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
             imagePath="images/village.png"
             title="Accommodation"
@@ -136,7 +141,7 @@ export default function HomepageContent() {
             link="/accommodation"
           />
         </Grid.Col>
-        <Grid.Col span={4}>
+        <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
             imagePath="images/breakfast-tables.png"
             title="Timeline"
@@ -144,7 +149,7 @@ export default function HomepageContent() {
             link="/timeline"
           />
         </Grid.Col>
-        <Grid.Col span={4}>
+        <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
             imagePath="images/faq.png"
             title="FAQs"
