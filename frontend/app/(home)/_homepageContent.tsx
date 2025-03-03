@@ -40,7 +40,6 @@ export default function HomepageContent() {
 
   return (
     <>
-      
       <Center>
         <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
       </Center>
@@ -62,41 +61,42 @@ export default function HomepageContent() {
           </Container>
         </Grid.Col>
         <Grid.Col span={7}>
+          <Flex align="center" justify="center" gap="md">
+            <Text
+              style={{
+                fontFamily: "Courier New",
+                fontSize: "4rem",
+                color: "#F9AA8E",
+              }}
+            >
+              LAURA
+            </Text>
+            <Text
+              style={{
+                fontFamily: "Courier New",
+                fontSize: "2rem",
+                color: "#FFD9D9",
+              }}
+            >
+              and
+            </Text>
+            <Text
+              style={{
+                fontFamily: "Courier New",
+                fontSize: "4rem",
+                color: "#F9AA8E",
+              }}
+            >
+              CAM
+            </Text>
+          </Flex>
 
-        <Flex align="center" justify="center" gap="md">
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "4rem",
-            color: "#F9AA8E",
-          }}
-        >
-          LAURA
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "2rem",
-            color: "#FFD9D9",
-          }}
-        >
-          and
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "4rem",
-            color: "#F9AA8E",
-          }}
-        >
-          CAM
-        </Text>
-      </Flex>
+          <Space h="md" />
 
-      <Space h="md" />
-      
           <Box>
-            <Text style={{fontFamily: "Courier New", padding: '0 30px 0 30px'}}>
+            <Text
+              style={{ fontFamily: "Courier New", padding: "0 30px 0 30px" }}
+            >
               Hey there! We&apos;re so excited to share this special journey
               with you. Right now, we&apos;ve got some high-level details up and
               running, but stay tuned—we&apos;ll be updating with more juicy
@@ -105,7 +105,9 @@ export default function HomepageContent() {
 
             <Space h="md" />
 
-            <Text style={{fontFamily: "Courier New", padding:'0 30px 0 30px'}}>
+            <Text
+              style={{ fontFamily: "Courier New", padding: "0 30px 0 30px" }}
+            >
               In the meantime, feel free to explore the navbar to find all you
               need to know about the event, accommodation, and those burning
               questions you might have in the FAQs.
@@ -113,7 +115,9 @@ export default function HomepageContent() {
 
             <Space h="md" />
 
-            <Text style={{fontFamily: "Courier New", padding:'0 30px 0 30px'}}>
+            <Text
+              style={{ fontFamily: "Courier New", padding: "0 30px 0 30px" }}
+            >
               Thanks for stopping by, and we can&apos;t wait to celebrate with
               you!
             </Text>
