@@ -1,4 +1,4 @@
-import { MantineThemeOverride, MantineColorsTuple } from "@mantine/core";
+import { MantineThemeOverride, MantineColorsTuple, Title } from "@mantine/core";
 
 // This is generated from https://mantine.dev/colors-generator/?color=F9AA8E
 const myColor: MantineColorsTuple = [
@@ -19,12 +19,12 @@ const theme: MantineThemeOverride = {
   colors: {
     myColor,
   },
+  headings: {
+},
   components: {
     Text: {
       styles: {
         root: {
-          fontFamily: "Courier New, sans-serif",
-          headings: { fontFamily: "Greycliff CF, sans-serif" },
           padding: "0 20px 0 20px",
         },
       },
@@ -32,7 +32,6 @@ const theme: MantineThemeOverride = {
     List: {
       styles: {
         item: {
-          fontFamily: "Courier New, sans-serif",
           padding: "0 20px 0 20px",
         },
       },
