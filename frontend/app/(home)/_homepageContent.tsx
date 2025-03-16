@@ -10,6 +10,7 @@ import {
   Center,
   Image,
   Flex,
+  Anchor,
 } from "@mantine/core";
 import PageCard from "@/components/pagecard";
 import Countdown from "@/components/countdown";
@@ -66,30 +67,31 @@ export default function HomepageContent() {
             justify="center"
             gap="md"
             direction={{ base: "column", md: "row" }}
+            style={{ margin: "0" }}
           >
             <Text
               style={{
-                fontFamily: "Courier New",
                 fontSize: "4rem",
                 color: "#F9AA8E",
+                padding: "0"
               }}
             >
               LAURA
             </Text>
             <Text
               style={{
-                fontFamily: "Courier New",
                 fontSize: "2rem",
                 color: "#FFD9D9",
+                padding: "0"
               }}
             >
               and
             </Text>
             <Text
               style={{
-                fontFamily: "Courier New",
                 fontSize: "4rem",
                 color: "#F9AA8E",
+                padding: "0"
               }}
             >
               CAM
@@ -99,20 +101,16 @@ export default function HomepageContent() {
           <Space h="md" />
 
           <Box>
-            <Text
-              style={{ fontFamily: "Courier New", padding: "0 30px 0 30px" }}
-            >
+            <Text>
               Hey there! We&apos;re so excited to share this special journey
               with you. Right now, we&apos;ve got some high-level details up and
-              running, but stay tuned—we&apos;ll be updating with more juicy
+              running, but stay tuned as we&apos;ll be updating with more juicy
               info as the big day approaches.
             </Text>
 
             <Space h="md" />
 
-            <Text
-              style={{ fontFamily: "Courier New", padding: "0 30px 0 30px" }}
-            >
+            <Text>
               In the meantime, feel free to explore the navbar to find all you
               need to know about the event, accommodation, and those burning
               questions you might have in the FAQs.
@@ -120,11 +118,22 @@ export default function HomepageContent() {
 
             <Space h="md" />
 
-            <Text
-              style={{ fontFamily: "Courier New", padding: "0 30px 0 30px" }}
-            >
+            <Text>
               Thanks for stopping by, and we can&apos;t wait to celebrate with
               you!
+            </Text>
+
+            <Space h="md" />
+
+            <Text>
+              We built this website ourselves, feel free to check out the<Anchor
+                href="https://github.com/cjrace/wedding-race"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: "0 0 0 8px", // force the anchor to match text spacing
+                  }}
+              >source code on GitHub</Anchor>.
             </Text>
           </Box>
         </Grid.Col>
