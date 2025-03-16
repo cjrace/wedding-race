@@ -1,4 +1,4 @@
-import { MantineThemeOverride, MantineColorsTuple, Title } from "@mantine/core";
+import { MantineThemeOverride, MantineColorsTuple } from "@mantine/core";
 
 // This is generated from https://mantine.dev/colors-generator/?color=F9AA8E
 const myColor: MantineColorsTuple = [
@@ -32,6 +32,13 @@ const theme: MantineThemeOverride = {
       styles: {
         root: {
           padding: "10px 30px",
+        },
+      },
+    },
+    Anchor: {
+      styles: {
+        root: {
+          color: myColor[2],
         },
       },
     },
