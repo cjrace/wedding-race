@@ -76,10 +76,10 @@ export default function AccommodationContent() {
           </Text>
           <Space h="sm" />
 
-<Text>
-  Pod options include twin, double, family and en-suite pods, some
-  family pods can sleep 3 adults if needed.
-</Text>
+          <Text>
+            Pod options include twin, double, family and en-suite pods, some
+            family pods can sleep 3 adults if needed.
+          </Text>
           <Space h="sm" />
 
           <Text>
@@ -97,9 +97,10 @@ export default function AccommodationContent() {
           <Space h="sm" />
 
           <Text>
-            There is free parking available for those staying in pods (let us know in advance if 
-            you have multiple cars) and there&apos;ll be plenty of food (breakfast
-            included!) and drinks provided during your stay.
+            There is free parking available for those staying in pods (let us
+            know in advance if you have multiple cars) and there&apos;ll be
+            plenty of food (breakfast included!) and drinks provided during your
+            stay.
           </Text>
 
           <Space h="sm" />
@@ -149,7 +150,7 @@ export default function AccommodationContent() {
             If you&apos;d prefer one of the cottage rooms, let us know.
           </Text>
         </Grid.Col>
-        
+
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Image
             radius="sm"
@@ -176,10 +177,10 @@ export default function AccommodationContent() {
       </Text>
 
       <Space h="sm" />
-      
+
       <Text>
-      Any taxis will need to be pre-booked, we&apos;ll share
-      recommended companies nearer the time.
+        Any taxis will need to be pre-booked, we&apos;ll share recommended
+        companies nearer the time.
       </Text>
 
       <Space h="xl" />
