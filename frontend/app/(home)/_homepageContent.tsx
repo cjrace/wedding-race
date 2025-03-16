@@ -64,7 +64,7 @@ export default function HomepageContent() {
             justify="center"
             gap="md"
             direction={{ base: "column", md: "row" }}
-            style={{ margin: "0" }}
+            style={{ margin: "15px 0", fontFamily: "Courier New"}}
           >
             <Text
               style={{
@@ -95,8 +95,6 @@ export default function HomepageContent() {
             </Text>
           </Flex>
 
-          <Space h="md" />
-
           <Box>
             <Text>
               Hey there! We&apos;re so excited to share this special journey
@@ -105,22 +103,16 @@ export default function HomepageContent() {
               info as the big day approaches.
             </Text>
 
-            <Space h="md" />
-
             <Text>
               In the meantime, feel free to explore the navbar to find all you
               need to know about the event, accommodation, and those burning
               questions you might have in the FAQs.
             </Text>
 
-            <Space h="md" />
-
             <Text>
               Thanks for stopping by, and we can&apos;t wait to celebrate with
               you!
             </Text>
-
-            <Space h="md" />
 
             <Text>
               We built this website ourselves, feel free to check out the
@@ -129,7 +121,7 @@ export default function HomepageContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  padding: "0 0 0 8px", // force the anchor to match text spacing
+                  padding: "0 0 0 4px", // force the anchor to match text spacing
                 }}
               >
                 source code on GitHub
@@ -140,7 +132,7 @@ export default function HomepageContent() {
         </Grid.Col>
       </Grid>
 
-      <Space h="md" />
+      <Divider my="md" />
 
       <Grid>
         <Grid.Col span={{ base: 12, md: 4 }}>

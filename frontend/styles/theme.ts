@@ -19,23 +19,22 @@ const theme: MantineThemeOverride = {
   colors: {
     myColor,
   },
-  headings: {
-},
+  headings: {},
   components: {
     Text: {
       styles: {
         root: {
-          padding: "0 20px 0 20px",
+          padding: "10px 30px",
         },
       },
     },
-    List: {
+    Title: {
       styles: {
-        item: {
-          padding: "0 20px 0 20px",
+        root: {
+          padding: "10px 30px",
         },
       },
-    },
+    }
   },
 };
 
