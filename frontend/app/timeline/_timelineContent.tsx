@@ -12,7 +12,17 @@ import {
   Overlay,
   Box,
 } from "@mantine/core";
-import { IconHeart, IconPencilQuestion, IconHomeMove, IconBalloon, IconCoffee, IconTent, IconGlassChampagne, IconMoonStars, IconClockHeart } from "@tabler/icons-react";
+import {
+  IconHeart,
+  IconPencilQuestion,
+  IconHomeMove,
+  IconBalloon,
+  IconCoffee,
+  IconTent,
+  IconGlassChampagne,
+  IconMoonStars,
+  IconClockHeart,
+} from "@tabler/icons-react";
 import { useState } from "react";
 
 export default function TimelineContent() {
@@ -94,9 +104,7 @@ export default function TimelineContent() {
               </Text>
             </Timeline.Item>
 
-            <Timeline.Item 
-              title="8pm - Quiz" 
-              bullet={<IconPencilQuestion />}>
+            <Timeline.Item title="8pm - Quiz" bullet={<IconPencilQuestion />}>
               <Text c="dimmed" size="sm">
                 Who doesn&apos;t love a quiz?
               </Text>
@@ -148,9 +156,10 @@ export default function TimelineContent() {
               </Text>
             </Timeline.Item>
 
-            <Timeline.Item 
-              title="1pm - It's our wedding!" 
-              bullet={<IconHeart />}>
+            <Timeline.Item
+              title="1pm - It's our wedding!"
+              bullet={<IconHeart />}
+            >
               <Text c="dimmed" size="sm">
                 We don&apos;t want to give away all the surprises... Though you
                 can expect the usual things, we&apos;ll feed you, there&apos;ll
@@ -186,9 +195,7 @@ export default function TimelineContent() {
               </Text>
             </Timeline.Item>
 
-            <Timeline.Item 
-              title="11am - Check out" 
-              bullet={<IconHomeMove />}>
+            <Timeline.Item title="11am - Check out" bullet={<IconHomeMove />}>
               <Text c="dimmed" size="sm">
                 For anyone staying onsite check out is at 11am
               </Text>
@@ -264,9 +271,8 @@ export default function TimelineContent() {
                   }}
                 >
                   <Text>
-                    The pods all have plenty of space but for
-                    something more sociable you can get ready together in the
-                    makeup hut!
+                    The pods all have plenty of space but for something more
+                    sociable you can get ready together in the makeup hut!
                   </Text>
                 </Box>
               </Overlay>
