@@ -11,6 +11,7 @@ import {
   Card,
   Overlay,
   Box,
+  Divider,
 } from "@mantine/core";
 import {
   IconHeart,
@@ -23,23 +24,9 @@ import {
   IconMoonStars,
   IconClockHeart,
 } from "@tabler/icons-react";
-import { useState } from "react";
+import OverlayCard from "@/components/overlaycard";
 
 export default function TimelineContent() {
-  type OverlayKey = "pizzaOven" | "breakfastShack" | "getReadyHut";
-
-  const [overlayVisible, setOverlayVisible] = useState<{
-    [key in OverlayKey]: boolean;
-  }>({
-    pizzaOven: false,
-    breakfastShack: false,
-    getReadyHut: false,
-  });
-
-  const handleOverlayToggle = (key: OverlayKey) => {
-    setOverlayVisible((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
   return (
     <>
       <Text>
@@ -59,11 +46,13 @@ export default function TimelineContent() {
         it&apos;s still ages away so we may add or change stuff as we go...
       </Text>
 
-      <Space h="lg" />
+      <Divider my="lg" />
 
-      <Grid>
-        <Grid.Col span={4}>
-          <Title order={2}>Day 1</Title>
+      <Grid style={{ padding: "0 30px" }}>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Title order={2} style={{ padding: "10px 0" }}>
+            Day 1
+          </Title>
           <Space h="md" />
 
           <Timeline bulletSize={30}>
@@ -73,7 +62,7 @@ export default function TimelineContent() {
             >
               <Text c="dimmed" size="sm">
                 Wedding party only, we&apos;ll do a quick run through and make
-                sure everyone knows what they&apos;re doing
+                sure everyone knows what they&apos;re doing.
               </Text>
             </Timeline.Item>
 
@@ -82,22 +71,18 @@ export default function TimelineContent() {
               bullet={<IconTent />}
             >
               <Text c="dimmed" size="sm">
-                Anyone staying onsite for both nights can check in from 4pm
+                Anyone staying onsite the night before can check in from 4pm.
               </Text>
             </Timeline.Item>
 
             <Timeline.Item
-              title="5pm - Pre-wedding festivities begin"
+              title="5pm - Festivities begin"
               bullet={<IconBalloon />}
             >
               <Text c="dimmed" size="sm">
-                Pre-wedding festivities start at the village, including:
+                Pre-wedding festivities start at the village, including music
+                and games, homemade pizzas and plenty of drinks.
               </Text>
-              <List c="dimmed" size="sm">
-                <List.Item>Music and games</List.Item>
-                <List.Item>Food: homemade pizzas and other snacks</List.Item>
-                <List.Item>Plenty of drinks to keep us going</List.Item>
-              </List>
               <Text c="dimmed" size="sm">
                 Those not staying at the village are still welcome to join in,
                 you&apos;ll just need to leave by 10pm.
@@ -112,8 +97,10 @@ export default function TimelineContent() {
           </Timeline>
         </Grid.Col>
 
-        <Grid.Col span={4}>
-          <Title order={2}>Day 2</Title>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Title order={2} style={{ padding: "10px 0" }}>
+            Day 2
+          </Title>
           <Space h="md" />
 
           <Timeline bulletSize={30}>
@@ -123,7 +110,7 @@ export default function TimelineContent() {
             >
               <Text c="dimmed" size="sm">
                 Self-serve breakfast will be available for guests staying at the
-                wedding village
+                wedding village.
               </Text>
             </Timeline.Item>
 
@@ -133,7 +120,7 @@ export default function TimelineContent() {
             >
               <Text c="dimmed" size="sm">
                 Anyone staying onsite for just the one night can check in from
-                10am
+                10am.
               </Text>
             </Timeline.Item>
 
@@ -142,16 +129,16 @@ export default function TimelineContent() {
               bullet={<IconGlassChampagne />}
             >
               <Text c="dimmed" size="sm">
-                Celebrate with other guests, help yourself to a mimosa
+                Celebrate with other guests, help yourself to a mimosa.
               </Text>
             </Timeline.Item>
 
             <Timeline.Item
-              title="12:45pm - Guests seated ahead of ceremony"
+              title="12:45pm - Guests seated"
               bullet={<IconClockHeart />}
             >
               <Text c="dimmed" size="sm">
-                Whether already onsite or travelling from further afield, get
+                Whether already on site or travelling from further afield, get
                 yourself seated ahead of our ceremony starting at 1pm!
               </Text>
             </Timeline.Item>
@@ -168,20 +155,23 @@ export default function TimelineContent() {
             </Timeline.Item>
 
             <Timeline.Item
-              title="12am - Hometime / retire to village"
+              title="12am - Retire to village"
               bullet={<IconMoonStars />}
             >
               <Text c="dimmed" size="sm">
-                Our wedding day is over, but for anyone staying in the village
-                (who isn&apos;t heading straight to bed) the afterparty starts
-                now!
+                Our wedding day is over, and it&apos;s time for carriages for
+                anyone staying off-site, but for those staying in the village
+                they can either head straight to bed or continue the
+                celebrations by the firepits.
               </Text>
             </Timeline.Item>
           </Timeline>
         </Grid.Col>
 
-        <Grid.Col span={4}>
-          <Title order={2}>Day 3</Title>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Title order={2} style={{ padding: "10px 0" }}>
+            Day 3
+          </Title>
           <Space h="md" />
 
           <Timeline bulletSize={30}>
@@ -191,130 +181,45 @@ export default function TimelineContent() {
             >
               <Text c="dimmed" size="sm">
                 Self-serve breakfast will be available for guests staying at the
-                wedding village
+                wedding village.
               </Text>
             </Timeline.Item>
 
             <Timeline.Item title="11am - Check out" bullet={<IconHomeMove />}>
               <Text c="dimmed" size="sm">
-                For anyone staying onsite check out is at 11am
+                Checkout for anyone staying on site is at 11am.
               </Text>
             </Timeline.Item>
           </Timeline>
         </Grid.Col>
       </Grid>
 
+      <Divider my="lg" />
+
       <Grid>
-        <Grid.Col span={4}>
-          <Card
-            onClick={() => handleOverlayToggle("pizzaOven")}
-            shadow="sm"
-            p="lg"
-            style={{ position: "relative" }}
-          >
-            <Image
-              radius="sm"
-              src="images/pizza-oven.png"
-              height="auto"
-              width="100%"
-              fit="contain"
-              alt=""
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            {overlayVisible.pizzaOven && (
-              <Overlay color="rgba(0, 0, 0, 0.6)" opacity={1} zIndex={5}>
-                <Box
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                >
-                  <Text>
-                    At the pre-wedding village party we&apos;ll be serving
-                    freshly made pizzas from our oven, hot and delicious!
-                  </Text>
-                </Box>
-              </Overlay>
-            )}
-          </Card>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <OverlayCard
+            cardKey="pizzaOven"
+            imagePath="images/pizza-oven.png"
+            overlay="At the pre-wedding village party we'll be serving
+                    freshly made pizzas from our oven, hot and delicious!"
+          />
         </Grid.Col>
-        <Grid.Col span={4}>
-          <Card
-            onClick={() => handleOverlayToggle("breakfastShack")}
-            shadow="sm"
-            p="lg"
-            style={{ position: "relative" }}
-          >
-            <Image
-              radius="sm"
-              src="images/get-ready-hut.png"
-              height="auto"
-              width="100%"
-              fit="contain"
-              alt=""
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            {overlayVisible.breakfastShack && (
-              <Overlay color="rgba(0, 0, 0, 0.6)" opacity={1} zIndex={5}>
-                <Box
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                >
-                  <Text>
-                    The pods all have plenty of space but for something more
-                    sociable you can get ready together in the makeup hut!
-                  </Text>
-                </Box>
-              </Overlay>
-            )}
-          </Card>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <OverlayCard
+            cardKey="gettingReady"
+            imagePath="images/get-ready-hut.png"
+            overlay="The pods all have plenty of space but for something more
+                    sociable you can get ready together in the makeup hut!"
+          />
         </Grid.Col>
-        <Grid.Col span={4}>
-          <Card
-            onClick={() => handleOverlayToggle("getReadyHut")}
-            shadow="sm"
-            p="lg"
-            style={{ position: "relative" }}
-          >
-            <Image
-              radius="sm"
-              src="images/breakfast-shack.png"
-              height="auto"
-              width="100%"
-              fit="contain"
-              alt=""
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            {overlayVisible.getReadyHut && (
-              <Overlay color="rgba(0, 0, 0, 0.6)" opacity={1} zIndex={5}>
-                <Box
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                >
-                  <Text>
-                    Self-serve breakfast will be available for everyone staying
-                    at the wedding village.
-                  </Text>
-                </Box>
-              </Overlay>
-            )}
-          </Card>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <OverlayCard
+            cardKey="breakfastShack"
+            imagePath="images/breakfast-shack.png"
+            overlay="Self-serve breakfast will be available for everyone staying
+                    at the wedding village."
+          />
         </Grid.Col>
       </Grid>
     </>

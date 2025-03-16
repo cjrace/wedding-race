@@ -35,6 +35,7 @@ export default function AccommodationContent() {
 
         <Grid.Col span={{ base: 12, md: 5 }}>
           <iframe
+            aria-label="Google Maps widget showing location of venue"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2320.389598430681!2d-1.5355666!3d54.4384095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487e9965dd84ecd7%3A0xa447869f2ba26fb7!2sAlexander%20Weddings%20%26%20Events!5e0!3m2!1sen!2suk!4v1740190936834!5m2!1sen!2suk"
             height="auto"
             width="100%"

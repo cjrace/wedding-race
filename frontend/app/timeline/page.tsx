@@ -1,4 +1,4 @@
-import { Title, Text, Space } from "@mantine/core";
+import { Title } from "@mantine/core";
 import { Metadata } from "next";
 import TimelineContent from "./_timelineContent";
 
@@ -15,8 +15,6 @@ export default function TimelinePage() {
   return (
     <>
       <Title order={1}>Timeline</Title>
-
-      <Space h="lg" />
 
       <TimelineContent />
     </>

@@ -69,6 +69,7 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
           </Group>
         </AppShell.Header>
 
+        {/* TODO: Issue here with links still being navigable by keyboard, even when hidden */}
         <AppShell.Navbar py="md">
           <Group
             align="center"
