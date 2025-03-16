@@ -1,7 +1,7 @@
 "use client";
 
 import { useWindowScroll } from "@mantine/hooks";
-import { Button, Transition, rem, Affix } from "@mantine/core";
+import { Button, Transition, rem, Affix, Text } from "@mantine/core";
 import { IconArrowUp } from "@tabler/icons-react";
 
 const BackToTop: React.FC = () => {
@@ -19,10 +19,8 @@ const BackToTop: React.FC = () => {
             }
             style={{ ...transitionStyles, color: "#242424" }}
             onClick={() => scrollTo({ y: 0 })}
-            // Gets obtrustive on mobile, so hiding on screens below 640px
-            hidden={window.innerWidth <= 640}
           >
-            Back to top
+            <Text style={{ padding: 0 }}>Back to top</Text>
           </Button>
         )}
       </Transition>

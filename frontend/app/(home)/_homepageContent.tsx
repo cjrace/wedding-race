@@ -49,17 +49,15 @@ export default function HomepageContent() {
 
       <Grid>
         <Grid.Col span={{ base: 12, md: 5 }}>
-          <Container>
-            <Center>
-              <Image
-                radius="sm"
-                src="images/cam-and-laura.png"
-                width="100%"
-                style={{ width: "100%", height: "auto" }}
-                alt=""
-              />
-            </Center>
-          </Container>
+          <Center>
+            <Image
+              radius="sm"
+              src="images/cam-and-laura.png"
+              width="100%"
+              style={{ width: "100%", height: "auto", margin: "20px 0" }}
+              alt=""
+            />
+          </Center>
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 7 }}>
           <Flex
@@ -73,7 +71,7 @@ export default function HomepageContent() {
               style={{
                 fontSize: "4rem",
                 color: "#F9AA8E",
-                padding: "0"
+                padding: "0",
               }}
             >
               LAURA
@@ -82,7 +80,7 @@ export default function HomepageContent() {
               style={{
                 fontSize: "2rem",
                 color: "#FFD9D9",
-                padding: "0"
+                padding: "0",
               }}
             >
               and
@@ -91,7 +89,7 @@ export default function HomepageContent() {
               style={{
                 fontSize: "4rem",
                 color: "#F9AA8E",
-                padding: "0"
+                padding: "0",
               }}
             >
               CAM
@@ -126,14 +124,18 @@ export default function HomepageContent() {
             <Space h="md" />
 
             <Text>
-              We built this website ourselves, feel free to check out the<Anchor
+              We built this website ourselves, feel free to check out the
+              <Anchor
                 href="https://github.com/cjrace/wedding-race"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
                   padding: "0 0 0 8px", // force the anchor to match text spacing
-                  }}
-              >source code on GitHub</Anchor>.
+                }}
+              >
+                source code on GitHub
+              </Anchor>
+              .
             </Text>
           </Box>
         </Grid.Col>
