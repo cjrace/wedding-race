@@ -4,12 +4,11 @@ import "@mantine/core/styles.css";
 import React from "react";
 import { AppShell, Burger, Text, Group, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import GitButton from "./gitbutton";
-import classes from "../styles/navbar.module.css";
+import classes from "../styles/pageshell.module.css";
 
 export const pages = ["Home", "Accommodation", "Timeline", "FAQs"];
 
-export default function Navbar({ children }: { children: React.ReactNode }) {
+export default function PageShell({ children }: { children: React.ReactNode }) {
   const [opened, { toggle }] = useDisclosure();
 
   const renderPages = () =>
@@ -59,7 +58,6 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
             <Group justify="center" style={{ flex: 1 }}>
               <Group ml="xl" gap={0} visibleFrom="sm">
                 {renderPages()}
-                <GitButton testId="github-button-nav" />
               </Group>
             </Group>
           </Group>
@@ -73,7 +71,6 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
           >
             <Group align="center" justify="center">
               {renderPages()}
-              <GitButton testId="github-button-burger" />
             </Group>
           </Group>
         </AppShell.Navbar>
