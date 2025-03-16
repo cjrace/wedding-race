@@ -12,7 +12,7 @@ import {
   Overlay,
   Box,
 } from "@mantine/core";
-import { IconSun } from "@tabler/icons-react";
+import { IconHeart, IconPencilQuestion, IconHomeMove, IconBalloon, IconCoffee, IconTent, IconGlassChampagne, IconMoonStars, IconClockHeart } from "@tabler/icons-react";
 import { useState } from "react";
 
 export default function TimelineContent() {
@@ -56,10 +56,10 @@ export default function TimelineContent() {
           <Title order={2}>Day 1</Title>
           <Space h="md" />
 
-          <Timeline bulletSize={25}>
+          <Timeline bulletSize={30}>
             <Timeline.Item
               title="3pm - Ceremony rehearsal"
-              bullet={<IconSun />}
+              bullet={<IconHeart />}
             >
               <Text c="dimmed" size="sm">
                 Wedding party only, we&apos;ll do a quick run through and make
@@ -69,7 +69,7 @@ export default function TimelineContent() {
 
             <Timeline.Item
               title="4pm - Onsite guest check in"
-              bullet={<IconSun />}
+              bullet={<IconTent />}
             >
               <Text c="dimmed" size="sm">
                 Anyone staying onsite for both nights can check in from 4pm
@@ -78,7 +78,7 @@ export default function TimelineContent() {
 
             <Timeline.Item
               title="5pm - Pre-wedding festivities begin"
-              bullet={<IconSun />}
+              bullet={<IconBalloon />}
             >
               <Text c="dimmed" size="sm">
                 Pre-wedding festivities start at the village, including:
@@ -94,7 +94,9 @@ export default function TimelineContent() {
               </Text>
             </Timeline.Item>
 
-            <Timeline.Item title="8pm - Quiz" bullet={<IconSun />}>
+            <Timeline.Item 
+              title="8pm - Quiz" 
+              bullet={<IconPencilQuestion />}>
               <Text c="dimmed" size="sm">
                 Who doesn&apos;t love a quiz?
               </Text>
@@ -106,10 +108,10 @@ export default function TimelineContent() {
           <Title order={2}>Day 2</Title>
           <Space h="md" />
 
-          <Timeline bulletSize={25}>
+          <Timeline bulletSize={30}>
             <Timeline.Item
               title="Morning - Village breakfast"
-              bullet={<IconSun />}
+              bullet={<IconCoffee />}
             >
               <Text c="dimmed" size="sm">
                 Self-serve breakfast will be available for guests staying at the
@@ -119,7 +121,7 @@ export default function TimelineContent() {
 
             <Timeline.Item
               title="10am - Onsite guest check in"
-              bullet={<IconSun />}
+              bullet={<IconTent />}
             >
               <Text c="dimmed" size="sm">
                 Anyone staying onsite for just the one night can check in from
@@ -129,7 +131,7 @@ export default function TimelineContent() {
 
             <Timeline.Item
               title="11:45am - Village mimosas"
-              bullet={<IconSun />}
+              bullet={<IconGlassChampagne />}
             >
               <Text c="dimmed" size="sm">
                 Celebrate with other guests, help yourself to a mimosa
@@ -138,7 +140,7 @@ export default function TimelineContent() {
 
             <Timeline.Item
               title="12:45pm - Guests seated ahead of ceremony"
-              bullet={<IconSun />}
+              bullet={<IconClockHeart />}
             >
               <Text c="dimmed" size="sm">
                 Whether already onsite or travelling from further afield, get
@@ -146,7 +148,9 @@ export default function TimelineContent() {
               </Text>
             </Timeline.Item>
 
-            <Timeline.Item title="1pm - It's our wedding!" bullet={<IconSun />}>
+            <Timeline.Item 
+              title="1pm - It's our wedding!" 
+              bullet={<IconHeart />}>
               <Text c="dimmed" size="sm">
                 We don&apos;t want to give away all the surprises... Though you
                 can expect the usual things, we&apos;ll feed you, there&apos;ll
@@ -156,7 +160,7 @@ export default function TimelineContent() {
 
             <Timeline.Item
               title="12am - Hometime / retire to village"
-              bullet={<IconSun />}
+              bullet={<IconMoonStars />}
             >
               <Text c="dimmed" size="sm">
                 Our wedding day is over, but for anyone staying in the village
@@ -171,10 +175,10 @@ export default function TimelineContent() {
           <Title order={2}>Day 3</Title>
           <Space h="md" />
 
-          <Timeline>
+          <Timeline bulletSize={30}>
             <Timeline.Item
               title="Morning - Village breakfast"
-              bullet={<IconSun />}
+              bullet={<IconCoffee />}
             >
               <Text c="dimmed" size="sm">
                 Self-serve breakfast will be available for guests staying at the
@@ -182,7 +186,9 @@ export default function TimelineContent() {
               </Text>
             </Timeline.Item>
 
-            <Timeline.Item title="11am - Check out" bullet={<IconSun />}>
+            <Timeline.Item 
+              title="11am - Check out" 
+              bullet={<IconHomeMove />}>
               <Text c="dimmed" size="sm">
                 For anyone staying onsite check out is at 11am
               </Text>
