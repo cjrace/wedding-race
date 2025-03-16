@@ -244,7 +244,7 @@ export default function TimelineContent() {
           >
             <Image
               radius="sm"
-              src="images/breakfast-shack.png"
+              src="images/get-ready-hut.png"
               height="auto"
               width="100%"
               fit="contain"
@@ -264,8 +264,9 @@ export default function TimelineContent() {
                   }}
                 >
                   <Text>
-                    Self-serve breakfast will be available for everyone staying
-                    at the wedding village.
+                    The pods all have plenty of get ready space but for
+                    something more sociable guests can get ready together in the
+                    makeup hut, there&apos;ll be a bottle of fizz ready for you!
                   </Text>
                 </Box>
               </Overlay>
@@ -281,7 +282,7 @@ export default function TimelineContent() {
           >
             <Image
               radius="sm"
-              src="images/get-ready-hut.png"
+              src="images/breakfast-shack.png"
               height="auto"
               width="100%"
               fit="contain"
@@ -301,9 +302,8 @@ export default function TimelineContent() {
                   }}
                 >
                   <Text>
-                    The pods all have plenty of get ready space but for
-                    something more sociable guests can get ready together in the
-                    makeup hut, there&apos;ll be a bottle of fizz ready for you!
+                    Self-serve breakfast will be available for everyone staying
+                    at the wedding village.
                   </Text>
                 </Box>
               </Overlay>
