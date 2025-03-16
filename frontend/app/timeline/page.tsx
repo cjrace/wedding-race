@@ -16,8 +16,6 @@ export default function TimelinePage() {
     <>
       <Title order={1}>Timeline</Title>
 
-      <Space h="lg" />
-
       <TimelineContent />
     </>
   );

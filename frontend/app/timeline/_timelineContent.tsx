@@ -23,23 +23,9 @@ import {
   IconMoonStars,
   IconClockHeart,
 } from "@tabler/icons-react";
-import { useState } from "react";
+import OverlayCard from "@/components/overlaycard";
 
 export default function TimelineContent() {
-  type OverlayKey = "pizzaOven" | "breakfastShack" | "getReadyHut";
-
-  const [overlayVisible, setOverlayVisible] = useState<{
-    [key in OverlayKey]: boolean;
-  }>({
-    pizzaOven: false,
-    breakfastShack: false,
-    getReadyHut: false,
-  });
-
-  const handleOverlayToggle = (key: OverlayKey) => {
-    setOverlayVisible((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
   return (
     <>
       <Text>
@@ -61,9 +47,11 @@ export default function TimelineContent() {
 
       <Space h="lg" />
 
-      <Grid>
-        <Grid.Col span={4}>
-          <Title order={2}>Day 1</Title>
+      <Grid style={{ padding: "0 30px" }}>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Title order={2} style={{ padding: "10px 0" }}>
+            Day 1
+          </Title>
           <Space h="md" />
 
           <Timeline bulletSize={30}>
@@ -112,8 +100,10 @@ export default function TimelineContent() {
           </Timeline>
         </Grid.Col>
 
-        <Grid.Col span={4}>
-          <Title order={2}>Day 2</Title>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Title order={2} style={{ padding: "10px 0" }}>
+            Day 2
+          </Title>
           <Space h="md" />
 
           <Timeline bulletSize={30}>
@@ -180,8 +170,10 @@ export default function TimelineContent() {
           </Timeline>
         </Grid.Col>
 
-        <Grid.Col span={4}>
-          <Title order={2}>Day 3</Title>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Title order={2} style={{ padding: "10px 0" }}>
+            Day 3
+          </Title>
           <Space h="md" />
 
           <Timeline bulletSize={30}>
@@ -206,115 +198,28 @@ export default function TimelineContent() {
 
       <Grid>
         <Grid.Col span={4}>
-          <Card
-            onClick={() => handleOverlayToggle("pizzaOven")}
-            shadow="sm"
-            p="lg"
-            style={{ position: "relative" }}
-          >
-            <Image
-              radius="sm"
-              src="images/pizza-oven.png"
-              height="auto"
-              width="100%"
-              fit="contain"
-              alt=""
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            {overlayVisible.pizzaOven && (
-              <Overlay color="rgba(0, 0, 0, 0.6)" opacity={1} zIndex={5}>
-                <Box
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                >
-                  <Text>
-                    At the pre-wedding village party we&apos;ll be serving
-                    freshly made pizzas from our oven, hot and delicious!
-                  </Text>
-                </Box>
-              </Overlay>
-            )}
-          </Card>
+          <OverlayCard
+            cardKey="pizzaOven"
+            imagePath="images/pizza-oven.png"
+            overlay="At the pre-wedding village party we'll be serving
+                    freshly made pizzas from our oven, hot and delicious!"
+          />
         </Grid.Col>
         <Grid.Col span={4}>
-          <Card
-            onClick={() => handleOverlayToggle("breakfastShack")}
-            shadow="sm"
-            p="lg"
-            style={{ position: "relative" }}
-          >
-            <Image
-              radius="sm"
-              src="images/get-ready-hut.png"
-              height="auto"
-              width="100%"
-              fit="contain"
-              alt=""
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            {overlayVisible.breakfastShack && (
-              <Overlay color="rgba(0, 0, 0, 0.6)" opacity={1} zIndex={5}>
-                <Box
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                >
-                  <Text>
-                    The pods all have plenty of space but for something more
-                    sociable you can get ready together in the makeup hut!
-                  </Text>
-                </Box>
-              </Overlay>
-            )}
-          </Card>
+          <OverlayCard
+            cardKey="breakfastShack"
+            imagePath="images/breakfast-shack.png"
+            overlay="The pods all have plenty of space but for something more
+                    sociable you can get ready together in the makeup hut!"
+          />
         </Grid.Col>
         <Grid.Col span={4}>
-          <Card
-            onClick={() => handleOverlayToggle("getReadyHut")}
-            shadow="sm"
-            p="lg"
-            style={{ position: "relative" }}
-          >
-            <Image
-              radius="sm"
-              src="images/breakfast-shack.png"
-              height="auto"
-              width="100%"
-              fit="contain"
-              alt=""
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            {overlayVisible.getReadyHut && (
-              <Overlay color="rgba(0, 0, 0, 0.6)" opacity={1} zIndex={5}>
-                <Box
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                >
-                  <Text>
-                    Self-serve breakfast will be available for everyone staying
-                    at the wedding village.
-                  </Text>
-                </Box>
-              </Overlay>
-            )}
-          </Card>
+          <OverlayCard
+            cardKey="breakfastShack"
+            imagePath="images/get-ready-hut.png"
+            overlay="Self-serve breakfast will be available for everyone staying
+                    at the wedding village."
+          />
         </Grid.Col>
       </Grid>
     </>
