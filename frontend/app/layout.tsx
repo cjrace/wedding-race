@@ -52,7 +52,7 @@ export default function RootLayout({
             Skip to main content
           </Anchor>
           <PageShell>
-            <main id="main">{children}</main>
+            <div id="main">{children}</div>
           </PageShell>
           <BackToTop />
         </MantineProvider>
