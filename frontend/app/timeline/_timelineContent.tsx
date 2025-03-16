@@ -264,9 +264,9 @@ export default function TimelineContent() {
                   }}
                 >
                   <Text>
-                    The pods all have plenty of get ready space but for
-                    something more sociable guests can get ready together in the
-                    makeup hut, there&apos;ll be a bottle of fizz ready for you!
+                    The pods all have plenty of space but for
+                    something more sociable you can get ready together in the
+                    makeup hut!
                   </Text>
                 </Box>
               </Overlay>
