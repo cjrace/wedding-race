@@ -23,8 +23,9 @@ const theme: MantineThemeOverride = {
     Text: {
       styles: {
         root: {
-          fontFamily: "Courier New",
-          padding: "0 30px 0 30px",
+          fontFamily: "Courier New, sans-serif",
+          headings: { fontFamily: "Greycliff CF, sans-serif" },
+          padding: "0 20px 0 20px",
         },
       },
     },

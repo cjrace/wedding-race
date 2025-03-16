@@ -2,7 +2,14 @@
 
 import "@mantine/core/styles.css";
 import React from "react";
-import { AppShell, Burger, Text, Group, UnstyledButton } from "@mantine/core";
+import {
+  AppShell,
+  Burger,
+  Text,
+  Group,
+  UnstyledButton,
+  Title,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../styles/pageshell.module.css";
 
@@ -45,9 +52,17 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
               style={{ width: "100%", height: "60px" }}
               hiddenFrom="sm"
             >
-              <Text style={{ textAlign: "center", fontWeight: 500, flex: 1 }}>
+              <Title
+                style={{
+                  textAlign: "center",
+                  fontWeight: 500,
+                  flex: 1,
+                  fontSize: "1.5rem",
+                  padding: "0 0 0 50px",
+                }}
+              >
                 Wedding Race
-              </Text>
+              </Title>
               <Burger
                 opened={opened}
                 onClick={toggle}
