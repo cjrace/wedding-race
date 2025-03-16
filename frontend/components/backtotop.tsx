@@ -19,6 +19,8 @@ const BackToTop: React.FC = () => {
             }
             style={{ ...transitionStyles, color: "#242424" }}
             onClick={() => scrollTo({ y: 0 })}
+            // Gets obtrustive on mobile, so hiding on screens below 640px
+            hidden={window.innerWidth <= 640}
           >
             Back to top
           </Button>

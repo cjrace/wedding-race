@@ -11,10 +11,10 @@ Not just any old wedding race, but the wedding of Race! Currently a static site 
 
 There are two separate projcets in this repo, designed to be deployed as separate containers.
 
-- backend (Python - FastAPI)
 - frontend (React - Next.js)
+- backend (Python - FastAPI)
 
-You'll need to work through getting each service running in it's own right and then you'll be able to run everything together using `docker-compose`.
+Currently only the frontend project is used, the backend is just a proof of concept. If you want to run it all, you'll need to work through getting each service running in it's own right and then you'll be able to run everything together using `docker-compose`.
 
 ## Frontend
 This project uses [Next.js App Router](https://nextjs.org/docs/app). Package management is handled by [yarn](https://yarnpkg.com/getting-started). Main libraries used so far are:
@@ -48,7 +48,7 @@ yarn dev
 
 ### Frontend container
 
-Assuming you have [docker](https://docs.docker.com/get-started/) installed and running, you can run the frontend service in it's own container, for simplicity you can use shortcut that both builds and runs the container image (set in `package.json`)
+Assuming you have [docker](https://docs.docker.com/get-started/) installed and running, you can run the frontend service in it's own container, for simplicity you can use this shortcut that both builds and runs the container image (set in `package.json`)
 
 ```bash
 yarn docker
@@ -73,7 +73,7 @@ yarn run
 ```
 
 ## Backend
-Currently the backend is a very simple service using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the backend folder using `cd backend` before running any the commands below.
+Currently the backend is a very simple proof of concept using [Python FastAPI](https://fastapi.tiangolo.com/). Remember to move into the backend folder using `cd backend` before running any the commands below.
 
 [Poetry](https://python-poetry.org/) is used for managing the dependencies. [Black](https://black.readthedocs.io/en/stable/index.html) is used to format the Python files, use `poetry run black .` to style the code.
 
@@ -173,16 +173,17 @@ docker image prune
 
 Deploys are automatically triggered from pushes to the main branch for the following:
 
-Backend (currently open, just as a proof of concept), using the docker container
-- https://wr-backend-95409422489.europe-west2.run.app/api/weddingdate ([Google Cloud Run](https://cloud.google.com/run))
-
 Frontend (we will settle on one eventually...)
 
 1. https://wedding-race.vercel.app/ ([Vercel](https://vercel.com/))
 
 ...noch einmal, this time using the docker container
+
 2. https://wr-frontend-95409422489.europe-west2.run.app ([Google Cloud Run](https://cloud.google.com/run))
 
-For the initial version of the site we'll likely just be deploying the frontend through [Vercel](https://vercel.com/) to https://www.wedding-race.com/. 
+Backend (currently open, just as a proof of concept), using the docker container
+- https://wr-backend-95409422489.europe-west2.run.app/api/weddingdate ([Google Cloud Run](https://cloud.google.com/run))
+
+For the initial version of the site we'll likely just be deploying the frontend project through [Vercel](https://vercel.com/) to https://www.wedding-race.com/. 
 
 If you want to edit any of the infrastructure in Google Cloud you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).
