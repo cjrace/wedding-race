@@ -29,6 +29,14 @@ const theme: MantineThemeOverride = {
         },
       },
     },
+    List: {
+      styles: {
+        item: {
+          fontFamily: "Courier New, sans-serif",
+          padding: "0 20px 0 20px",
+        },
+      },
+    },
   },
 };
 
