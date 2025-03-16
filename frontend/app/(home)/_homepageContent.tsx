@@ -2,7 +2,6 @@
 
 import {
   Text,
-  Container,
   Space,
   Divider,
   Grid,
@@ -10,6 +9,7 @@ import {
   Center,
   Image,
   Flex,
+  Anchor,
 } from "@mantine/core";
 import PageCard from "@/components/pagecard";
 import Countdown from "@/components/countdown";
@@ -40,40 +40,6 @@ export default function HomepageContent() {
 
   return (
     <>
-      <Flex align="center" justify="center" gap="md">
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "4rem",
-            color: "#F9AA8E",
-          }}
-        >
-          LAURA
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "2rem",
-            color: "#FFD9D9",
-          }}
-        >
-          and
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Courier New",
-            fontSize: "4rem",
-            color: "#F9AA8E",
-          }}
-        >
-          CAM
-        </Text>
-      </Flex>
-
-      <Space h="md" />
-
-      <Text ta="center">Countdown to our ceremony!</Text>
-
       <Center>
         <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
       </Center>
@@ -81,30 +47,61 @@ export default function HomepageContent() {
       <Divider my="md" />
 
       <Grid>
-        <Grid.Col span={6}>
-          <Container>
-            <Center>
-              <Image
-                radius="sm"
-                src="images/cam-and-laura.png"
-                h={400}
-                w="auto"
-                fit="contain"
-                alt=""
-              />
-            </Center>
-          </Container>
+        <Grid.Col span={{ base: 12, md: 5 }}>
+          <Center>
+            <Image
+              radius="sm"
+              src="images/cam-and-laura.png"
+              width="100%"
+              style={{ width: "100%", height: "auto", margin: "20px 0" }}
+              alt=""
+            />
+          </Center>
         </Grid.Col>
-        <Grid.Col span={6}>
+        <Grid.Col span={{ base: 12, md: 7 }}>
+          <Flex
+            align="center"
+            justify="center"
+            gap="md"
+            direction={{ base: "column", md: "row" }}
+            style={{ margin: "15px 0", fontFamily: "Courier New" }}
+          >
+            <Text
+              style={{
+                fontSize: "4rem",
+                color: "#F9AA8E",
+                padding: "0",
+              }}
+            >
+              LAURA
+            </Text>
+            <Text
+              style={{
+                fontSize: "2rem",
+                color: "#FFD9D9",
+                padding: "0",
+              }}
+            >
+              and
+            </Text>
+            <Text
+              style={{
+                fontSize: "4rem",
+                color: "#F9AA8E",
+                padding: "0",
+              }}
+            >
+              CAM
+            </Text>
+          </Flex>
+
           <Box>
             <Text>
               Hey there! We&apos;re so excited to share this special journey
               with you. Right now, we&apos;ve got some high-level details up and
-              running, but stay tuned—we&apos;ll be updating with more juicy
+              running, but stay tuned as we&apos;ll be updating with more juicy
               info as the big day approaches.
             </Text>
-
-            <Space h="md" />
 
             <Text>
               In the meantime, feel free to explore the navbar to find all you
@@ -112,20 +109,33 @@ export default function HomepageContent() {
               questions you might have in the FAQs.
             </Text>
 
-            <Space h="md" />
-
             <Text>
               Thanks for stopping by, and we can&apos;t wait to celebrate with
               you!
+            </Text>
+
+            <Text>
+              We built this website ourselves, feel free to check out the
+              <Anchor
+                href="https://github.com/cjrace/wedding-race"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: "0 0 0 4px", // force the anchor to match text spacing
+                }}
+              >
+                source code on GitHub
+              </Anchor>
+              .
             </Text>
           </Box>
         </Grid.Col>
       </Grid>
 
-      <Space h="md" />
+      <Divider my="md" />
 
       <Grid>
-        <Grid.Col span={4}>
+        <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
             imagePath="images/village.png"
             title="Accommodation"
@@ -133,7 +143,7 @@ export default function HomepageContent() {
             link="/accommodation"
           />
         </Grid.Col>
-        <Grid.Col span={4}>
+        <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
             imagePath="images/breakfast-tables.png"
             title="Timeline"
@@ -141,7 +151,7 @@ export default function HomepageContent() {
             link="/timeline"
           />
         </Grid.Col>
-        <Grid.Col span={4}>
+        <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
             imagePath="images/faq.png"
             title="FAQs"

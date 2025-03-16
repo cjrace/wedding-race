@@ -12,16 +12,25 @@ beforeEach(() => {
 
 test("renders text as expected", () => {
   render(<Countdown date={new Date("2095-08-08T19:17:08Z")} />);
-  const textElement = screen.getByText(
-    /days, \d+ hours, \d+ minutes, \d+ seconds/i,
-  );
-  expect(textElement).toBeInTheDocument();
+
+  const daysElement = screen.getByText("days").previousElementSibling;
+  const hoursElement = screen.getByText("hours").previousElementSibling;
+  const minutesElement = screen.getByText("minutes").previousElementSibling;
+  const secondsElement = screen.getByText("seconds").previousElementSibling;
+
+  const combinedText = `${daysElement?.textContent} days, ${hoursElement?.textContent} hours, ${minutesElement?.textContent} minutes, ${secondsElement?.textContent} seconds`;
+
+  expect(combinedText).toMatch(/\d+ days, \d+ hours, \d+ minutes, \d+ seconds/);
 });
 
-const checkCountdownUpdate = (time: number, regex: RegExp, change: boolean) => {
-  const elements = Array.from(screen.getAllByText(regex));
+const checkCountdownUpdate = (
+  time: number,
+  regex: string[],
+  change: boolean,
+) => {
+  const elements = regex.map((r) => screen.getByText(r).previousElementSibling);
   const getTextContent = () =>
-    elements.map((element) => element.textContent).join(" ");
+    elements.map((element) => element?.textContent ?? "").join(" ");
 
   const initialText = getTextContent();
 
@@ -41,26 +50,26 @@ test("updates countdown after every second", () => {
   render(<Countdown date={new Date("2095-08-08T00:00:00Z")} />);
 
   // Check the seconds have changed after 1 and 2 seconds
-  checkCountdownUpdate(1000, /\d+ seconds/i, true);
-  checkCountdownUpdate(1000, /\d+ seconds/i, true);
+  checkCountdownUpdate(1000, ["seconds"], true);
+  checkCountdownUpdate(1000, ["seconds"], true);
 
   // Minutes, hours, and days should not have changed after 2 seconds
-  checkCountdownUpdate(0, /\d+ days, \d+ hours, \d+ minutes/i, false);
+  checkCountdownUpdate(0, ["days", "hours", "minutes"], false);
 
   // Minutes changes after one minute
-  checkCountdownUpdate(58000, /\d+ minutes/i, true);
+  checkCountdownUpdate(60000, ["minutes"], true);
 
   // Days and hours should not have changed after 1 minute
-  checkCountdownUpdate(0, /\d+ days, \d+ hours/i, false);
+  checkCountdownUpdate(0, ["days", "hours"], false);
 
   // Hours changes after one hour
-  checkCountdownUpdate(3540000, /\d+ hours/i, true);
+  checkCountdownUpdate(3600000, ["hours"], true);
 
   // Days should not have changed after 1 hour
-  checkCountdownUpdate(0, /\d+ days/i, false);
+  checkCountdownUpdate(0, ["days"], false);
 
   // Days changes after one day
-  checkCountdownUpdate(8286000, /\d+ days/i, true);
+  checkCountdownUpdate(86400000, ["days"], true);
 });
 
 test("clears interval on unmount", () => {

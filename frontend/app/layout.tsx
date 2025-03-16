@@ -5,14 +5,13 @@ import {
   ColorSchemeScript,
   mantineHtmlProps,
   Anchor,
-  createTheme,
-  MantineColorsTuple,
 } from "@mantine/core";
-import Navbar from "../components/navbar";
+import PageShell from "../components/pageshell";
 import "../styles/global.css";
 import { Metadata } from "next";
 import BackToTop from "@/components/backtotop";
 import skip from "@/styles/skip.module.css";
+import theme from "@/styles/theme";
 
 export const metadata: Metadata = {
   title: {
@@ -29,27 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-// This is generated from https://mantine.dev/colors-generator/?color=F9AA8E
-const myColor: MantineColorsTuple = [
-  "#ffeee6",
-  "#ffdcd0",
-  "#fab8a1",
-  "#f6916d",
-  "#f37042",
-  "#f25b26",
-  "#f25017",
-  "#d8410b",
-  "#c13807",
-  "#a82d01",
-];
-
-const theme = createTheme({
-  primaryColor: "myColor",
-  colors: {
-    myColor,
-  },
-});
-
 export default function RootLayout({
   children,
 }: {
@@ -63,15 +41,15 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider
-          theme={{ ...theme, primaryShade: 2 }}
+          theme={{ ...theme, primaryShade: 2 }} // Set in styles/theme.ts
           defaultColorScheme="dark"
         >
           <Anchor className={skip.skiplink} href="#main">
             Skip to main content
           </Anchor>
-          <Navbar>
+          <PageShell>
             <main id="main">{children}</main>
-          </Navbar>
+          </PageShell>
           <BackToTop />
         </MantineProvider>
       </body>

@@ -16,8 +16,6 @@ export default function AccommodationPage() {
     <>
       <Title order={1}>Accommodation</Title>
 
-      <Space h="lg" />
-
       <AccommodationContent />
     </>
   );

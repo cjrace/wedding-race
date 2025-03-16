@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import Navbar, { pages } from "../navbar";
+import Navbar, { pages } from "../pageshell";
 import { render } from "../../test-utils";
 import { screen } from "@testing-library/react";
 

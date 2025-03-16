@@ -1,4 +1,4 @@
-import { Title, Space } from "@mantine/core";
+import { Title } from "@mantine/core";
 import FAQsContent from "./_faqsContent";
 import { Metadata } from "next";
 
@@ -15,8 +15,6 @@ export default function FAQsPage() {
   return (
     <>
       <Title order={1}>Frequently Asked Questions</Title>
-
-      <Space h="lg" />
 
       <FAQsContent />
     </>
