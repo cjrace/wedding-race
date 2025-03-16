@@ -1,11 +1,8 @@
 "use client";
 
-import "@mantine/core/styles.css";
-import React from "react";
 import {
   AppShell,
   Burger,
-  Text,
   Group,
   UnstyledButton,
   Title,
