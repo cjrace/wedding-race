@@ -34,7 +34,7 @@ const theme: MantineThemeOverride = {
           padding: "10px 30px",
         },
       },
-    }
+    },
   },
 };
 

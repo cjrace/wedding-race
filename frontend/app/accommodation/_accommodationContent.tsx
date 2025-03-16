@@ -69,18 +69,17 @@ export default function AccommodationContent() {
           </Text>
 
           <Text>
-We&apos;ll be providing food and drink the night before, and breakfast
-for both mornings. There&apos;ll also be self-service tea and coffee available
-throughout your stay, and there&apos;s fridges plus a food prep area if 
-you want to bring anything yourself too.
+            We&apos;ll be providing food and drink the night before, and
+            breakfast for both mornings. There&apos;ll also be self-service tea
+            and coffee available throughout your stay, and there&apos;s fridges
+            plus a food prep area if you want to bring anything yourself too.
           </Text>
 
           <Text>
-
-          The pods come with everything you need for a good nights sleep; a
-        comfortable bed, bedding, towels, plugs for your gadgets and heating if
-        you need it! 
-</Text>
+            The pods come with everything you need for a good nights sleep; a
+            comfortable bed, bedding, towels, plugs for your gadgets and heating
+            if you need it!
+          </Text>
           <Text>
             Pod options include twin, double, family and en-suite pods, some
             family pods can sleep 3 adults if needed.

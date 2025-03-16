@@ -64,7 +64,7 @@ export default function HomepageContent() {
             justify="center"
             gap="md"
             direction={{ base: "column", md: "row" }}
-            style={{ margin: "15px 0", fontFamily: "Courier New"}}
+            style={{ margin: "15px 0", fontFamily: "Courier New" }}
           >
             <Text
               style={{
