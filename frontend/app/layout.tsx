@@ -44,7 +44,11 @@ export default function RootLayout({
           theme={{ ...theme, primaryShade: 2 }} // Set in styles/theme.ts
           defaultColorScheme="dark"
         >
-          <Anchor className={skip.skiplink} href="#main">
+          <Anchor
+            className={skip.skiplink}
+            href="#main"
+            style={{ color: "#242424" }}
+          >
             Skip to main content
           </Anchor>
           <PageShell>

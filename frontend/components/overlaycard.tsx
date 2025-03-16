@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, Text, Image, Box, Overlay } from "@mantine/core";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface OverlayCardProps {
   cardKey: string;
@@ -17,6 +17,7 @@ export default function OverlayCard({
   const [overlayVisible, setOverlayVisible] = useState<{
     [cardKey: string]: boolean;
   }>({});
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleOverlayToggle = (cardKey: string) => {
     setOverlayVisible((prev) => ({
@@ -31,7 +32,14 @@ export default function OverlayCard({
         onClick={() => handleOverlayToggle(cardKey)}
         shadow="sm"
         p="lg"
-        style={{ position: "relative" }}
+        style={{
+          position: "relative",
+          cursor: "pointer",
+          backgroundColor: isHovered ? "rgba(0, 0, 0, 0.1)" : "", // Change background on hover
+          transition: "background-color 0.3s ease", // Smooth transition
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         <Image
           radius="sm"
