@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  AppShell,
-  Burger,
-  Group,
-  UnstyledButton,
-  Title,
-} from "@mantine/core";
+import { AppShell, Burger, Group, UnstyledButton, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../styles/pageshell.module.css";
 
