@@ -1,18 +1,13 @@
 "use client";
 
-import {
-  Text,
-  Space,
-  Divider,
-  Grid,
-  Box,
-  Center,
-  Image,
-  Flex,
-  Anchor,
-} from "@mantine/core";
+import { Text, Divider, Grid, Box, Center, Flex, Anchor } from "@mantine/core";
 import PageCard from "@/components/pagecard";
 import Countdown from "@/components/countdown";
+import Image from "next/image";
+import Us from "@/public/images/cam-and-laura.png";
+import Village from "@/public/images/village.png";
+import BreakfastTable from "@/public/images/breakfast-tables.png";
+import FAQ from "@/public/images/faq.png";
 
 export default function HomepageContent() {
   /* API call if we want to go back to fetching it from the server
@@ -50,11 +45,14 @@ export default function HomepageContent() {
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Center>
             <Image
-              radius="sm"
-              src="images/cam-and-laura.png"
-              width="100%"
-              style={{ width: "100%", height: "auto", margin: "20px 0" }}
-              alt=""
+              src={Us}
+              alt="Cam and Laura dressed up fancy"
+              style={{
+                width: "100%",
+                height: "auto",
+                margin: "20px 0",
+                borderRadius: "10px",
+              }}
             />
           </Center>
         </Grid.Col>
@@ -137,7 +135,7 @@ export default function HomepageContent() {
       <Grid>
         <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
-            imagePath="images/village.png"
+            image={Village}
             title="Accommodation"
             description="More detail for what is on this page"
             link="/accommodation"
@@ -145,7 +143,7 @@ export default function HomepageContent() {
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
-            imagePath="images/breakfast-tables.png"
+            image={BreakfastTable}
             title="Timeline"
             description="More detail for what is on this page"
             link="/timeline"
@@ -153,7 +151,7 @@ export default function HomepageContent() {
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
-            imagePath="images/faq.png"
+            image={FAQ}
             title="FAQs"
             description="More detail for what is on this page"
             link="/faqs"

@@ -1,6 +1,9 @@
 "use client";
 
-import { Title, Text, Space, Grid, Image, Divider } from "@mantine/core";
+import { Title, Text, Space, Grid, Divider } from "@mantine/core";
+import Image from "next/image";
+import FullVillage from "@/public/images/full-village.png";
+import Cottages from "@/public/images/cottages.png";
 
 export default function AccommodationContent() {
   return (
@@ -109,13 +112,9 @@ export default function AccommodationContent() {
 
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Image
-            radius="sm"
-            src="images/full-village.png"
-            height="auto"
-            width="100%"
-            fit="contain"
+            src={FullVillage}
             alt="Cottages"
-            style={{ maxWidth: "100%", height: "auto" }}
+            style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" }}
           />
         </Grid.Col>
       </Grid>
@@ -144,13 +143,9 @@ export default function AccommodationContent() {
 
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Image
-            radius="sm"
-            src="images/cottages.png"
-            height="auto"
-            width="100%"
-            fit="contain"
+            src={Cottages}
             alt="Cottages"
-            style={{ maxWidth: "100%", height: "auto" }}
+            style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" }}
           />
         </Grid.Col>
       </Grid>
