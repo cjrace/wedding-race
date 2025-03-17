@@ -1,6 +1,15 @@
 "use client";
 
-import { Text, Divider, Grid, Box, Center, Flex, Anchor } from "@mantine/core";
+import {
+  Text,
+  Divider,
+  Grid,
+  Box,
+  Center,
+  Flex,
+  Anchor,
+  Button,
+} from "@mantine/core";
 import PageCard from "@/components/pagecard";
 import Countdown from "@/components/countdown";
 import Image from "next/image";
@@ -8,6 +17,8 @@ import Us from "@/public/images/cam-and-laura.png";
 import Village from "@/public/images/village.png";
 import BreakfastTable from "@/public/images/breakfast-tables.png";
 import FAQ from "@/public/images/faq.png";
+import playConfetti from "@/components/playconfetti";
+import { IconConfetti } from "@tabler/icons-react";
 
 export default function HomepageContent() {
   /* API call if we want to go back to fetching it from the server
@@ -127,6 +138,17 @@ export default function HomepageContent() {
               .
             </Text>
           </Box>
+          <Center>
+            <Button
+              variant="default"
+              radius="lg"
+              my="md"
+              onClick={playConfetti}
+              rightSection={<IconConfetti />}
+            >
+              Practice your confetti
+            </Button>
+          </Center>
         </Grid.Col>
       </Grid>
 
