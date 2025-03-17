@@ -1,17 +1,19 @@
 "use client";
 
-import { Card, Text, Image, Box, Overlay } from "@mantine/core";
-import { useState, useRef } from "react";
+import { Card, Text, Box, Overlay } from "@mantine/core";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { useState } from "react";
+import Image from "next/image";
 
 interface OverlayCardProps {
   cardKey: string;
-  imagePath: string;
+  image: StaticImport;
   overlay: string;
 }
 
 export default function OverlayCard({
   cardKey,
-  imagePath,
+  image,
   overlay,
 }: OverlayCardProps) {
   const [overlayVisible, setOverlayVisible] = useState<{
@@ -35,23 +37,26 @@ export default function OverlayCard({
         style={{
           position: "relative",
           cursor: "pointer",
-          backgroundColor: isHovered ? "rgba(0, 0, 0, 0.1)" : "", // Change background on hover
-          transition: "background-color 0.3s ease", // Smooth transition
+          backgroundColor: isHovered ? "rgba(0, 0, 0, 0.1)" : "",
+          transition: "background-color 0.3s ease",
+          borderRadius: "10px",
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <Image
-          radius="sm"
-          src={imagePath}
-          height="auto"
-          width="100%"
-          fit="contain"
+          src={image}
+          aria-hidden
           alt=""
-          style={{ maxWidth: "100%", height: "auto" }}
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+            alignSelf: "center",
+            borderRadius: "10px",
+          }}
         />
         {overlayVisible[cardKey] && (
-          <Overlay color="rgba(0, 0, 0, 0.6)" opacity={1} zIndex={5}>
+          <Overlay color="rgba(0, 0, 0, 0.6)" opacity={1} zIndex={0}>
             <Box
               style={{
                 position: "absolute",
@@ -60,9 +65,10 @@ export default function OverlayCard({
                 transform: "translate(-50%, -50%)",
                 color: "white",
                 textAlign: "center",
+                borderRadius: "10px",
               }}
             >
-              <Text style={{ padding: "1px" }}>{overlay}</Text>
+              <Text style={{ padding: "0" }}>{overlay}</Text>
             </Box>
           </Overlay>
         )}

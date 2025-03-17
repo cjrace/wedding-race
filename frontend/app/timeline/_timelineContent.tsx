@@ -1,18 +1,6 @@
 "use client";
 
-import {
-  Title,
-  Text,
-  Timeline,
-  Space,
-  List,
-  Grid,
-  Image,
-  Card,
-  Overlay,
-  Box,
-  Divider,
-} from "@mantine/core";
+import { Title, Text, Timeline, Space, Grid, Divider } from "@mantine/core";
 import {
   IconHeart,
   IconPencilQuestion,
@@ -25,6 +13,9 @@ import {
   IconClockHeart,
 } from "@tabler/icons-react";
 import OverlayCard from "@/components/overlaycard";
+import PizzaOven from "@/public/images/pizza-oven.png";
+import GetReadyHut from "@/public/images/get-ready-hut.png";
+import BreakfastShack from "@/public/images/breakfast-shack.png";
 
 export default function TimelineContent() {
   return (
@@ -200,7 +191,7 @@ export default function TimelineContent() {
         <Grid.Col span={{ base: 12, md: 4 }}>
           <OverlayCard
             cardKey="pizzaOven"
-            imagePath="images/pizza-oven.png"
+            image={PizzaOven}
             overlay="At the pre-wedding village party we'll be serving
                     freshly made pizzas from our oven, hot and delicious!"
           />
@@ -208,7 +199,7 @@ export default function TimelineContent() {
         <Grid.Col span={{ base: 12, md: 4 }}>
           <OverlayCard
             cardKey="gettingReady"
-            imagePath="images/get-ready-hut.png"
+            image={GetReadyHut}
             overlay="The pods all have plenty of space but for something more
                     sociable you can get ready together in the makeup hut!"
           />
@@ -216,7 +207,7 @@ export default function TimelineContent() {
         <Grid.Col span={{ base: 12, md: 4 }}>
           <OverlayCard
             cardKey="breakfastShack"
-            imagePath="images/breakfast-shack.png"
+            image={BreakfastShack}
             overlay="Self-serve breakfast will be available for everyone staying
                     at the wedding village."
           />

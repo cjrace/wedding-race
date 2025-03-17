@@ -1,11 +1,13 @@
-import { Container, Image, Space } from "@mantine/core";
 import HomepageContent from "./_homepageContent";
+import Image from "next/image";
+import MainBanner from "@/public/images/tipi-outside-arty-overlay.svg";
 
 export default function HomePage() {
   return (
     <>
       <h1>
         <span
+          // Visually hidden heading as the main heading is the banner image
           style={{
             position: "absolute",
             width: "1px",
@@ -19,20 +21,13 @@ export default function HomePage() {
         >
           Wedding Race
         </span>
-        <Container
-          style={{ width: "100%", padding: 0, margin: 0, maxWidth: "100%" }}
-        >
-          <Image
-            radius="sm"
-            src="images/tipi-outside-arty-overlay.svg"
-            alt="Welcome to the Race Wedding"
-            width="100%"
-            style={{ width: "100%", height: "auto" }}
-          />
-        </Container>
-      </h1>
 
-      <Space h="md" />
+        <Image
+          src={MainBanner}
+          alt="Welcome to the Race Wedding"
+          style={{ width: "100%", height: "auto", borderRadius: "10px" }}
+        />
+      </h1>
 
       <HomepageContent />
     </>
