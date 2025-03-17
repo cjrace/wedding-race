@@ -137,7 +137,7 @@ export default function HomepageContent() {
           <PageCard
             image={Village}
             title="Accommodation"
-            description="More detail for what is on this page"
+            description="Want to plan ahead for where to rest your head?"
             link="/accommodation"
           />
         </Grid.Col>
@@ -145,7 +145,7 @@ export default function HomepageContent() {
           <PageCard
             image={BreakfastTable}
             title="Timeline"
-            description="More detail for what is on this page"
+            description="What we might doing and when we might be doing it!"
             link="/timeline"
           />
         </Grid.Col>
@@ -153,7 +153,7 @@ export default function HomepageContent() {
           <PageCard
             image={FAQ}
             title="FAQs"
-            description="More detail for what is on this page"
+            description="Got a question? We might have an answer!"
             link="/faqs"
           />
         </Grid.Col>
