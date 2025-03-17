@@ -95,14 +95,14 @@ export default function HomepageContent() {
 
           <Box>
             <Text>
-              Hey there! We&apos;re so excited to share this special journey
-              with you. Right now, we&apos;ve got some high-level details up and
-              running, but stay tuned as we&apos;ll be updating with more juicy
-              info as the big day approaches.
+              Hey there! We&apos;re incredibly excited to get everyone together
+              for a big knees-up. Right now, we&apos;ve got some high-level
+              details up and running, but stay tuned as we&apos;ll be updating
+              with more juicy info as the big day approaches.
             </Text>
 
             <Text>
-              In the meantime, feel free to explore the navbar to find all you
+              In the meantime, feel free to explore the website to find all you
               need to know about the event, accommodation, and those burning
               questions you might have in the FAQs.
             </Text>

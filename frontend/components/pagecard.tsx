@@ -26,7 +26,6 @@ export default function PageCard({
       p="xl"
       component="a"
       href={link}
-      target="_blank"
       style={{
         display: "flex",
         flexDirection: "column",
