@@ -1,6 +1,15 @@
 "use client";
 
-import { Text, Divider, Grid, Box, Center, Flex, Anchor, Button } from "@mantine/core";
+import {
+  Text,
+  Divider,
+  Grid,
+  Box,
+  Center,
+  Flex,
+  Anchor,
+  Button,
+} from "@mantine/core";
 import PageCard from "@/components/pagecard";
 import Countdown from "@/components/countdown";
 import Image from "next/image";
@@ -132,6 +141,8 @@ export default function HomepageContent() {
           <Center>
             <Button
               variant="default"
+              radius="lg"
+              my="md"
               onClick={playConfetti}
               rightSection={<IconConfetti />}
             >
