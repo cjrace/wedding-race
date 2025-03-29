@@ -1,9 +1,10 @@
-import { render } from "../../test-utils";
+import { render } from "../../test-utils/render";
 import PageCard from "../pagecard";
+import Us from "@/public/images/cam-and-laura.png";
 
 describe("PageCard", () => {
   const props = {
-    imagePath: "path/to/image.jpg",
+    image: Us,
     title: "Test Title",
     description: "Test Description",
     link: "https://example.com",
