@@ -1,15 +1,14 @@
-import { render } from "../../test-utils";
+import { render } from "../../test-utils/render";
 import OverlayCard from "../overlaycard";
+import { screen } from "@testing-library/react";
+import Us from "@/public/images/cam-and-laura.png";
 
 describe("OverlayCard", () => {
-  const props = {
-    cardKey: "testKey",
-    imagePath: "path/to/image.jpg",
-    overlay: "Test Overlay",
-  };
+  it("renders correctly", () => {
+    render(
+      <OverlayCard cardKey="test-card" image={Us} overlay="Test Overlay" />,
+    );
 
-  it("renders without crashing", () => {
-    const card = render(<OverlayCard {...props} />);
-    expect(card.getByTestId("testKey")).toBeInTheDocument();
+    expect(screen.getByTestId("test-card")).toBeInTheDocument();
   });
 });
