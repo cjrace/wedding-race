@@ -4,6 +4,7 @@ import { Card, Text, Center } from "@mantine/core";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import { useState } from "react";
+import { myColor } from "../styles/theme";
 
 interface PageCardProps {
   image: StaticImport;
@@ -36,9 +37,14 @@ export default function PageCard({
         backgroundColor: isHovered ? "rgba(0, 0, 0, 0.1)" : "",
         transition: "background-color 0.3s ease",
         borderRadius: "10px",
+        outline: "none", // Reset default outline
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onFocus={(e) =>
+        (e.currentTarget.style.outline = `2px solid ${myColor[2]}`)
+      } // Changed outline color
+      onBlur={(e) => (e.currentTarget.style.outline = "none")}
     >
       <Card.Section>
         <Center>

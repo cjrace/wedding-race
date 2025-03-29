@@ -1,7 +1,7 @@
 import { MantineThemeOverride, MantineColorsTuple } from "@mantine/core";
 
 // This is generated from https://mantine.dev/colors-generator/?color=F9AA8E
-const myColor: MantineColorsTuple = [
+export const myColor: MantineColorsTuple = [
   "#ffeee6",
   "#ffdcd0",
   "#fab8a1",
