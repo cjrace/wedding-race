@@ -107,9 +107,17 @@ export default function HomepageContent() {
           <Box>
             <Text>
               Hey there! We&apos;re incredibly excited to get everyone together
-              for a big knees-up. Right now, we&apos;ve got some high-level
-              details up and running, but stay tuned as we&apos;ll be updating
-              with more juicy info as the big day approaches.
+              for a big knees-up on the{" "}
+              {weddingDateEnv
+                ? weddingDateEnv.toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })
+                : "TBD"}
+              . Right now, we&apos;ve got some high-level details up and
+              running, but stay tuned as we&apos;ll be updating with more juicy
+              info as the big day approaches.
             </Text>
 
             <Text>
