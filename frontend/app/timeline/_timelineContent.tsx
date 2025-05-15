@@ -18,6 +18,18 @@ import GetReadyHut from "@/public/images/get-ready-hut.png";
 import BreakfastShack from "@/public/images/breakfast-shack.png";
 
 export default function TimelineContent() {
+  const weddingDateEnv = process.env.NEXT_PUBLIC_WEDDING_DATETIME
+    ? new Date(process.env.NEXT_PUBLIC_WEDDING_DATETIME)
+    : undefined;
+
+  const weddingDateBefore = weddingDateEnv
+    ? new Date(weddingDateEnv.getTime() - 24 * 60 * 60 * 1000)
+    : undefined;
+
+  const weddingDateAfter = weddingDateEnv
+    ? new Date(weddingDateEnv.getTime() + 24 * 60 * 60 * 1000)
+    : undefined;
+
   return (
     <>
       <Text>
@@ -42,7 +54,12 @@ export default function TimelineContent() {
       <Grid style={{ padding: "0 30px" }}>
         <Grid.Col span={{ base: 12, md: 4 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
-            Day 1
+            {weddingDateBefore
+              ? weddingDateBefore.toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                })
+              : "TBD"}
           </Title>
           <Space h="md" />
 
@@ -90,7 +107,12 @@ export default function TimelineContent() {
 
         <Grid.Col span={{ base: 12, md: 4 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
-            Day 2
+            {weddingDateEnv
+              ? weddingDateEnv.toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                })
+              : "TBD"}
           </Title>
           <Space h="md" />
 
@@ -161,7 +183,12 @@ export default function TimelineContent() {
 
         <Grid.Col span={{ base: 12, md: 4 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
-            Day 3
+            {weddingDateAfter
+              ? weddingDateAfter.toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                })
+              : "TBD"}
           </Title>
           <Space h="md" />
 
