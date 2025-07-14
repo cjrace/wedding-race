@@ -171,19 +171,4 @@ docker image prune
 
 ## Deployment
 
-Deploys are automatically triggered from pushes to the main branch for the following:
-
-Frontend (we will settle on one eventually...)
-
-1. https://wedding-race.vercel.app/ ([Vercel](https://vercel.com/))
-
-...noch einmal, this time using the docker container
-
-2. https://wr-frontend-95409422489.europe-west2.run.app ([Google Cloud Run](https://cloud.google.com/run))
-
-Backend (currently open, just as a proof of concept), using the docker container
-- https://wr-backend-95409422489.europe-west2.run.app/api/weddingdate ([Google Cloud Run](https://cloud.google.com/run))
-
-For the initial version of the site we'll likely just be deploying the frontend project through [Vercel](https://vercel.com/) to https://www.wedding-race.com/. 
-
-If you want to edit any of the infrastructure in Google Cloud you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).
+Deploys are automatically triggered from pushes to the main branch the frontend project through [Vercel](https://vercel.com/) to https://www.wedding-race.com/. The docker containers and backend project where originally deployed in Google Cloud Run, but are not currently in use. If you want to edit any of the infrastructure in Google Cloud you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).
