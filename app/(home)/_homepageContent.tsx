@@ -21,25 +21,6 @@ import playConfetti from "@/components/playconfetti";
 import { IconConfetti } from "@tabler/icons-react";
 
 export default function HomepageContent() {
-  /* API call if we want to go back to fetching it from the server
-  useEffect(() => {
-    const fetchWeddingDate = async () => {
-      try {
-        const response = await fetch("/api/weddingdate");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setWeddingDate(new Date(data.wedding_date));
-      } catch (error) {
-        console.log("Error fetching wedding date, reverting to back up date");
-      }
-    };
-
-    fetchWeddingDate();
-  }, []);
-  */
-
   const weddingDateEnv = process.env.NEXT_PUBLIC_WEDDING_DATETIME
     ? new Date(process.env.NEXT_PUBLIC_WEDDING_DATETIME)
     : undefined;

@@ -2,5 +2,5 @@
 * text eol=lf
 
 # Declare special files that shouldn't be forced to LF line endings
-frontend/public/* -text
-frontend/public/images/* -text
+public/* -text
+public/images/* -text

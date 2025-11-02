@@ -9,8 +9,7 @@
     "lint": "next lint",
     "pretty": "prettier . --write",
     "test": "prettier . --write && next lint && jest && next build && playwright test",
-    "prepare": "husky",
-    "docker": "docker build -t wedding-race-frontend . && docker run -p 3000:3000 wedding-race-frontend"
+    "prepare": "husky"
   },
   "dependencies": {
     "@mantine/core": "7.16.3",
