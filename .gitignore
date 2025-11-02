@@ -5,11 +5,6 @@
 **/.env.production.local
 **/.env.local
 
-# Backend project
-**/__pycache__*
-**/.pytest_cache*
-
-# Frontend project ------------------------------------------------------------
 # Logs
 **/logs
 **/*.log
