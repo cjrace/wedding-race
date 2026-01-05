@@ -14,7 +14,6 @@ export default function NotFound() {
           </Button>
         </Stack>
       </Container>
-      ={" "}
     </>
   );
 }
