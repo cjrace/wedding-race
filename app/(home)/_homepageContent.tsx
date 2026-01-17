@@ -53,11 +53,6 @@ export default function HomepageContent() {
               transition: "box-shadow 0.2s",
               cursor: "pointer",
             }}
-            sx={{
-              "&:hover": {
-                boxShadow: "0 4px 16px rgba(0,0,0,0.13)",
-              },
-            }}
           >
             <Center>
               <Text
@@ -211,8 +206,6 @@ export default function HomepageContent() {
           />
         </Grid.Col>
       </Grid>
-
-    
     </>
   );
 }

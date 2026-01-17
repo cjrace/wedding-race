@@ -3,18 +3,18 @@ import { Metadata } from "next";
 import InviteContent from "./_inviteContent";
 
 export const metadata: Metadata = {
-  title: "Invite",
-  description: "Options for accommodation during our celebrations.",
+  title: "RSVP",
+  description: "Time to RSVP!",
   openGraph: {
-    title: "Invite | Wedding Race",
-    description: "Options for accommodation during our celebrations.",
+    title: "RSVP | Wedding Race",
+    description: "Time to RSVP!",
   },
 };
 
 export default function InvitePage() {
   return (
     <>
-      <Title order={1}>Invite</Title>
+      <Title order={1}>Time to RSVP!</Title>
 
       <InviteContent />
     </>
