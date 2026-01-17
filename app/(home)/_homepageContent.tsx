@@ -33,6 +33,48 @@ export default function HomepageContent() {
 
       <Divider my="md" />
 
+      <Center>
+        <Anchor
+          href="/invite"
+          style={{
+            textDecoration: "none",
+            width: "100%",
+          }}
+        >
+          <Box
+            bg="#FFD9D9"
+            p="lg"
+            mb="md"
+            style={{
+              borderRadius: "12px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
+              maxWidth: 600,
+              width: "100%",
+              transition: "box-shadow 0.2s",
+              cursor: "pointer",
+            }}
+            sx={{
+              "&:hover": {
+                boxShadow: "0 4px 16px rgba(0,0,0,0.13)",
+              },
+            }}
+          >
+            <Center>
+              <Text
+                fw={700}
+                size="xl"
+                style={{
+                  color: "#F9AA8E",
+                  letterSpacing: "1px",
+                }}
+              >
+                🎉 Time to RSVP! Click here to let us know you&apos;re coming 🎉
+              </Text>
+            </Center>
+          </Box>
+        </Anchor>
+      </Center>
+
       <Grid>
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Center>
@@ -169,6 +211,8 @@ export default function HomepageContent() {
           />
         </Grid.Col>
       </Grid>
+
+    
     </>
   );
 }
