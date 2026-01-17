@@ -35,7 +35,7 @@ export default function HomepageContent() {
 
       <Center>
         <Anchor
-          href="/invite"
+          href="/rsvp"
           style={{
             textDecoration: "none",
             width: "100%",
@@ -48,7 +48,6 @@ export default function HomepageContent() {
             style={{
               borderRadius: "12px",
               boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
-              maxWidth: 600,
               width: "100%",
               transition: "box-shadow 0.2s",
               cursor: "pointer",
@@ -59,7 +58,7 @@ export default function HomepageContent() {
                 fw={700}
                 size="xl"
                 style={{
-                  color: "#F9AA8E",
+                  color: "#000",
                   letterSpacing: "1px",
                 }}
               >
@@ -192,9 +191,9 @@ export default function HomepageContent() {
         <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
             image={BreakfastTable}
-            title="Timeline"
-            description="What we might doing and when we might be doing it!"
-            link="/timeline"
+            title="RSVP"
+            description="Tell us you're coming and any preferences you have!"
+            link="/rsvp"
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>

@@ -1,6 +1,7 @@
 import { Title } from "@mantine/core";
 import { Metadata } from "next";
 import InviteContent from "./_inviteContent";
+import sql from "../../db/neon";
 
 export const metadata: Metadata = {
   title: "RSVP",
@@ -11,12 +12,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function InvitePage() {
+export default async function InvitePage() {
+  const possible_ids_result = await sql`SELECT id FROM Invites`;
+  const possible_ids = possible_ids_result.map((row: Record<string, any>) =>
+    String(row.id),
+  );
+
   return (
     <>
       <Title order={1}>Time to RSVP!</Title>
 
-      <InviteContent />
+      <InviteContent possibleIds={possible_ids} />
     </>
   );
 }

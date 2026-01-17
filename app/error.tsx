@@ -5,10 +5,8 @@ import { Container, Title, Button, Stack } from "@mantine/core";
 
 export default function Error({
   error,
-  reset,
 }: {
   error: Error & { digest?: string };
-  reset: () => void;
 }) {
   useEffect(() => {
     console.error(error);
@@ -18,15 +16,7 @@ export default function Error({
     <>
       <Container size="xs">
         <Stack gap="xl">
-          <Title ta="center">Something went very wrong!</Title>
-          <Button
-            onClick={
-              // Attempt to recover by trying to re-render the segment
-              () => reset()
-            }
-          >
-            Reset the page
-          </Button>
+          <Title ta="center">We can't find that page!</Title>
           <Button component="a" href="/" variant="default">
             Return home
           </Button>
