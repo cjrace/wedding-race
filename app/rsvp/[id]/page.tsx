@@ -4,6 +4,16 @@ import { Title, Text, Divider } from "@mantine/core";
 import WeddingTimeline from "@/components/weddingTimeline";
 import RsvpFormClient from "@/components/rsvpFormClient";
 
+export async function generateMetadata() {
+  return {
+    robots: {
+      index: false,
+      follow: false,
+      nocache: true,
+    },
+  };
+}
+
 export default async function InvitePage(props: {
   params: Promise<{ id: string }>;
 }) {
@@ -36,15 +46,25 @@ export default async function InvitePage(props: {
       <>
         <Title order={1}>RSVP for the Race-Selby Wedding</Title>
         <Text>Thank you for your RSVP!</Text>
+        <Divider my="sm" />
+
         <Text>We have received your response for the following guests:</Text>
-        {guests.map((guest: Record<string, any>) => (
-          <Text key={guest.id}>
-            {guest.firstname} {guest.surname}:{" "}
-            {guest.rsvp ? "Attending" : "Not Attending"}
-            {" | "}
-            {guest.dietary ? guest.dietary : "No dietary requirements"}
-          </Text>
-        ))}
+        {[...guests]
+          .sort((a, b) => a.id - b.id)
+          .map((guest: Record<string, any>) => (
+            <Text key={guest.id}>
+              {guest.firstname} {guest.surname}:{" "}
+              {guest.rsvp ? "Attending" : "Not Attending"}
+              {" | "}
+              {guest.dietary ? guest.dietary : "No dietary requirements"}
+            </Text>
+          ))}
+
+        <Divider my="sm" />
+
+        <Text>We also have the following contact details for your party:</Text>
+        <Text>Email: {invite_result[0].contactemail}</Text>
+        <Text>Phone: {invite_result[0].contactnumber}</Text>
 
         <Text>
           If this looks wrong, or you want to make any changes, contact us so we
