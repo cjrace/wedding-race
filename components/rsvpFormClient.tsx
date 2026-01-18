@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Title, Text, Divider, Button, Group } from "@mantine/core";
+import { Title, Text, Divider, Button, Group, Accordion } from "@mantine/core";
 import InviteText from "@/components/invitetext";
 import { RsvpGuest } from "@/components/rsvpGuest";
 import { useRouter } from "next/navigation";
+import WeddingTimeline from "./weddingTimeline";
 
 // Extend the Window interface to include processingRsvp
 declare global {
@@ -113,17 +114,34 @@ export default function RsvpFormClient({
       <input type="hidden" name="partyID" value={partyID} />
       <input type="hidden" name="guestCount" value={guestInformation.length} />
 
-      <Text>Hey {partyName}, we're excited to invite you to our wedding!</Text>
+      <Text>Hey {partyName},</Text>
       <InviteText preWedding={preWedding} />
+
       <Text>
-        Complete your RSVP below to then see the wedding itinerary and links to
-        book accomodation.
+        To help you with your plans, click to see a high level outline of our wedding itinerary.
+      </Text>
+
+      
+      <Accordion variant="separated" my="md">
+        <Accordion.Item value="timeline">
+          <Accordion.Control>Wedding Timeline</Accordion.Control>
+          <Accordion.Panel>
+            <WeddingTimeline preWedding={preWedding} />
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
+  
+
+      <Text>
+        Please <strong>complete your RSVP below</strong>, after which you'll be able to book on-site accommodation.
       </Text>
       <Divider my="md" />
 
+        
+
       <Title order={2}>Party details</Title>
 
-      <Title order={2}>Your details</Title>
+      <Title order={3}>Your details</Title>
       {guestInformation
         .filter((guest) => !guest.child)
         .map((guest, idx) => (
@@ -142,24 +160,23 @@ export default function RsvpFormClient({
       {children > 0 && (
         <>
           <Divider my="md" />
-          <Title order={2}>Children</Title>
+          <Title order={3}>Children</Title>
           <Text>
-            We have children in a separate section here just so we can easily
-            track how many youngsters to expect, RSVP for them below.
+            We’ve put children in a separate section so we can keep track of 
+            how many little ones to expect — just RSVP for them below.
           </Text>
 
           <Text>
-            We are relaxed and want to give you the choice whether you want to
-            bring your {children === 1 ? "child" : "children"} with you or not.
-            Our main concern is that you can have a great time, and whether you
-            want to do that as a full family or just as adults, we will happily
-            support you either way.
+             Whether you bring them with you or would rather have the break 
+            is totally up to you. We just want you to have a great time!
+            There will be kids at the wedding (like Lola), and there will also 
+            be parents enjoying a child‑free break. Whatever you choose, you 
+            won’t be the odd one out.
           </Text>
-          <Text>
-            There will be young children at the wedding (such as Lola), and
-            there will also be parents very happily taking time away from their
-            children. Whatever you do, you will be in good company!
-          </Text>
+
+          
+
+
           <Divider my="md" />
 
           {guestInformation
@@ -210,16 +227,19 @@ export default function RsvpFormClient({
       {maxAdditionalGuests > 0 && (
         <>
           <Divider my="md" />
-          <Title order={2}>
-            Add additional {maxAdditionalGuests === 1 ? "guest" : "guests"}
+          <Title order={3}>
+            We're offering plus ones!
           </Title>
           <Text>
-            You can invite up to {maxAdditionalGuests} additional{" "}
+             Please feel welcome to bring up to {maxAdditionalGuests} additional{" "}
             {maxAdditionalGuests === 1
-              ? "guest as a plus one"
-              : "guests as plus ones"}
+              ? "guest as your plus one"
+              : "guests as your plus ones"}
             .
           </Text>
+          <Text>
+            If you aren't sure who this will be yet, but want to secure a space anyway just add as a TBC. We'll need to know their final details by end of February 2026 and will follow up with you separately to confirm.
+            </Text>
           <Divider my="md" />
           {[...Array(maxAdditionalGuests)].map((_, idx) => (
             <div key={`additional-${idx}`} style={{ marginBottom: 16 }}>

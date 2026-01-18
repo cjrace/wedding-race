@@ -32,22 +32,9 @@ export default function WeddingTimeline({
 
   return (
     <>
-      {preWedding && (
-        <Text>
-          Our wedding celebration will be over three days. We&apos;d love for
-          you to join us the night before and stay until the morning after if
-          you&apos;re able. If that&apos;s not possible, no worries, just come
-          for as much as you can.
-        </Text>
-      )}
+      
 
-      <Text>
-        We&apos;re so excited to share what we have planned with you, and to see
-        you there! This is a high level outline, we don&apos;t want to give it
-        all away and we may add or change stuff as we go...
-      </Text>
-
-      <Divider my="lg" />
+      
 
       <Grid style={{ padding: "0 30px" }}>
         {preWedding && (

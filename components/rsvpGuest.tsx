@@ -69,7 +69,7 @@ export function RsvpGuest({
             <>
               <Radio
                 value="yes-prewedding"
-                label="I will attend both the prewedding and wedding"
+                label="I will attend both the pre-wedding and wedding"
               />
               <Radio
                 value="yes-wedding"
