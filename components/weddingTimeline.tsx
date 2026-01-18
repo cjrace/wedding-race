@@ -13,7 +13,11 @@ import {
   IconClockHeart,
 } from "@tabler/icons-react";
 
-export default function WeddingTimeline({ threeDay }: { threeDay: boolean }) {
+export default function WeddingTimeline({
+  preWedding,
+}: {
+  preWedding: boolean;
+}) {
   const weddingDateEnv = process.env.NEXT_PUBLIC_WEDDING_DATETIME
     ? new Date(process.env.NEXT_PUBLIC_WEDDING_DATETIME)
     : undefined;
@@ -28,7 +32,7 @@ export default function WeddingTimeline({ threeDay }: { threeDay: boolean }) {
 
   return (
     <>
-      {threeDay && (
+      {preWedding && (
         <Text>
           Our wedding celebration will be over three days. We&apos;d love for
           you to join us the night before and stay until the morning after if
@@ -46,7 +50,7 @@ export default function WeddingTimeline({ threeDay }: { threeDay: boolean }) {
       <Divider my="lg" />
 
       <Grid style={{ padding: "0 30px" }}>
-        {threeDay && (
+        {preWedding && (
           <Grid.Col span={{ base: 12, md: 4 }}>
             <Title order={2} style={{ padding: "10px 0" }}>
               {weddingDateBefore
@@ -101,7 +105,7 @@ export default function WeddingTimeline({ threeDay }: { threeDay: boolean }) {
           </Grid.Col>
         )}
 
-        <Grid.Col span={{ base: 12, md: threeDay ? 4 : 6 }}>
+        <Grid.Col span={{ base: 12, md: preWedding ? 4 : 6 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
             {weddingDateEnv
               ? weddingDateEnv.toLocaleDateString("en-GB", {
@@ -177,7 +181,7 @@ export default function WeddingTimeline({ threeDay }: { threeDay: boolean }) {
           </Timeline>
         </Grid.Col>
 
-        <Grid.Col span={{ base: 12, md: threeDay ? 4 : 6 }}>
+        <Grid.Col span={{ base: 12, md: preWedding ? 4 : 6 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
             {weddingDateAfter
               ? weddingDateAfter.toLocaleDateString("en-GB", {

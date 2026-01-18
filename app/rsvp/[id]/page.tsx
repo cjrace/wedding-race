@@ -1,7 +1,8 @@
 import sql from "@/db/neon";
 import { notFound } from "next/navigation";
-import { Title, Text, Button, Divider } from "@mantine/core";
+import { Title, Text, Divider } from "@mantine/core";
 import WeddingTimeline from "@/components/weddingTimeline";
+import RsvpFormClient from "@/components/rsvpFormClient";
 
 export default async function InvitePage(props: {
   params: Promise<{ id: string }>;
@@ -21,12 +22,11 @@ export default async function InvitePage(props: {
 
   // Check if already submitted ===============================================
   const invite_result =
-    await sql`SELECT partyname, textid, contactemail, contactnumber, maxguests, submitted FROM Invites WHERE id = ${id}`;
+    await sql`SELECT partyname, contactemail, contactnumber, maxguests, submitted, prewedding, children FROM Invites WHERE id = ${id}`;
 
   const submitted = invite_result[0].submitted;
-
-  const noDays = invite_result[0].textid;
-  const daysText = await sql`SELECT text FROM InviteText WHERE id = ${noDays}`;
+  const preWedding = invite_result[0].prewedding;
+  const children = invite_result[0].children;
 
   const guests =
     await sql`SELECT id, firstname, surname, rsvp, dietary FROM Guests WHERE inviteid = ${id}`;
@@ -34,7 +34,7 @@ export default async function InvitePage(props: {
   if (submitted) {
     return (
       <>
-        <Title order={1}>RSVP for the Wedding of Race</Title>
+        <Title order={1}>RSVP for the Race-Selby Wedding</Title>
         <Text>Thank you for your RSVP!</Text>
         <Text>We have received your response for the following guests:</Text>
         {guests.map((guest: Record<string, any>) => (
@@ -54,7 +54,7 @@ export default async function InvitePage(props: {
         <Divider my="lg" />
 
         <Title order={2}>Your wedding timeline</Title>
-        <WeddingTimeline threeDay={noDays === "threeDay"} />
+        <WeddingTimeline preWedding={preWedding} />
       </>
     );
   }
@@ -75,33 +75,14 @@ export default async function InvitePage(props: {
     <>
       <Title order={1}>RSVP for the Race-Selby Wedding</Title>
 
-      <Text>Hey {partyName}, we're excited to invite you to our wedding!</Text>
-      <Text>{daysText[0]?.text ?? "Invitation details coming soon."}</Text>
-      <Text>
-        Complete your RSVP below and then you&apos;ll be able to see the wedding
-        itinerary.
-      </Text>
-      <Divider my="md" />
-      <Title order={2}>Party details</Title>
-      {initialGuests.map((guest) => (
-        <Text key={guest.id}>
-          {guest.firstname} {guest.surname}
-        </Text>
-      ))}
-      <Divider my="md" />
-
-      {maxAdditionalGuests > 0 && (
-        <>
-          <Title order={2}>Add plus one(s)</Title>
-          <Text>
-            You can invite up to {maxAdditionalGuests} additional{" "}
-            {maxAdditionalGuests === 1 ? "guest" : "guests"}.
-          </Text>
-          <Divider my="md" />
-        </>
-      )}
-
-      <Button>Submit RSVP</Button>
+      <RsvpFormClient
+        partyID={id}
+        partyName={partyName}
+        preWedding={preWedding}
+        guestInformation={initialGuests}
+        maxAdditionalGuests={maxAdditionalGuests}
+        children={children}
+      />
     </>
   );
 }
