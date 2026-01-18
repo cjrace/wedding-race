@@ -42,6 +42,13 @@ const theme: MantineThemeOverride = {
         },
       },
     },
+    TextInput: {
+      styles: {
+        root: {
+          padding: "5px 22px",
+        },
+      },
+    },
   },
 };
 
