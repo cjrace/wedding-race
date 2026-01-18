@@ -1,11 +1,4 @@
-import {
-  Fieldset,
-  Text,
-  TextInput,
-  Radio,
-  Group,
-  Checkbox,
-} from "@mantine/core";
+import { Fieldset, Text, TextInput, Radio, Group } from "@mantine/core";
 
 export interface RsvpGuestProps {
   guest: {
@@ -14,9 +7,10 @@ export interface RsvpGuestProps {
     surname: string;
   };
   dietaryRequirements?: string;
-  attending?: "yes" | "no";
+  attending?: "yes" | "no" | "yes-prewedding" | "yes-wedding";
   fieldNamePrefix?: string;
   additional?: boolean;
+  preWedding?: boolean;
 }
 
 export function RsvpGuest({
@@ -25,6 +19,7 @@ export function RsvpGuest({
   attending,
   fieldNamePrefix = "",
   additional = false,
+  preWedding = false,
 }: RsvpGuestProps) {
   return (
     <Fieldset key={guest.id} mb="md">
@@ -45,12 +40,6 @@ export function RsvpGuest({
             defaultValue={guest.surname}
             withAsterisk={false}
             required={false}
-          />
-          <Checkbox
-            label="Under 18?"
-            name={`${fieldNamePrefix}child`}
-            value="true"
-            mb="sm"
           />
         </>
       ) : (
@@ -76,8 +65,24 @@ export function RsvpGuest({
         defaultValue={attending}
       >
         <Group my="sm">
-          <Radio value="yes" label="Yes, I will be attending" />
-          <Radio value="no" label="No, I won't be attending" />
+          {preWedding ? (
+            <>
+              <Radio
+                value="yes-prewedding"
+                label="I will attend both the prewedding and wedding"
+              />
+              <Radio
+                value="yes-wedding"
+                label="I can attend only the wedding"
+              />
+              <Radio value="no" label="I can't attend" />
+            </>
+          ) : (
+            <>
+              <Radio value="yes" label="Yes, I will be attending" />
+              <Radio value="no" label="No, I won't be attending" />
+            </>
+          )}
         </Group>
       </Radio.Group>
     </Fieldset>

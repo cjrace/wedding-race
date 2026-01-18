@@ -32,14 +32,13 @@ export default async function InvitePage(props: {
 
   // Check if already submitted ===============================================
   const invite_result =
-    await sql`SELECT partyname, contactemail, contactnumber, maxguests, submitted, prewedding, children FROM Invites WHERE id = ${id}`;
+    await sql`SELECT partyname, maxguests, submitted, prewedding, children FROM Invites WHERE id = ${id}`;
 
   const submitted = invite_result[0].submitted;
   const preWedding = invite_result[0].prewedding;
-  const children = invite_result[0].children;
 
   const guests =
-    await sql`SELECT id, firstname, surname, rsvp, dietary FROM Guests WHERE inviteid = ${id}`;
+    await sql`SELECT id, firstname, surname, rsvp, dietary, child FROM Guests WHERE inviteid = ${id}`;
 
   if (submitted) {
     return (
@@ -60,12 +59,6 @@ export default async function InvitePage(props: {
             </Text>
           ))}
 
-        <Divider my="sm" />
-
-        <Text>We also have the following contact details for your party:</Text>
-        <Text>Email: {invite_result[0].contactemail}</Text>
-        <Text>Phone: {invite_result[0].contactnumber}</Text>
-
         <Text>
           If this looks wrong, or you want to make any changes, contact us so we
           can update our records.
@@ -82,11 +75,13 @@ export default async function InvitePage(props: {
   // Main RSVP form ===========================================================
   const partyName = invite_result[0].partyname;
   const maxGuests = invite_result[0].maxguests;
+  const children = invite_result[0].children;
 
   const initialGuests = guests.map((guest: Record<string, any>) => ({
     id: guest.id,
     firstname: guest.firstname,
     surname: guest.surname,
+    child: guest.child,
   }));
 
   const maxAdditionalGuests = Math.max(0, maxGuests - guests.length);
