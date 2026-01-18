@@ -187,18 +187,18 @@ export default function HomepageContent() {
       <Grid>
         <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
-            image={Village}
-            title="Venue"
-            description="Want to know where you're going?"
-            link="/venue"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <PageCard
             image={BreakfastTable}
             title="RSVP"
             description="Tell us you're coming and any preferences you have!"
             link="/rsvp"
+          />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <PageCard
+            image={Village}
+            title="Venue"
+            description="Want to know where you're going?"
+            link="/venue"
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>
