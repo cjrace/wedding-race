@@ -2,21 +2,17 @@
 
 import { Title, Text, Space, Grid, Divider } from "@mantine/core";
 import Image from "next/image";
+import Link from "next/link";
 import FullVillage from "@/public/images/full-village.png";
 import Cottages from "@/public/images/cottages.png";
 
-export default function AccommodationContent() {
+export default function VenueContent() {
   return (
     <>
       <Text>
-        Our wedding celebration will be over three days. We&apos;d love for you
-        to join us the night before and stay until the morning after if
-        you&apos;re able. If that&apos;s not possible, no worries, just come for
-        the wedding day.
-      </Text>
-
-      <Text>
-        Check out our timeline page for more details on the plans for each day.
+        Our wedding celebration will be over multiple days. Check out the{" "}
+        <Link href="/rsvp">RSVP page</Link> and enter your invite code for more
+        details about the plans for each day.
       </Text>
 
       <Divider my="md" />
@@ -26,8 +22,9 @@ export default function AccommodationContent() {
       <Grid>
         <Grid.Col span={{ base: 12, md: 7 }}>
           <Text>
-            Lake Henry is just 15 minutes off the A1 and is reachable by train
-            links to Darlington or Northallerton.
+            <Link href="https://alexander-weddings.co.uk/">Lake Henry</Link> is
+            just 15 minutes off the A1 and is reachable by train links to
+            Darlington or Northallerton.
           </Text>
 
           <Text>
@@ -105,8 +102,8 @@ export default function AccommodationContent() {
           </Text>
 
           <Text>
-            Booking for the pods will open late 2025, we&apos;ll reach out again
-            with more details and to let you know when the link is open.
+            Let us know if you want to stay on site when you RSVP and we&apos;ll
+            send you more details on how to book your pod(s).
           </Text>
         </Grid.Col>
 
@@ -161,8 +158,8 @@ export default function AccommodationContent() {
       </Text>
 
       <Text>
-        Any taxis will need to be pre-booked, we&apos;ll share recommended
-        companies nearer the time.
+        Any taxis will need to be pre-booked, let us know if you need help with
+        finding recommended local taxi companies.
       </Text>
 
       <Space h="xl" />

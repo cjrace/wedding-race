@@ -12,12 +12,8 @@ import {
   IconMoonStars,
   IconClockHeart,
 } from "@tabler/icons-react";
-import OverlayCard from "@/components/overlaycard";
-import PizzaOven from "@/public/images/pizza-oven.png";
-import GetReadyHut from "@/public/images/get-ready-hut.png";
-import BreakfastShack from "@/public/images/breakfast-shack.png";
 
-export default function TimelineContent() {
+export default function WeddingTimeline({ threeDay }: { threeDay: boolean }) {
   const weddingDateEnv = process.env.NEXT_PUBLIC_WEDDING_DATETIME
     ? new Date(process.env.NEXT_PUBLIC_WEDDING_DATETIME)
     : undefined;
@@ -32,80 +28,80 @@ export default function TimelineContent() {
 
   return (
     <>
-      <Text>
-        Our wedding celebration will be over three days. We&apos;d love for you
-        to join us the night before and stay until the morning after if
-        you&apos;re able. If that&apos;s not possible, no worries, just come for
-        the wedding day.
-      </Text>
+      {threeDay && (
+        <Text>
+          Our wedding celebration will be over three days. We&apos;d love for
+          you to join us the night before and stay until the morning after if
+          you&apos;re able. If that&apos;s not possible, no worries, just come
+          for as much as you can.
+        </Text>
+      )}
 
       <Text>
         We&apos;re so excited to share what we have planned with you, and to see
-        you there!
-      </Text>
-
-      <Text>
-        This is a high level outline, we don&apos;t want to give it all away and
-        it&apos;s still ages away so we may add or change stuff as we go...
+        you there! This is a high level outline, we don&apos;t want to give it
+        all away and we may add or change stuff as we go...
       </Text>
 
       <Divider my="lg" />
 
       <Grid style={{ padding: "0 30px" }}>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <Title order={2} style={{ padding: "10px 0" }}>
-            {weddingDateBefore
-              ? weddingDateBefore.toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "long",
-                })
-              : "TBD"}
-          </Title>
-          <Space h="md" />
+        {threeDay && (
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <Title order={2} style={{ padding: "10px 0" }}>
+              {weddingDateBefore
+                ? weddingDateBefore.toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                  })
+                : "TBD"}
+            </Title>
+            <Space h="md" />
 
-          <Timeline bulletSize={30}>
-            <Timeline.Item
-              title="3pm - Ceremony rehearsal"
-              bullet={<IconHeart />}
-            >
-              <Text c="dimmed" size="sm">
-                Wedding party only, we&apos;ll do a quick run through and make
-                sure everyone knows what they&apos;re doing.
-              </Text>
-            </Timeline.Item>
+            <Timeline bulletSize={30}>
+              <Timeline.Item
+                title="3pm - Ceremony rehearsal"
+                bullet={<IconHeart />}
+              >
+                <Text c="dimmed" size="sm">
+                  Wedding party only, we&apos;ll do a quick run through and make
+                  sure everyone knows what they&apos;re doing.
+                </Text>
+              </Timeline.Item>
 
-            <Timeline.Item
-              title="4pm - Onsite guest check in"
-              bullet={<IconTent />}
-            >
-              <Text c="dimmed" size="sm">
-                Anyone staying onsite the night before can check in from 4pm.
-              </Text>
-            </Timeline.Item>
+              <Timeline.Item
+                title="4pm - Onsite guest check in"
+                bullet={<IconTent />}
+              >
+                <Text c="dimmed" size="sm">
+                  Anyone staying onsite the night before can check in from 4pm.
+                </Text>
+              </Timeline.Item>
 
-            <Timeline.Item
-              title="5pm - Festivities begin"
-              bullet={<IconBalloon />}
-            >
-              <Text c="dimmed" size="sm">
-                Pre-wedding festivities start at the village, including music
-                and games, homemade pizzas and plenty of drinks.
-              </Text>
-              <Text c="dimmed" size="sm">
-                Those not staying at the village are still welcome to join in,
-                you&apos;ll just need to leave by 10pm.
-              </Text>
-            </Timeline.Item>
+              <Timeline.Item
+                title="5pm - Festivities begin"
+                bullet={<IconBalloon />}
+              >
+                <Text c="dimmed" size="sm">
+                  Pre-wedding festivities start at the village, including music
+                  and games, homemade pizzas and plenty of drinks.
+                </Text>
+                <Text c="dimmed" size="sm">
+                  Those not staying at the village are still welcome to join in,
+                  you&apos;ll just need to leave by 10pm.
+                </Text>
+              </Timeline.Item>
 
-            <Timeline.Item title="8pm - Quiz" bullet={<IconPencilQuestion />}>
-              <Text c="dimmed" size="sm">
-                Who doesn&apos;t love a quiz?
-              </Text>
-            </Timeline.Item>
-          </Timeline>
-        </Grid.Col>
+              <Timeline.Item title="8pm - Quiz" bullet={<IconPencilQuestion />}>
+                <Text c="dimmed" size="sm">
+                  Who doesn&apos;t love a quiz?
+                </Text>
+              </Timeline.Item>
+            </Timeline>
+          </Grid.Col>
+        )}
 
-        <Grid.Col span={{ base: 12, md: 4 }}>
+        <Grid.Col span={{ base: 12, md: threeDay ? 4 : 6 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
             {weddingDateEnv
               ? weddingDateEnv.toLocaleDateString("en-GB", {
@@ -181,7 +177,7 @@ export default function TimelineContent() {
           </Timeline>
         </Grid.Col>
 
-        <Grid.Col span={{ base: 12, md: 4 }}>
+        <Grid.Col span={{ base: 12, md: threeDay ? 4 : 6 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
             {weddingDateAfter
               ? weddingDateAfter.toLocaleDateString("en-GB", {
@@ -209,35 +205,6 @@ export default function TimelineContent() {
               </Text>
             </Timeline.Item>
           </Timeline>
-        </Grid.Col>
-      </Grid>
-
-      <Divider my="lg" />
-
-      <Grid>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="pizzaOven"
-            image={PizzaOven}
-            overlay="At the pre-wedding village party we'll be serving
-                    freshly made pizzas from our oven, hot and delicious!"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="gettingReady"
-            image={GetReadyHut}
-            overlay="The pods all have plenty of space but for something more
-                    sociable you can get ready together in the makeup hut!"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="breakfastShack"
-            image={BreakfastShack}
-            overlay="Self-serve breakfast will be available for everyone staying
-                    at the wedding village."
-          />
         </Grid.Col>
       </Grid>
     </>

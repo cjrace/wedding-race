@@ -25,7 +25,8 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
       <Container size="xs">
         <Stack gap="xl">
           <Text id="invite-code-description">
-            Enter your invite code below to access your RSVP form.
+            Enter your invite code below to access your RSVP form and view your
+            itinerary.
           </Text>
           <form
             onSubmit={(e) => {

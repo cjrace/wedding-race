@@ -1,7 +1,7 @@
 import { Title } from "@mantine/core";
 import { Metadata } from "next";
 import InviteContent from "./_inviteContent";
-import sql from "../../db/neon";
+import sql from "@/db/neon";
 
 export const metadata: Metadata = {
   title: "RSVP",

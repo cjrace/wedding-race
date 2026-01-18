@@ -1,6 +1,7 @@
-import sql from "../../../db/neon";
+import sql from "@/db/neon";
 import { notFound } from "next/navigation";
-import { Title, Text, Button, Space } from "@mantine/core";
+import { Title, Text, Button, Divider } from "@mantine/core";
+import WeddingTimeline from "@/components/weddingTimeline";
 
 export default async function InvitePage(props: {
   params: Promise<{ id: string }>;
@@ -44,6 +45,16 @@ export default async function InvitePage(props: {
             {guest.dietary ? guest.dietary : "No dietary requirements"}
           </Text>
         ))}
+
+        <Text>
+          If this looks wrong, or you want to make any changes, contact us so we
+          can update our records.
+        </Text>
+
+        <Divider my="lg" />
+
+        <Title order={2}>Your wedding timeline</Title>
+        <WeddingTimeline threeDay={noDays === "threeDay"} />
       </>
     );
   }
@@ -62,25 +73,34 @@ export default async function InvitePage(props: {
 
   return (
     <>
-      <Title order={1}>RSVP for the Wedding of Race</Title>
+      <Title order={1}>RSVP for the Race-Selby Wedding</Title>
 
       <Text>Hey {partyName}, we're excited to invite you to our wedding!</Text>
       <Text>{daysText[0]?.text ?? "Invitation details coming soon."}</Text>
-
-      <Title order={2}>Guest details</Title>
+      <Text>
+        Complete your RSVP below and then you&apos;ll be able to see the wedding
+        itinerary.
+      </Text>
+      <Divider my="md" />
+      <Title order={2}>Party details</Title>
       {initialGuests.map((guest) => (
         <Text key={guest.id}>
           {guest.firstname} {guest.surname}
         </Text>
       ))}
+      <Divider my="md" />
 
-      <Title order={2}>Add plus ones</Title>
-      <Text>
-        You can invite up to {maxAdditionalGuests} additional{" "}
-        {maxAdditionalGuests === 1 ? "guest" : "guests"}.
-      </Text>
+      {maxAdditionalGuests > 0 && (
+        <>
+          <Title order={2}>Add plus one(s)</Title>
+          <Text>
+            You can invite up to {maxAdditionalGuests} additional{" "}
+            {maxAdditionalGuests === 1 ? "guest" : "guests"}.
+          </Text>
+          <Divider my="md" />
+        </>
+      )}
 
-      <Space h="md"></Space>
       <Button>Submit RSVP</Button>
     </>
   );

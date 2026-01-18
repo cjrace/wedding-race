@@ -19,6 +19,7 @@ import BreakfastTable from "@/public/images/breakfast-tables.png";
 import FAQ from "@/public/images/faq.png";
 import playConfetti from "@/components/playconfetti";
 import { IconConfetti } from "@tabler/icons-react";
+import styles from "@/styles/homepage.module.css";
 
 export default function HomepageContent() {
   const weddingDateEnv = process.env.NEXT_PUBLIC_WEDDING_DATETIME
@@ -49,9 +50,10 @@ export default function HomepageContent() {
               borderRadius: "12px",
               boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
               width: "100%",
-              transition: "box-shadow 0.2s",
+              transition: "box-shadow 0.2s, background 0.2s, color 0.2s",
               cursor: "pointer",
             }}
+            className={styles.rsvpInvertHover}
           >
             <Center>
               <Text
@@ -60,9 +62,12 @@ export default function HomepageContent() {
                 style={{
                   color: "#000",
                   letterSpacing: "1px",
+                  transition: "color 0.2s",
                 }}
+                className={styles.rsvpInvertHoverText}
               >
-                🎉 Time to RSVP! Click here to let us know you&apos;re coming 🎉
+                Time to RSVP! Let us know if you&apos;re coming and view your
+                itinerary 🎉
               </Text>
             </Center>
           </Box>
@@ -183,9 +188,9 @@ export default function HomepageContent() {
         <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
             image={Village}
-            title="Accommodation"
-            description="Want to plan ahead for where to rest your head?"
-            link="/accommodation"
+            title="Venue"
+            description="Want to know where you're going?"
+            link="/venue"
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>
