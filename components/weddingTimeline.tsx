@@ -100,15 +100,17 @@ export default function WeddingTimeline({
           <Space h="md" />
 
           <Timeline bulletSize={30}>
-            <Timeline.Item
-              title="Morning - Village breakfast"
-              bullet={<IconCoffee />}
-            >
-              <Text c="dimmed" size="sm">
-                Self-serve breakfast will be available for guests staying at the
-                wedding village.
-              </Text>
-            </Timeline.Item>
+            {preWedding && (
+              <Timeline.Item
+                title="Morning - Village breakfast"
+                bullet={<IconCoffee />}
+              >
+                <Text c="dimmed" size="sm">
+                  Self-serve breakfast will be available for guests staying at
+                  the wedding village.
+                </Text>
+              </Timeline.Item>
+            )}
 
             <Timeline.Item
               title="10am - Onsite guest check in"
