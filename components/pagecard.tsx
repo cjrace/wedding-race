@@ -65,7 +65,7 @@ export default function PageCard({
         <Text fw={500} mt="md" style={{ padding: 0 }}>
           {title}
         </Text>
-        <Text c="dimmed" style={{ padding: 0 }}>
+        <Text c="gray.5" style={{ padding: 0 }}>
           {description}
         </Text>
       </div>

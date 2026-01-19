@@ -49,6 +49,14 @@ const theme: MantineThemeOverride = {
         },
       },
     },
+    Button: {
+      styles: {
+        root: {
+          backgroundColor: myColor[2],
+          color: "#242424",
+        },
+      },
+    },
   },
 };
 

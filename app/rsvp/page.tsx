@@ -20,7 +20,9 @@ export default async function InvitePage() {
 
   return (
     <>
-      <Title order={1}>Time to RSVP!</Title>
+      <Title order={1} style={{ paddingLeft: 0, paddingRight: 0 }}>
+        Time to RSVP!
+      </Title>
 
       <InviteContent possibleIds={possible_ids} />
     </>

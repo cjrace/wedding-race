@@ -1,18 +1,27 @@
 "use client";
 
-import { Title, Text, Space, Grid, Divider } from "@mantine/core";
+import { Title, Text, Space, Grid, Divider, Anchor } from "@mantine/core";
 import Image from "next/image";
-import Link from "next/link";
 import FullVillage from "@/public/images/full-village.png";
 import Cottages from "@/public/images/cottages.png";
+import OverlayCard from "@/components/overlaycard";
+import PizzaOven from "@/public/images/pizza-oven.png";
+import GetReadyHut from "@/public/images/get-ready-hut.png";
+import BreakfastShack from "@/public/images/breakfast-shack.png";
 
 export default function VenueContent() {
   return (
     <>
       <Text>
         Our wedding celebration will be over multiple days. Check out the{" "}
-        <Link href="/rsvp">RSVP page</Link> and enter your invite code for more
-        details about the plans for each day.
+        <Anchor
+          style={{ padding: "0px", textDecoration: "underline" }}
+          href="/rsvp"
+        >
+          RSVP page
+        </Anchor>{" "}
+        and enter your invite code for more details about the plans for each
+        day.
       </Text>
 
       <Divider my="md" />
@@ -22,8 +31,13 @@ export default function VenueContent() {
       <Grid>
         <Grid.Col span={{ base: 12, md: 7 }}>
           <Text>
-            <Link href="https://alexander-weddings.co.uk/">Lake Henry</Link> is
-            just 15 minutes off the A1 and is reachable by train links to
+            <Anchor
+              style={{ padding: "0px", textDecoration: "underline" }}
+              href="https://alexander-weddings.co.uk/"
+            >
+              Lake Henry
+            </Anchor>{" "}
+            is just 15 minutes off the A1 and is reachable by train links to
             Darlington or Northallerton.
           </Text>
 
@@ -70,10 +84,11 @@ export default function VenueContent() {
           </Text>
 
           <Text>
-            We&apos;ll be providing food and drink the night before, and
-            breakfast for both mornings. There&apos;ll also be self-service tea
-            and coffee available throughout your stay, and there&apos;s fridges
-            plus a food prep area if you want to bring anything yourself too.
+            We&apos;ll be providing food and drink for guests invited to the
+            night before, and breakfast for both mornings. There&apos;ll also be
+            self-service tea and coffee available throughout your stay, and
+            there&apos;s fridges plus a food prep area if you want to bring
+            anything yourself too.
           </Text>
 
           <Text>
@@ -81,14 +96,10 @@ export default function VenueContent() {
             comfortable bed, bedding, towels, plugs for your gadgets and heating
             if you need it!
           </Text>
+
           <Text>
             Pod options include twin, double, family and en-suite pods, some
             family pods can sleep 3 adults if needed.
-          </Text>
-
-          <Text>
-            Guests can book to stay for the full two nights (Monday to
-            Wednesday) or for just the night of the wedding.
           </Text>
 
           <Text>
@@ -161,6 +172,35 @@ export default function VenueContent() {
         Any taxis will need to be pre-booked, let us know if you need help with
         finding recommended local taxi companies.
       </Text>
+
+      <Divider my="md" />
+
+      <Grid>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <OverlayCard
+            cardKey="pizzaOven"
+            image={PizzaOven}
+            overlay="At the pre-wedding village party we'll be serving
+                    freshly made pizzas from our oven, hot and delicious!"
+          />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <OverlayCard
+            cardKey="gettingReady"
+            image={GetReadyHut}
+            overlay="The pods all have plenty of space but for something more
+                    sociable you can get ready together in the makeup hut!"
+          />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <OverlayCard
+            cardKey="breakfastShack"
+            image={BreakfastShack}
+            overlay="Self-serve breakfast will be available for everyone staying
+                    at the wedding village."
+          />
+        </Grid.Col>
+      </Grid>
 
       <Space h="xl" />
     </>

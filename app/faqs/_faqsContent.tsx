@@ -1,11 +1,6 @@
 "use client";
 
-import { Text, Title, Space, Divider, Grid } from "@mantine/core";
-import OverlayCard from "@/components/overlaycard";
-import PizzaOven from "@/public/images/pizza-oven.png";
-import GetReadyHut from "@/public/images/get-ready-hut.png";
-import BreakfastShack from "@/public/images/breakfast-shack.png";
-import Link from "next/link";
+import { Text, Title, Space, Divider, Anchor } from "@mantine/core";
 
 export default function FAQsContent() {
   return (
@@ -28,14 +23,34 @@ export default function FAQsContent() {
       <Divider my="md" />
       <Title order={2}>How do I RSVP?</Title>
       <Text>
-        Use the <Link href="/rsvp">RSVP page</Link>!
+        Use the{" "}
+        <Anchor
+          style={{
+            padding: "0px",
+            textDecoration: "underline",
+          }}
+          href="/rsvp"
+        >
+          RSVP page
+        </Anchor>
+        !
       </Text>
 
       <Divider my="md" />
       <Title order={2}>Where is the wedding taking place?</Title>
       <Text>
-        Have a look at our <Link href="/venue">venue page</Link> for details of
-        the wedding village location, directions, and accommodation.
+        Have a look at our{" "}
+        <Anchor
+          style={{
+            padding: "0px",
+            textDecoration: "underline",
+          }}
+          href="/venue"
+        >
+          venue page
+        </Anchor>{" "}
+        for all for all the wedding village location, directions, and
+        accommodation.
       </Text>
 
       <Divider my="md" />
@@ -184,33 +199,6 @@ export default function FAQsContent() {
       </Text>
 
       <Divider my="lg" />
-
-      <Grid>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="pizzaOven"
-            image={PizzaOven}
-            overlay="At the pre-wedding village party we'll be serving
-                    freshly made pizzas from our oven, hot and delicious!"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="gettingReady"
-            image={GetReadyHut}
-            overlay="The pods all have plenty of space but for something more
-                    sociable you can get ready together in the makeup hut!"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="breakfastShack"
-            image={BreakfastShack}
-            overlay="Self-serve breakfast will be available for everyone staying
-                    at the wedding village."
-          />
-        </Grid.Col>
-      </Grid>
 
       <Space h="xl" />
     </>

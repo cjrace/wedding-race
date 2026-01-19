@@ -1,10 +1,19 @@
 "use client";
 
-import { Group, Stack, TextInput, Button, Text, Space } from "@mantine/core";
+import {
+  Group,
+  Stack,
+  TextInput,
+  Button,
+  Text,
+  Space,
+  Box,
+} from "@mantine/core";
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Lola from "@/public/images/Lola.png";
+import styles from "@/styles/rsvp.module.css";
 
 interface InviteContentProps {
   possibleIds: string[];
@@ -18,7 +27,7 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
   return (
     <>
       <Stack>
-        <Text id="invite-code-description">
+        <Text id="invite-code-description" px={0}>
           Enter your invite code below to access your RSVP form and view your
           itinerary.
         </Text>
@@ -37,17 +46,32 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
         >
           <Group>
             <TextInput
+              px={0}
               aria-describedby="invite-code-description"
+              aria-label="Enter invite code"
               value={inputValue}
               onChange={(e) => {
                 setInputValue(e.currentTarget.value);
                 if (error) setError(null);
               }}
-              error={error}
+              error={false}
               style={{ width: "50%" }}
             />
-            <Button type="submit">Submit</Button>
+            <Button
+              type="submit"
+              variant="filled"
+              className={styles.rsvpInvertHoverButton}
+            >
+              Submit
+            </Button>
           </Group>
+          {error && (
+            <Box mt="xs" p="sm" bg="red.9" style={{ borderRadius: 6 }}>
+              <Text c="white" size="sm">
+                {error}
+              </Text>
+            </Box>
+          )}
         </form>
       </Stack>
 
@@ -55,7 +79,7 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
 
       <Image
         src={Lola}
-        alt="Lola"
+        alt="Lola invites you to RSVP"
         style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" }}
       />
     </>

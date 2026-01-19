@@ -60,9 +60,10 @@ export default function HomepageContent() {
                 fw={700}
                 size="xl"
                 style={{
-                  color: "#000",
+                  color: "#242424",
                   letterSpacing: "1px",
                   transition: "color 0.2s",
+                  textDecoration: "underline",
                 }}
                 className={styles.rsvpInvertHoverText}
               >
@@ -161,6 +162,7 @@ export default function HomepageContent() {
                 rel="noopener noreferrer"
                 style={{
                   padding: "0 0 0 4px", // force the anchor to match text spacing
+                  textDecoration: "underline",
                 }}
               >
                 source code on GitHub
