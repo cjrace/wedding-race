@@ -1,6 +1,6 @@
 import sql from "@/db/neon";
 import { notFound } from "next/navigation";
-import { Title, Text, Divider } from "@mantine/core";
+import { Title, Text, Divider, Space } from "@mantine/core";
 import WeddingTimeline from "@/components/weddingTimeline";
 import RsvpFormClient from "@/components/rsvpFormClient";
 
@@ -88,8 +88,9 @@ export default async function InvitePage(props: {
 
   return (
     <>
-      <Title order={1}>RSVP for the Race-Selby Wedding</Title>
-
+      <Title px={0} order={1}>
+        RSVP for the Race-Selby Wedding
+      </Title>
       <RsvpFormClient
         partyID={id}
         partyName={partyName}
@@ -98,6 +99,9 @@ export default async function InvitePage(props: {
         maxAdditionalGuests={maxAdditionalGuests}
         children={children}
       />
+      <Space h="xl" />
+      <Space h="xl" />{" "}
+      {/* Extra space at bottom to prevent overlap with Back to Top button */}
     </>
   );
 }

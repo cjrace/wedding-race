@@ -22,6 +22,7 @@ interface InviteContentProps {
 export default function InviteContent({ possibleIds }: InviteContentProps) {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   return (
@@ -32,7 +33,7 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
           itinerary.
         </Text>
         <form
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
             if (!possibleIds.includes(inputValue.trim())) {
               setError(
@@ -40,7 +41,10 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
               );
             } else {
               setError(null);
-              router.push(`/rsvp/${inputValue.trim()}`);
+              setLoading(true);
+              window.setTimeout(() => {
+                router.push(`/rsvp/${inputValue.trim()}`);
+              }, 50);
             }
           }}
         >
@@ -56,11 +60,14 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
               }}
               error={false}
               style={{ width: "50%" }}
+              disabled={loading}
             />
             <Button
               type="submit"
               variant="filled"
               className={styles.rsvpInvertHoverButton}
+              loading={loading}
+              disabled={loading}
             >
               Submit
             </Button>

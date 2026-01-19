@@ -1,18 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { Title, Text, Divider, Button, Group, Accordion } from "@mantine/core";
+import {
+  Title,
+  Text,
+  Divider,
+  Button,
+  Group,
+  Accordion,
+  Box,
+} from "@mantine/core";
 import InviteText from "@/components/invitetext";
 import { RsvpGuest } from "@/components/rsvpGuest";
 import { useRouter } from "next/navigation";
 import WeddingTimeline from "./weddingTimeline";
-
-// Extend the Window interface to include processingRsvp
-declare global {
-  interface Window {
-    processingRsvp?: boolean;
-  }
-}
+import { IconMail } from "@tabler/icons-react";
+import styles from "@/styles/rsvp.module.css";
 
 interface GuestInformation {
   id: string;
@@ -42,44 +45,37 @@ export default function RsvpFormClient({
 }: RsvpFormClientProps) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
-  // eslint-disable-next-line no-undef
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const [loading, setLoading] = useState(false);
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setError(null);
 
     const form = e.currentTarget;
-    // eslint-disable-next-line no-undef
-    const formData = new FormData(form);
+    const formData = new globalThis.FormData(form);
 
-    // Debug: log all formData entries
     if (typeof window !== "undefined") {
-      // Convert FormData to array for logging
       console.log("RSVP formData entries:", Array.from(formData.entries()));
     }
 
-    // Validate all original guests' RSVP (including children)
     const nonChildGuests = guestInformation.filter((g) => !g.child);
     const childGuests = guestInformation.filter((g) => g.child);
-    // Validate non-child guests
     for (let i = 0; i < nonChildGuests.length; i++) {
       const attending = formData.get(`guest-${i}-attending`);
       if (!attending) {
-        setError("Please select attending status for all original guests.");
+        setError("Please select attending status for all named guests.");
         return;
       }
     }
-    // Validate child guests
     for (let i = 0; i < childGuests.length; i++) {
       const attending = formData.get(`child-existing-${i}-attending`);
       if (!attending) {
         setError(
-          "Please select attending status for all original guests (including children). Please check the children section.",
+          "Please select attending status for all named guests (including children). Please check the children section.",
         );
         return;
       }
     }
 
-    // Validate additional guests' names if any RSVP is set
     for (let i = 0; i < maxAdditionalGuests; i++) {
       const firstname = (
         formData.get(`additional-${i}-firstname`) as string
@@ -96,17 +92,21 @@ export default function RsvpFormClient({
       }
     }
 
-    // eslint-disable-next-line no-undef
-    const res = await fetch("/api/submitrsvp", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await res.json();
-    if (data.success) {
-      router.push(`/rsvp/${data.partyID}`);
-    } else {
-      setError(data.error || "Submission failed. Please try again.");
-    }
+    setLoading(true);
+    // Wait a tick to show spinner before submission
+    window.setTimeout(async () => {
+      const res = await globalThis.fetch("/api/submitrsvp", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        router.push(`/rsvp/${data.partyID}`);
+      } else {
+        setError(data.error || "Submission failed. Please try again.");
+        setLoading(false);
+      }
+    }, 50);
   };
 
   return (
@@ -114,32 +114,36 @@ export default function RsvpFormClient({
       <input type="hidden" name="partyID" value={partyID} />
       <input type="hidden" name="guestCount" value={guestInformation.length} />
 
-      <Text>Hey {partyName},</Text>
+      <Text px={0}>Hey {partyName},</Text>
       <InviteText preWedding={preWedding} />
 
-      <Text>
-        To help you with your plans, click to see a high level outline of our
-        wedding itinerary.
+      <Text px={0}>
+        To help you with your plans, expand the timeline section below to see a
+        high level outline of your wedding itinerary.
       </Text>
 
       <Accordion variant="separated" my="md">
         <Accordion.Item value="timeline">
-          <Accordion.Control>Wedding Timeline</Accordion.Control>
+          <Accordion.Control>View your wedding timeline</Accordion.Control>
           <Accordion.Panel>
             <WeddingTimeline preWedding={preWedding} />
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
 
-      <Text>
+      <Text px={0}>
         Please <strong>complete your RSVP below</strong>, after which you'll be
         able to book on-site accommodation.
       </Text>
       <Divider my="md" />
 
-      <Title order={2}>Party details</Title>
+      <Title order={2} px={0}>
+        Party details
+      </Title>
 
-      <Title order={3}>Your details</Title>
+      <Title order={3} px={0}>
+        Your details
+      </Title>
       {guestInformation
         .filter((guest) => !guest.child)
         .map((guest, idx) => (
@@ -158,13 +162,15 @@ export default function RsvpFormClient({
       {children > 0 && (
         <>
           <Divider my="md" />
-          <Title order={3}>Children</Title>
-          <Text>
+          <Title order={3} px={0}>
+            Children
+          </Title>
+          <Text px={0}>
             We’ve put children in a separate section so we can keep track of how
             many little ones to expect — just RSVP for them below.
           </Text>
 
-          <Text>
+          <Text px={0}>
             Whether you bring them with you or would rather have the break is
             totally up to you. We just want you to have a great time! There will
             be kids at the wedding (like Lola), and there will also be parents
@@ -222,15 +228,17 @@ export default function RsvpFormClient({
       {maxAdditionalGuests > 0 && (
         <>
           <Divider my="md" />
-          <Title order={3}>We're offering plus ones!</Title>
-          <Text>
+          <Title order={3} px={0}>
+            We're offering plus ones!
+          </Title>
+          <Text px={0}>
             Please feel welcome to bring up to {maxAdditionalGuests} additional{" "}
             {maxAdditionalGuests === 1
               ? "guest as your plus one"
               : "guests as your plus ones"}
             .
           </Text>
-          <Text>
+          <Text px={0}>
             If you aren't sure who this will be yet, but want to secure a space
             anyway just add as a TBC. We'll need to know their final details by
             end of February 2026 and will follow up with you separately to
@@ -255,33 +263,32 @@ export default function RsvpFormClient({
           ))}
         </>
       )}
+      <Divider my="lg" />
 
       <Group mt="md">
         <Button
+          fullWidth
           type="submit"
-          loading={
-            !!error === false &&
-            typeof window !== "undefined" &&
-            typeof window.processingRsvp !== "undefined" &&
-            window.processingRsvp
-          }
+          loading={loading}
+          disabled={loading}
+          rightSection={<IconMail size={18} />}
+          className={styles.rsvpInvertHoverButton}
         >
-          {typeof window !== "undefined" &&
-          typeof window.processingRsvp !== "undefined" &&
-          window.processingRsvp
-            ? "Processing the RSVP..."
-            : "Submit RSVP"}
+          Submit RSVP
         </Button>
         {error && (
-          <Text c="red" mt={0}>
-            {error}
-          </Text>
+          <Box
+            mt="xs"
+            p="sm"
+            bg="red.9"
+            w="100%"
+            style={{ borderRadius: 6, textAlign: "center" }}
+          >
+            <Text c="white" size="sm" fw="bold">
+              {error}
+            </Text>
+          </Box>
         )}
-        {/* Show processing message if no error and form is submitting */}
-        {typeof window !== "undefined" &&
-          typeof window.processingRsvp !== "undefined" &&
-          window.processingRsvp &&
-          !error && <Text mt={0}>Processing the RSVP...</Text>}
       </Group>
     </form>
   );
