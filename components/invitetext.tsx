@@ -7,4 +7,3 @@ export default function InviteText({ preWedding }: { preWedding: boolean }) {
 
   return <Text>{inviteText}</Text>;
 }
-

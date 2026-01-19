@@ -118,10 +118,10 @@ export default function RsvpFormClient({
       <InviteText preWedding={preWedding} />
 
       <Text>
-        To help you with your plans, click to see a high level outline of our wedding itinerary.
+        To help you with your plans, click to see a high level outline of our
+        wedding itinerary.
       </Text>
 
-      
       <Accordion variant="separated" my="md">
         <Accordion.Item value="timeline">
           <Accordion.Control>Wedding Timeline</Accordion.Control>
@@ -130,14 +130,12 @@ export default function RsvpFormClient({
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
-  
 
       <Text>
-        Please <strong>complete your RSVP below</strong>, after which you'll be able to book on-site accommodation.
+        Please <strong>complete your RSVP below</strong>, after which you'll be
+        able to book on-site accommodation.
       </Text>
       <Divider my="md" />
-
-        
 
       <Title order={2}>Party details</Title>
 
@@ -162,20 +160,17 @@ export default function RsvpFormClient({
           <Divider my="md" />
           <Title order={3}>Children</Title>
           <Text>
-            We’ve put children in a separate section so we can keep track of 
-            how many little ones to expect — just RSVP for them below.
+            We’ve put children in a separate section so we can keep track of how
+            many little ones to expect — just RSVP for them below.
           </Text>
 
           <Text>
-             Whether you bring them with you or would rather have the break 
-            is totally up to you. We just want you to have a great time!
-            There will be kids at the wedding (like Lola), and there will also 
-            be parents enjoying a child‑free break. Whatever you choose, you 
-            won’t be the odd one out.
+            Whether you bring them with you or would rather have the break is
+            totally up to you. We just want you to have a great time! There will
+            be kids at the wedding (like Lola), and there will also be parents
+            enjoying a child‑free break. Whatever you choose, you won’t be the
+            odd one out.
           </Text>
-
-          
-
 
           <Divider my="md" />
 
@@ -227,19 +222,20 @@ export default function RsvpFormClient({
       {maxAdditionalGuests > 0 && (
         <>
           <Divider my="md" />
-          <Title order={3}>
-            We're offering plus ones!
-          </Title>
+          <Title order={3}>We're offering plus ones!</Title>
           <Text>
-             Please feel welcome to bring up to {maxAdditionalGuests} additional{" "}
+            Please feel welcome to bring up to {maxAdditionalGuests} additional{" "}
             {maxAdditionalGuests === 1
               ? "guest as your plus one"
               : "guests as your plus ones"}
             .
           </Text>
           <Text>
-            If you aren't sure who this will be yet, but want to secure a space anyway just add as a TBC. We'll need to know their final details by end of February 2026 and will follow up with you separately to confirm.
-            </Text>
+            If you aren't sure who this will be yet, but want to secure a space
+            anyway just add as a TBC. We'll need to know their final details by
+            end of February 2026 and will follow up with you separately to
+            confirm.
+          </Text>
           <Divider my="md" />
           {[...Array(maxAdditionalGuests)].map((_, idx) => (
             <div key={`additional-${idx}`} style={{ marginBottom: 16 }}>

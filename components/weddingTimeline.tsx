@@ -1,6 +1,6 @@
 "use client";
 
-import { Title, Text, Timeline, Space, Grid, Divider } from "@mantine/core";
+import { Title, Text, Timeline, Space, Grid } from "@mantine/core";
 import {
   IconHeart,
   IconPencilQuestion,
@@ -32,10 +32,6 @@ export default function WeddingTimeline({
 
   return (
     <>
-      
-
-      
-
       <Grid style={{ padding: "0 30px" }}>
         {preWedding && (
           <Grid.Col span={{ base: 12, md: 4 }}>

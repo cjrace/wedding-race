@@ -60,14 +60,14 @@ export default async function InvitePage(props: {
           ))}
 
         <Text>
-          If this looks wrong, or you want to make any changes, please let us know so we can update our details.
+          If this looks wrong, or you want to make any changes, please let us
+          know so we can update our details.
         </Text>
 
         <Divider my="lg" />
 
         <Title order={2}>Your wedding timeline</Title>
         <WeddingTimeline preWedding={preWedding} />
-
       </>
     );
   }
