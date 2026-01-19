@@ -43,30 +43,86 @@ export default async function InvitePage(props: {
   if (submitted) {
     return (
       <>
-        <Title order={1}>RSVP for the Race-Selby Wedding</Title>
-        <Text>Thank you for your RSVP!</Text>
+        <Title px={0} order={1}>
+          RSVP for the Race-Selby Wedding
+        </Title>
+        <Text px={0}>Thank you for your RSVP!</Text>
+        <Text px={0}>
+          On this page you'll find a copy of your response, information on
+          booking accommodation, plus a copy of your wedding timeline.
+        </Text>
+
         <Divider my="sm" />
 
-        <Text>We have received your response for the following guests:</Text>
+        <Title px={0} order={2}>
+          Your RSVP details
+        </Title>
+        <Text px={0} mb="md">
+          We have received your response for the following guests:
+        </Text>
         {[...guests]
           .sort((a, b) => a.id - b.id)
           .map((guest: Record<string, any>) => (
-            <Text key={guest.id}>
-              {guest.firstname} {guest.surname}:{" "}
-              {guest.rsvp ? "Attending" : "Not Attending"}
-              {" | "}
-              {guest.dietary ? guest.dietary : "No dietary requirements"}
-            </Text>
+            <div
+              key={guest.id}
+              style={{
+                marginBottom: 16,
+                outline: "1px solid #c9c9c9",
+                borderRadius: 4,
+                padding: 0,
+              }}
+            >
+              <Text px={15} pb={0} key={guest.id + "name"}>
+                {guest.firstname} {guest.surname}:{" "}
+                {guest.rsvp ? "Attending" : "Not Attending"}
+              </Text>
+              <Text px={15} pt={5} key={guest.id + "dietary"}>
+                Dietary Requirements: {guest.dietary || "None"}
+              </Text>
+            </div>
           ))}
 
-        <Text>
+        <Text px={0}>
           If this looks wrong, or you want to make any changes, please let us
-          know so we can update our details.
+          know ASAP so we can update our details.
         </Text>
 
-        <Divider my="lg" />
+        <Divider my="sm" />
 
-        <Title order={2}>Your wedding timeline</Title>
+        <Title px={0} order={2}>
+          Booking accommodation
+        </Title>
+        <Text px={0} mb="md">
+          Some accommodation information will go here.
+        </Text>
+
+        {preWedding && (
+          <>
+            <Divider my="sm" />
+
+            <Title px={0} order={2}>
+              Quiz round suggestions
+            </Title>
+            <Text px={0} mb="md">
+              Suggestions for the pre-wedding quiz will go here.
+            </Text>
+          </>
+        )}
+
+        <Divider my="sm" />
+
+        <Title px={0} order={2}>
+          Music requests
+        </Title>
+        <Text px={0} mb="md">
+          Add any music requests to our guest playlist on Spotify.
+        </Text>
+
+        <Divider my="sm" />
+
+        <Title px={0} order={2}>
+          Your wedding timeline
+        </Title>
         <WeddingTimeline preWedding={preWedding} />
       </>
     );
@@ -99,9 +155,9 @@ export default async function InvitePage(props: {
         maxAdditionalGuests={maxAdditionalGuests}
         children={children}
       />
-      <Space h="xl" />
-      <Space h="xl" />{" "}
       {/* Extra space at bottom to prevent overlap with Back to Top button */}
+      <Space h="xl" />
+      <Space h="xl" />
     </>
   );
 }

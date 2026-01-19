@@ -36,6 +36,7 @@ export default function WeddingTimeline({
         {preWedding && (
           <Grid.Col span={{ base: 12, md: 4 }}>
             <Title order={2} style={{ padding: "10px 0" }}>
+              Mon{" "}
               {weddingDateBefore
                 ? weddingDateBefore.toLocaleDateString("en-GB", {
                     day: "numeric",
@@ -50,7 +51,7 @@ export default function WeddingTimeline({
                 title="3pm - Ceremony rehearsal"
                 bullet={<IconHeart />}
               >
-                <Text c="dimmed" size="sm">
+                <Text c="gray.5" size="sm">
                   Wedding party only, we&apos;ll do a quick run through and make
                   sure everyone knows what they&apos;re doing.
                 </Text>
@@ -60,7 +61,7 @@ export default function WeddingTimeline({
                 title="4pm - Onsite guest check in"
                 bullet={<IconTent />}
               >
-                <Text c="dimmed" size="sm">
+                <Text c="gray.5" size="sm">
                   Anyone staying onsite the night before can check in from 4pm.
                 </Text>
               </Timeline.Item>
@@ -69,18 +70,18 @@ export default function WeddingTimeline({
                 title="5pm - Festivities begin"
                 bullet={<IconBalloon />}
               >
-                <Text c="dimmed" size="sm">
+                <Text c="gray.5" size="sm">
                   Pre-wedding festivities start at the village, including music
                   and games, homemade pizzas and plenty of drinks.
                 </Text>
-                <Text c="dimmed" size="sm">
+                <Text c="gray.5" size="sm">
                   Those not staying at the village are still welcome to join in,
                   you&apos;ll just need to leave by 10pm.
                 </Text>
               </Timeline.Item>
 
               <Timeline.Item title="8pm - Quiz" bullet={<IconPencilQuestion />}>
-                <Text c="dimmed" size="sm">
+                <Text c="gray.5" size="sm">
                   Who doesn&apos;t love a quiz?
                 </Text>
               </Timeline.Item>
@@ -90,6 +91,7 @@ export default function WeddingTimeline({
 
         <Grid.Col span={{ base: 12, md: preWedding ? 4 : 6 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
+            Tue{" "}
             {weddingDateEnv
               ? weddingDateEnv.toLocaleDateString("en-GB", {
                   day: "numeric",
@@ -105,7 +107,7 @@ export default function WeddingTimeline({
                 title="Morning - Village breakfast"
                 bullet={<IconCoffee />}
               >
-                <Text c="dimmed" size="sm">
+                <Text c="gray.5" size="sm">
                   Self-serve breakfast will be available for guests staying at
                   the wedding village.
                 </Text>
@@ -116,7 +118,7 @@ export default function WeddingTimeline({
               title="10am - Onsite guest check in"
               bullet={<IconTent />}
             >
-              <Text c="dimmed" size="sm">
+              <Text c="gray.5" size="sm">
                 Anyone staying onsite for just the one night can check in from
                 10am.
               </Text>
@@ -126,7 +128,7 @@ export default function WeddingTimeline({
               title="11:45am - Village mimosas"
               bullet={<IconGlassChampagne />}
             >
-              <Text c="dimmed" size="sm">
+              <Text c="gray.5" size="sm">
                 Celebrate with other guests, help yourself to a mimosa.
               </Text>
             </Timeline.Item>
@@ -135,7 +137,7 @@ export default function WeddingTimeline({
               title="12:45pm - Guests seated"
               bullet={<IconClockHeart />}
             >
-              <Text c="dimmed" size="sm">
+              <Text c="gray.5" size="sm">
                 Whether already on site or travelling from further afield, get
                 yourself seated ahead of our ceremony starting at 1pm!
               </Text>
@@ -145,7 +147,7 @@ export default function WeddingTimeline({
               title="1pm - It's our wedding!"
               bullet={<IconHeart />}
             >
-              <Text c="dimmed" size="sm">
+              <Text c="gray.5" size="sm">
                 We don&apos;t want to give away all the surprises... Though you
                 can expect the usual things, we&apos;ll feed you, there&apos;ll
                 be drinks, partying.
@@ -156,7 +158,7 @@ export default function WeddingTimeline({
               title="12am - Retire to village"
               bullet={<IconMoonStars />}
             >
-              <Text c="dimmed" size="sm">
+              <Text c="gray.5" size="sm">
                 Our wedding day is over, and it&apos;s time for carriages for
                 anyone staying off-site, but for those staying in the village
                 they can either head straight to bed or continue the
@@ -168,6 +170,7 @@ export default function WeddingTimeline({
 
         <Grid.Col span={{ base: 12, md: preWedding ? 4 : 6 }}>
           <Title order={2} style={{ padding: "10px 0" }}>
+            Wed{" "}
             {weddingDateAfter
               ? weddingDateAfter.toLocaleDateString("en-GB", {
                   day: "numeric",
@@ -182,14 +185,14 @@ export default function WeddingTimeline({
               title="Morning - Village breakfast"
               bullet={<IconCoffee />}
             >
-              <Text c="dimmed" size="sm">
+              <Text c="gray.5" size="sm">
                 Self-serve breakfast will be available for guests staying at the
                 wedding village.
               </Text>
             </Timeline.Item>
 
             <Timeline.Item title="11am - Check out" bullet={<IconHomeMove />}>
-              <Text c="dimmed" size="sm">
+              <Text c="gray.5" size="sm">
                 Checkout for anyone staying on site is at 11am.
               </Text>
             </Timeline.Item>

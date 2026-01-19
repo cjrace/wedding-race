@@ -93,7 +93,6 @@ export default function RsvpFormClient({
     }
 
     setLoading(true);
-    // Wait a tick to show spinner before submission
     window.setTimeout(async () => {
       const res = await globalThis.fetch("/api/submitrsvp", {
         method: "POST",
@@ -102,6 +101,11 @@ export default function RsvpFormClient({
       const data = await res.json();
       if (data.success) {
         router.push(`/rsvp/${data.partyID}`);
+        if (typeof window !== "undefined") {
+          window.setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }, 1000);
+        }
       } else {
         setError(data.error || "Submission failed. Please try again.");
         setLoading(false);
@@ -124,7 +128,9 @@ export default function RsvpFormClient({
 
       <Accordion variant="separated" my="md">
         <Accordion.Item value="timeline">
-          <Accordion.Control>View your wedding timeline</Accordion.Control>
+          <Accordion.Control style={{ color: "#c9c9c9" }}>
+            View your wedding timeline
+          </Accordion.Control>
           <Accordion.Panel>
             <WeddingTimeline preWedding={preWedding} />
           </Accordion.Panel>
@@ -166,7 +172,7 @@ export default function RsvpFormClient({
             Children
           </Title>
           <Text px={0}>
-            We’ve put children in a separate section so we can keep track of how
+            We've put children in a separate section so we can keep track of how
             many little ones to expect — just RSVP for them below.
           </Text>
 
@@ -174,7 +180,7 @@ export default function RsvpFormClient({
             Whether you bring them with you or would rather have the break is
             totally up to you. We just want you to have a great time! There will
             be kids at the wedding (like Lola), and there will also be parents
-            enjoying a child‑free break. Whatever you choose, you won’t be the
+            enjoying a child-free break. Whatever you choose, you won't be the
             odd one out.
           </Text>
 
