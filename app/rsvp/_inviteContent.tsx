@@ -59,12 +59,13 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
                 if (error) setError(null);
               }}
               error={false}
-              style={{ width: "50%" }}
+              style={{ width: "65%" }}
               disabled={loading}
             />
             <Button
               type="submit"
               variant="filled"
+              style={{ width: "30%" }}
               className={styles.rsvpInvertHoverButton}
               loading={loading}
               disabled={loading}

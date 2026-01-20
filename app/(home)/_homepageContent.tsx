@@ -130,7 +130,7 @@ export default function HomepageContent() {
           <Box>
             <Text>
               Hey there! We&apos;re incredibly excited to get everyone together
-              for a big knees-up on the{" "}
+              for a big knees-up on Tuesday{" "}
               {weddingDateEnv
                 ? weddingDateEnv.toLocaleDateString("en-GB", {
                     day: "numeric",
@@ -138,15 +138,13 @@ export default function HomepageContent() {
                     year: "numeric",
                   })
                 : "TBD"}
-              . Right now, we&apos;ve got some high-level details up and
-              running, but stay tuned as we&apos;ll be updating with more juicy
-              info as the big day approaches.
+              .
             </Text>
 
             <Text>
-              In the meantime, feel free to explore the website to find all you
-              need to know about the event, accommodation, and those burning
-              questions you might have in the FAQs.
+              Feel free to explore the website to find all you need to know
+              about the event, accommodation, and those burning questions you
+              might have in the FAQs.
             </Text>
 
             <Text>
@@ -191,7 +189,7 @@ export default function HomepageContent() {
           <PageCard
             image={BreakfastTable}
             title="RSVP"
-            description="Tell us you're coming and any preferences you have!"
+            description="Tell us if you're coming and any preferences you have!"
             link="/rsvp"
           />
         </Grid.Col>

@@ -104,7 +104,7 @@ export default function RsvpFormClient({
         if (typeof window !== "undefined") {
           window.setTimeout(() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
-          }, 1000);
+          }, 800);
         }
       } else {
         setError(data.error || "Submission failed. Please try again.");

@@ -1,8 +1,10 @@
 import sql from "@/db/neon";
 import { notFound } from "next/navigation";
-import { Title, Text, Divider, Space } from "@mantine/core";
+import { Title, Text, Divider, Space, Center, Button } from "@mantine/core";
 import WeddingTimeline from "@/components/weddingTimeline";
 import RsvpFormClient from "@/components/rsvpFormClient";
+import playConfetti from "@/components/playconfetti";
+import { IconConfetti } from "@tabler/icons-react";
 
 export async function generateMetadata() {
   return {
@@ -44,13 +46,24 @@ export default async function InvitePage(props: {
     return (
       <>
         <Title px={0} order={1}>
-          RSVP for the Race-Selby Wedding
+          RSVP to our wedding
         </Title>
         <Text px={0}>Thank you for your RSVP!</Text>
         <Text px={0}>
           On this page you'll find a copy of your response, information on
           booking accommodation, plus a copy of your wedding timeline.
         </Text>
+        <Center>
+          <Button
+            variant="default"
+            radius="lg"
+            my="md"
+            onClick={playConfetti}
+            rightSection={<IconConfetti />}
+          >
+            Practice your confetti
+          </Button>
+        </Center>
 
         <Divider my="sm" />
 
@@ -124,6 +137,11 @@ export default async function InvitePage(props: {
           Your wedding timeline
         </Title>
         <WeddingTimeline preWedding={preWedding} />
+
+        {/* Extra space at bottom to prevent overlap with Back to Top button */}
+
+        <Space h="xl" />
+        <Space h="xl" />
       </>
     );
   }
@@ -145,7 +163,7 @@ export default async function InvitePage(props: {
   return (
     <>
       <Title px={0} order={1}>
-        RSVP for the Race-Selby Wedding
+        RSVP to our wedding
       </Title>
       <RsvpFormClient
         partyID={id}

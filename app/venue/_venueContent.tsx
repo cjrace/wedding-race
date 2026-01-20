@@ -113,8 +113,9 @@ export default function VenueContent() {
           </Text>
 
           <Text>
-            Let us know if you want to stay on site when you RSVP and we&apos;ll
-            send you more details on how to book your pod(s).
+            You'll get the details for booking accommodation on site when you
+            RSVP, if you have any questions as you're booking or need support,
+            just let us know.
           </Text>
         </Grid.Col>
 
