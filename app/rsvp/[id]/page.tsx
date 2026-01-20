@@ -105,22 +105,81 @@ export default async function InvitePage(props: {
         <Title px={0} order={2}>
           Booking accommodation
         </Title>
-        <Text px={0} mb="md">
-          Some accommodation information will go here.
+        <Text px={0}>
+
+          To book on-site accomodation please use the Venue's <a
+            href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbook.bedful.com%2Fglamping%2Fuk%2Fengland%2Fnorth-east-england%2Fnorth-yorkshire%2Fnorthallerton%2F11850-lake-henry-ltd%3Fparent_id%3D11273264&data=05%7C02%7C%7C27ea965b2dd649e9000d08de121ef0d3%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638968121370698456%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=DE1tjtoXStposChaEIVVijLEmdw0EATwlGFIizKvO7g%3D&reserved=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#1971c2", textDecoration: "underline" }}
+          >
+            booking portal
+          </a>. There are a range of different pod styles available, all of which feature full sized beds with plenty
+          of space to get ready and it includes breakfast!
         </Text>
 
-        {preWedding && (
-          <>
-            <Divider my="sm" />
 
-            <Title px={0} order={2}>
+        <Text px={0}>
+          The portal is automatically set for a two-night stay (8th & 9th),
+          {preWedding && (
+            <>
+               &nbsp;though we understand not everyone can get time away
+              for the whole three days so if you can only join us for the one night
+            </>
+          )}
+          &nbsp;please remember to check and change these dates if necessary!
+
+        </Text>
+
+
+        <Text px={0}>
+          On site accomodation will be finalised ahead of the wedding date, so, if you want to stay with us, please make sure you've booked your
+          pods by 30th April 2026. We don’t expect to run out of village space, but it will fill up on a first come, first served basis, so get in quick to secure your space!
+
+        </Text>
+
+        <Text px={0} style={{ fontStyle: "italic" }}>
+          Note: If you’d prefer to stay off site, please be aware that venue restrictions mean only guests staying
+          in the village are able to remain there after 10pm. There are local airbnbs, and there is one cottage on
+          site (though limited to six guests / three rooms). Let us know if you’d want to make use of the cottage.
+
+        </Text>
+
+        
+
+{preWedding && (
+          <>
+
+          <Divider my="sm" />
+
+        <Title px={0} order={2}>
+          Pre-wedding information
+        </Title>
+        <Text px={0} mb="md">
+          We'll provide some drinks, but feel free to bring your own if you 
+          want anything specific. There are bottle fridges available at the village 
+          to store drinks and we'll have pizza ovens running for the evening's food, so feel 
+          free to get creative if you do bring anything along!
+        </Text>
+
+        <Text px={0} mb="md">
+          The pods are all yours from the moment you check in so feel free to relax and join in 
+          with the rest of the village for as much or as little as you like. You'll be free to come 
+          and go as you please and we'll provide maps of the local area so if you want to, you can 
+          explore the surrounding area too.
+        </Text>
+
+        <Title px={0} order={3}>
               Quiz round suggestions
             </Title>
             <Text px={0} mb="md">
               Suggestions for the pre-wedding quiz will go here.
             </Text>
-          </>
+
+        </>
         )}
+
+
 
         <Divider my="sm" />
 
