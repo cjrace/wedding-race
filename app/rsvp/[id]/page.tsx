@@ -133,13 +133,17 @@ export default async function InvitePage(props: {
           {preWedding && (
             <>
               &nbsp;though we understand not everyone can get time away for the
-              whole three days so if you can only join us for the one night please remember to check and change this to just the 9th if necessary!
+              whole three days so if you can only join us for the one night
+              please remember to check and change this to just the 9th if
+              necessary!
             </>
           )}
           {!preWedding && (
             <>
-              &nbsp;please remember to change this to just the 9th before booking.
-              If you are travelling far and would like to stay the night of the 8th as well, please feel free to do so, just let us know so we know to expect you the night before!
+              &nbsp;please remember to change this to just the 9th before
+              booking. If you are travelling far and would like to stay the
+              night of the 8th as well, please feel free to do so, just let us
+              know so we know to expect you the night before!
             </>
           )}
         </Text>
@@ -155,9 +159,10 @@ export default async function InvitePage(props: {
         <Text px={0} style={{ fontStyle: "italic" }}>
           Note: If you'd prefer to stay off site, please be aware that venue
           restrictions mean only guests staying in the village are able to
-          remain there after         {preWedding && (<>10pm the night before and </>)} midnight on the night of the wedding. There are local airbnbs, and there is one
-          cottage on site (though limited to six guests / three rooms). Let us
-          know ASAP if you'd want to make use of the cottage.
+          remain there after {preWedding && <>10pm the night before and </>}{" "}
+          midnight on the night of the wedding. There are local airbnbs, and
+          there is one cottage on site (though limited to six guests / three
+          rooms). Let us know ASAP if you'd want to make use of the cottage.
         </Text>
 
         {preWedding && (
@@ -183,11 +188,19 @@ export default async function InvitePage(props: {
               can explore the surrounding area too.
             </Text>
 
+            <Text px={0} mb="md">
+              Note that any food and alcohol can only be consumed within the
+              village, the venue does not allow guests to bring their own
+              alcohol up the the venue on the day itself. We'll have a bar in
+              the venue itself, along with plenty of food to keep you satisfied!
+            </Text>
+
             <Title px={0} order={3}>
               Quiz round suggestions
             </Title>
             <Text px={0} mb="md">
-              You'll be able to make suggestions for the pre-wedding quiz here in a few weeks time.
+              You'll be able to make suggestions for the pre-wedding quiz here
+              in a few weeks time.
             </Text>
           </>
         )}
@@ -198,7 +211,8 @@ export default async function InvitePage(props: {
           Music requests
         </Title>
         <Text px={0} mb="md">
-          An option to add music requests to our guest playlist on Spotify will magically appear here in a few weeks.
+          An option to add music requests to our guest playlist on Spotify will
+          magically appear here in a few weeks.
         </Text>
 
         <Divider my="sm" />

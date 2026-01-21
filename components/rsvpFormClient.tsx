@@ -9,13 +9,14 @@ import {
   Group,
   Accordion,
   Box,
+  Anchor,
 } from "@mantine/core";
-import InviteText from "@/components/invitetext";
 import { RsvpGuest } from "@/components/rsvpGuest";
 import { useRouter } from "next/navigation";
 import WeddingTimeline from "./weddingTimeline";
 import { IconMail } from "@tabler/icons-react";
 import styles from "@/styles/rsvp.module.css";
+import playConfetti from "./playconfetti";
 
 interface GuestInformation {
   id: string;
@@ -106,6 +107,7 @@ export default function RsvpFormClient({
             window.scrollTo({ top: 0, behavior: "smooth" });
           }, 800);
         }
+        playConfetti();
       } else {
         setError(data.error || "Submission failed. Please try again.");
         setLoading(false);
@@ -119,7 +121,21 @@ export default function RsvpFormClient({
       <input type="hidden" name="guestCount" value={guestInformation.length} />
 
       <Text px={0}>Hey {partyName},</Text>
-      <InviteText preWedding={preWedding} />
+
+      <Text px={0}>
+        We are delighted to officially invite you to our wedding day at{" "}
+        <Anchor
+          style={{ padding: "0px", textDecoration: "underline" }}
+          href="https://alexander-weddings.co.uk/"
+          target="_blank"
+          aria-label="Lake Henry (DL7 0JW) (opens in new tab)"
+        >
+          Lake Henry (DL7 0JW)
+        </Anchor>
+        {preWedding
+          ? ". The celebration runs over three days from Monday 8th through to Wednesday 10th June, with pre-wedding partying at our on-site 'wedding village' the evening before and breakfast together the morning after. We'd love you to join us for the full three-day party if you can, but if not, no worries at all, just come for as much as you're able."
+          : " on Tuesday 9th June 2026!"}
+      </Text>
 
       <Text px={0}>
         To help you with your plans, expand the timeline section below to see a
