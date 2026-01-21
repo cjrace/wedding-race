@@ -19,6 +19,7 @@ import BreakfastTable from "@/public/images/breakfast-tables.png";
 import FAQ from "@/public/images/faq.png";
 import playConfetti from "@/components/playconfetti";
 import { IconConfetti } from "@tabler/icons-react";
+import styles from "@/styles/homepage.module.css";
 
 export default function HomepageContent() {
   const weddingDateEnv = process.env.NEXT_PUBLIC_WEDDING_DATETIME
@@ -32,6 +33,47 @@ export default function HomepageContent() {
       </Center>
 
       <Divider my="md" />
+
+      <Center>
+        <Anchor
+          href="/rsvp"
+          style={{
+            textDecoration: "none",
+            width: "100%",
+          }}
+        >
+          <Box
+            bg="#FFD9D9"
+            p="lg"
+            mb="md"
+            style={{
+              borderRadius: "12px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
+              width: "100%",
+              transition: "box-shadow 0.2s, background 0.2s, color 0.2s",
+              cursor: "pointer",
+            }}
+            className={styles.rsvpInvertHover}
+          >
+            <Center>
+              <Text
+                fw={700}
+                size="xl"
+                style={{
+                  color: "#242424",
+                  letterSpacing: "1px",
+                  transition: "color 0.2s",
+                  textDecoration: "underline",
+                }}
+                className={styles.rsvpInvertHoverText}
+              >
+                Time to RSVP! Let us know if you&apos;re coming and view your
+                itinerary 🎉
+              </Text>
+            </Center>
+          </Box>
+        </Anchor>
+      </Center>
 
       <Grid>
         <Grid.Col span={{ base: 12, md: 5 }}>
@@ -88,7 +130,7 @@ export default function HomepageContent() {
           <Box>
             <Text>
               Hey there! We&apos;re incredibly excited to get everyone together
-              for a big knees-up on the{" "}
+              for a big knees-up on Tuesday{" "}
               {weddingDateEnv
                 ? weddingDateEnv.toLocaleDateString("en-GB", {
                     day: "numeric",
@@ -96,15 +138,13 @@ export default function HomepageContent() {
                     year: "numeric",
                   })
                 : "TBD"}
-              . Right now, we&apos;ve got some high-level details up and
-              running, but stay tuned as we&apos;ll be updating with more juicy
-              info as the big day approaches.
+              .
             </Text>
 
             <Text>
-              In the meantime, feel free to explore the website to find all you
-              need to know about the event, accommodation, and those burning
-              questions you might have in the FAQs.
+              Feel free to explore the website to find all you need to know
+              about the event, accommodation, and those burning questions you
+              might have in the FAQs.
             </Text>
 
             <Text>
@@ -120,6 +160,7 @@ export default function HomepageContent() {
                 rel="noopener noreferrer"
                 style={{
                   padding: "0 0 0 4px", // force the anchor to match text spacing
+                  textDecoration: "underline",
                 }}
               >
                 source code on GitHub
@@ -146,18 +187,18 @@ export default function HomepageContent() {
       <Grid>
         <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
-            image={Village}
-            title="Accommodation"
-            description="Want to plan ahead for where to rest your head?"
-            link="/accommodation"
+            image={BreakfastTable}
+            title="RSVP"
+            description="Tell us if you're coming and any preferences you have!"
+            link="/rsvp"
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>
           <PageCard
-            image={BreakfastTable}
-            title="Timeline"
-            description="What we might doing and when we might be doing it!"
-            link="/timeline"
+            image={Village}
+            title="Venue"
+            description="Want to know where you're going?"
+            link="/venue"
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>

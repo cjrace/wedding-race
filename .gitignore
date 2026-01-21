@@ -85,3 +85,6 @@
 **/playwright-report/
 **/blob-report/
 **/playwright/.cache/
+
+# Custom SQL scripts
+**/sql/

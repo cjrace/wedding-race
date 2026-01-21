@@ -42,6 +42,21 @@ const theme: MantineThemeOverride = {
         },
       },
     },
+    TextInput: {
+      styles: {
+        root: {
+          padding: "5px 22px",
+        },
+      },
+    },
+    Button: {
+      styles: {
+        root: {
+          backgroundColor: myColor[2],
+          color: "#242424",
+        },
+      },
+    },
   },
 };
 

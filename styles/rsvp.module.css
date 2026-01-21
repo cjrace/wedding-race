@@ -1,0 +1,4 @@
+.rsvpInvertHoverButton:hover {
+  background-color: var(--mantine-color-myColor-3) !important;
+  transition: background-color 0.3s ease;
+}

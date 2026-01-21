@@ -1,4 +1,6 @@
-import { Text, Title, Space, Divider } from "@mantine/core";
+"use client";
+
+import { Text, Title, Space, Divider, Anchor } from "@mantine/core";
 
 export default function FAQsContent() {
   return (
@@ -13,27 +15,42 @@ export default function FAQsContent() {
 
       <Title order={2}>Will there be a formal invite at some point?</Title>
       <Text>
-        Yes, we&apos;ll send formal invites once we&apos;re ready to collect
-        RSVPs and the accommodation booking link is open, expected November
-        2025.
+        Yes, formal invites are being sent out currently, giving you a way to
+        RSVP and let us know any guest details. If you haven&apos;t received one
+        by the end of February, please let us know!
       </Text>
 
       <Divider my="md" />
       <Title order={2}>How do I RSVP?</Title>
       <Text>
-        An RSVP section will be added to the website once accommodation booking
-        opens (expected November 2025). There you&apos;ll be able to RSVP and
-        share dietary requirements.
+        Use the{" "}
+        <Anchor
+          style={{
+            padding: "0px",
+            textDecoration: "underline",
+          }}
+          href="/rsvp"
+        >
+          RSVP page
+        </Anchor>
+        !
       </Text>
 
       <Divider my="md" />
-      <Title order={2}>
-        Can I still come to the pre-wedding festivities if not staying on site?
-      </Title>
+      <Title order={2}>Where is the wedding taking place?</Title>
       <Text>
-        Yes, we would love to see you there! You&apos;ll just need to leave by
-        10pm as the venue requests that only guests staying on site remain after
-        this time.
+        Have a look at our{" "}
+        <Anchor
+          style={{
+            padding: "0px",
+            textDecoration: "underline",
+          }}
+          href="/venue"
+        >
+          venue page
+        </Anchor>{" "}
+        for all for all the wedding village location, directions, and
+        accommodation.
       </Text>
 
       <Divider my="md" />
@@ -54,35 +71,24 @@ export default function FAQsContent() {
       <Title order={2}>Can I bring my chidren?</Title>
       <Text>
         You can, this is completely up to you. We&apos;re expecting at least a
-        couple of small children at the wedding so you won&apos;t be alone,
-        though we also know some couples will be intentionally using the wedding
-        as an excuse to escape!
+        couple of small children at the wedding (including Lola) so you
+        won&apos;t be alone.
+      </Text>
+      <Text>
+        We also know some couples will be intentionally using the wedding as an
+        excuse to escape and that is okay too, you can do that guilt-free!
       </Text>
 
       <Text>
-        If you are bringing children, please let us know when you RSVP so we can
-        make sure we have everything prepared so they can have a great time too!
-      </Text>
-
-      <Divider my="md" />
-      <Title order={2}>
-        Do I need to bring any food or drink with me for the evening before?
-      </Title>
-      <Text>
-        We will be providing food and drink so there&apos;s no need to bring
-        anything, though if you would like to bring your own that&apos;s fine
-        too!
-      </Text>
-      <Text>
-        There are bottle fridges available at the village to store drinks and
-        we&apos;ll have pizza ovens running, so feel free to get creative if you
-        do bring anything along!
+        If you are bringing children, please include them as a guest when you
+        RSVP so we can make sure we have everything prepared so they can have a
+        great time too!
       </Text>
 
       <Divider my="md" />
       <Title order={2}>
-        I&apos;ll be there the evening before, do I need to join in for
-        everything or is it okay if I just chill in my pod?
+        Do I need to join in for everything or is it okay if I just chill in my
+        pod?
       </Title>
       <Text>
         Completely up to you! We want you to feel comfortable and enjoy your
@@ -93,23 +99,18 @@ export default function FAQsContent() {
 
       <Divider my="md" />
       <Title order={2}>
-        I can&apos;t get there until late in the evening for the day before, is
-        that okay?
+        What time should I arrive for the wedding if arriving on the day itself?
       </Title>
       <Text>
-        Yes, of course! Join from whenever you&apos;re able after 4pm.
+        Guests will be seated for the ceremony at 12:45, so please make sure
+        you&apos;re at the venue and ready before then, 12:30 would be a
+        sensible target to aim for!
       </Text>
-
-      <Divider my="md" />
-      <Title order={2}>
-        What time should I arrive for the wedding if not staying on site the
-        night before?
-      </Title>
       <Text>
-        Guests will be seated for the ceremony at 12:45, so please just make
-        sure you&apos;re ready at the venue before then. If you arrive early
-        there&apos;ll be people around to point you in the right direction, and
-        you will be able to wait with other guests in the wedding village.
+        If you arrive early there&apos;ll be people around to point you in the
+        right direction, and you will be able to wait with other guests in the
+        wedding village, a few will already be there from the night before, so
+        you won&apos;t be alone no matter how early you get there!
       </Text>
 
       <Divider my="md" />
@@ -119,33 +120,39 @@ export default function FAQsContent() {
       <Text>
         The wedding village pods are spacious enough that getting ready
         shouldn&apos;t be a problem but for something more socialable we have a
-        dedicated makeup shack for beautifying yourself with company. For
-        bridesmaids we&apos;ll be getting ready in the cottages, which has a
+        dedicated makeup shack for beautifying yourself with company.
+      </Text>
+      <Text>
+        For bridesmaids we&apos;ll be getting ready in the cottages, which has a
         dedicated room for make up and hair.
       </Text>
 
       <Divider my="md" />
       <Title order={2}>What should I wear?</Title>
       <Text>
-        Evening before is casual, then fancy it up for our wedding day, most
-        people will be wearing the usual wedding garb of suits and fancy
-        dresses. It will be summer, so make sure you&apos;re comfortable!
+        For the wedding day itself fancy it up, most people will be wearing the
+        usual wedding garb of suits and fancy dresses. It will be summer, so
+        make sure you&apos;re comfortable.
       </Text>
 
       <Text>
         We haven&apos;t finalised colours yet, if you&apos;re worried about
         colour clashing or accidentally matching the bridesmaids just drop us a
-        message!
+        message.
+      </Text>
+
+      <Text>
+        For all other times, wear whatever makes you feel comfortable.
       </Text>
 
       <Divider my="md" />
       <Title order={2}>What if I have a dietary restriction?</Title>
       <Text>
-        We&apos;ll collect dietary requirements as part of your RSVP. We&apos;ll
-        then use this info to make sure we have suitable food and drinks for
-        anyone staying in the wedding village the night before as well as
-        working with the wedding day caterers to make sure there is food
-        everyone can enjoy on the day itself.
+        Tell us about dietary requirements as part of your RSVP. We&apos;ll then
+        use this info to make sure we have suitable food and drinks for anyone
+        staying in the wedding village the night before as well as working with
+        the wedding day caterers to make sure there is food everyone can enjoy
+        on the day itself.
       </Text>
 
       <Divider my="md" />
@@ -156,6 +163,42 @@ export default function FAQsContent() {
         provide maps of the local area so if you want to, you can go for a walk
         or run nearby.
       </Text>
+
+      <Divider my="md" />
+      <Title order={2}>
+        Do I need to bring any food or drink with me for the evening before?
+      </Title>
+      <Text>
+        For those coming the day before, we will be providing food and drink so
+        there&apos;s no need to bring anything, though if you would like to
+        bring your own that&apos;s fine too!
+      </Text>
+      <Text>
+        There are bottle fridges available at the village to store drinks and
+        we&apos;ll have pizza ovens running, so feel free to get creative if you
+        do bring anything along!
+      </Text>
+
+      <Divider my="md" />
+      <Title order={2}>
+        I&apos;m invited to pre-wedding festivities but I&apos;m not staying on
+        site?
+      </Title>
+      <Text>
+        That&apos;s not a problem! You&apos;ll just need to leave by 10pm as the
+        venue requests that only guests staying on site remain after this time.
+      </Text>
+
+      <Divider my="md" />
+      <Title order={2}>
+        I&apos;m invited to pre-wedding festivities but I can&apos;t make it
+        until late?
+      </Title>
+      <Text>
+        No problem! Just join us from whenever you&apos;re able to after 4pm.
+      </Text>
+
+      <Divider my="lg" />
 
       <Space h="xl" />
     </>

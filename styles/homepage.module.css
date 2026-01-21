@@ -4,3 +4,12 @@
   font-weight: 900;
   letter-spacing: rem(-2px);
 }
+
+.rsvpInvertHover:hover {
+  background: #000 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.rsvpInvertHover:hover .rsvpInvertHoverText {
+  color: #ffd9d9 !important;
+}

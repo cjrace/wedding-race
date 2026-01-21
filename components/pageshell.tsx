@@ -4,7 +4,7 @@ import { AppShell, Burger, Group, UnstyledButton, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../styles/pageshell.module.css";
 
-export const pages = ["Home", "Accommodation", "Timeline", "FAQs"];
+export const pages = ["Home", "RSVP", "Venue", "FAQs"];
 
 export default function PageShell({ children }: { children: React.ReactNode }) {
   const [opened, { toggle }] = useDisclosure();
