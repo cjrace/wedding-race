@@ -35,7 +35,7 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
         <form
           onSubmit={async (e) => {
             e.preventDefault();
-            if (!possibleIds.includes(inputValue.trim())) {
+            if (!possibleIds.includes(inputValue.trim().toLowerCase())) {
               setError(
                 "Invite code not found. Contact us if you believe this is an error.",
               );
@@ -43,7 +43,8 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
               setError(null);
               setLoading(true);
               window.setTimeout(() => {
-                router.push(`/rsvp/${inputValue.trim()}`);
+                router.push(`/rsvp/${inputValue.trim().toLowerCase()}`);
+                router.refresh();
               }, 50);
             }
           }}

@@ -266,6 +266,11 @@ export default function RsvpFormClient({
             end of February 2026 and will follow up with you separately to
             confirm.
           </Text>
+
+          <Text>
+            If you don't want to bring anyone else, just leave this section
+            blank.
+          </Text>
           <Divider my="md" />
           {[...Array(maxAdditionalGuests)].map((_, idx) => (
             <div key={`additional-${idx}`} style={{ marginBottom: 16 }}>
