@@ -267,7 +267,7 @@ export default function RsvpFormClient({
             confirm.
           </Text>
 
-          <Text>
+          <Text px={0}>
             If you don't want to bring anyone else, just leave this section
             blank.
           </Text>
