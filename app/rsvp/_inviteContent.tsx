@@ -43,8 +43,7 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
               setError(null);
               setLoading(true);
               window.setTimeout(() => {
-                router.push(`/rsvp/${inputValue.trim().toLowerCase()}`);
-                router.refresh();
+                router.replace(`/rsvp/${inputValue.trim().toLowerCase()}`);
               }, 50);
             }
           }}
