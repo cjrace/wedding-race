@@ -48,7 +48,7 @@ export default async function InvitePage(props: {
   const preWedding = invite_result[0].prewedding;
 
   const guests =
-    await sql`SELECT id, firstname, surname, rsvp, dietary, child FROM Guests WHERE inviteid = ${id}`;
+    await sql`SELECT id, firstname, surname, rsvp, dietary, child, prewedding FROM Guests WHERE inviteid = ${id}`;
 
   if (submitted) {
     return (
@@ -95,7 +95,11 @@ export default async function InvitePage(props: {
             >
               <Text px={15} pb={0} key={guest.id + "name"}>
                 {guest.firstname} {guest.surname}:{" "}
-                {guest.rsvp ? "Attending" : "Not Attending"}
+                {guest.rsvp
+                  ? guest.prewedding
+                    ? "Attending pre-wedding and wedding day"
+                    : "Attending wedding day"
+                  : "Not attending"}
               </Text>
               <Text px={15} pt={5} key={guest.id + "dietary"}>
                 Dietary Requirements: {guest.dietary || "None"}

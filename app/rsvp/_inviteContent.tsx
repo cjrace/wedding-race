@@ -15,15 +15,37 @@ import { useRouter } from "next/navigation";
 import Lola from "@/public/images/Lola.png";
 import styles from "@/styles/rsvp.module.css";
 
-interface InviteContentProps {
-  possibleIds: string[];
-}
-
-export default function InviteContent({ possibleIds }: InviteContentProps) {
+export default function InviteContent() {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+    const trimmedValue = inputValue.trim();
+    try {
+      const res = await globalThis.fetch("/api/checkInvite", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ inviteCode: trimmedValue.toLowerCase() }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        router.replace(`/rsvp/${trimmedValue.toLowerCase()}`);
+      } else {
+        setError(
+          "Invite code not found. Contact us if you believe this is an error.",
+        );
+        setLoading(false);
+      }
+    } catch {
+      setError("Server error. Please try again later.");
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -32,22 +54,7 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
           Enter your invite code below to access your RSVP form and view your
           itinerary.
         </Text>
-        <form
-          onSubmit={async (e) => {
-            e.preventDefault();
-            if (!possibleIds.includes(inputValue.trim().toLowerCase())) {
-              setError(
-                "Invite code not found. Contact us if you believe this is an error.",
-              );
-            } else {
-              setError(null);
-              setLoading(true);
-              window.setTimeout(() => {
-                router.replace(`/rsvp/${inputValue.trim().toLowerCase()}`);
-              }, 50);
-            }
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <Group>
             <TextInput
               px={0}
@@ -55,7 +62,7 @@ export default function InviteContent({ possibleIds }: InviteContentProps) {
               aria-label="Enter invite code"
               value={inputValue}
               onChange={(e) => {
-                setInputValue(e.currentTarget.value);
+                setInputValue(e.currentTarget.value.trim());
                 if (error) setError(null);
               }}
               error={false}

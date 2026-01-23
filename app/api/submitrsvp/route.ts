@@ -1,3 +1,6 @@
+import sql from "@/db/neon";
+import { NextRequest, NextResponse } from "next/server";
+
 // Helper to normalize child value to boolean
 function isChildValue(value: unknown): boolean {
   return value === "true" || value === "1" || value === 1 || value === true;
@@ -8,13 +11,6 @@ interface RsvpResponse {
   partyID?: string;
   error?: string;
 }
-
-/**
- * Handles RSVP form submission.
- * Returns { success: true, partyID } on success, or { success: false, error } on failure.
- */
-import sql from "@/db/neon";
-import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(
   req: NextRequest,
@@ -87,6 +83,63 @@ export async function POST(
         SET dietary = ${dietary}, child = ${child}, prewedding = ${attendingPreWedding}, rsvp = ${attendingWedding}
         WHERE id = ${id}
       `;
+    }
+
+    // Update each existing child guest's RSVP, dietary requirements, and attendance
+    let childExistingIdx = 0;
+    while (formData.get(`child-existing-${childExistingIdx}-id`)) {
+      const id = formData.get(`child-existing-${childExistingIdx}-id`);
+      const attending = formData.get(
+        `child-existing-${childExistingIdx}-attending`,
+      ); // can be yes, no, yes-prewedding, yes-wedding
+      const validAttendingValues = [
+        "yes-prewedding",
+        "yes-wedding",
+        "yes",
+        "no",
+      ];
+      const attendingStr = typeof attending === "string" ? attending : "";
+      if (attending && !validAttendingValues.includes(attendingStr)) {
+        console.warn(
+          `Skipping child guest update at index ${childExistingIdx}: invalid attending value '${attending}'`,
+        );
+        childExistingIdx++;
+        continue;
+      }
+      const dietary = formData.get(
+        `child-existing-${childExistingIdx}-dietary`,
+      );
+      // All guests in this section are children
+      const child = true;
+
+      let attendingPreWedding = null;
+      let attendingWedding = null;
+      if (attending === "yes-prewedding") {
+        attendingPreWedding = true;
+        attendingWedding = true;
+      } else if (attending === "yes-wedding") {
+        attendingPreWedding = false;
+        attendingWedding = true;
+      } else if (attending === "yes") {
+        attendingPreWedding = null; // not applicable
+        attendingWedding = true;
+      } else {
+        attendingPreWedding = false;
+        attendingWedding = false;
+      }
+      if (!id) {
+        console.warn(
+          `Skipping child guest update: missing id for child-existing index ${childExistingIdx}`,
+        );
+        childExistingIdx++;
+        continue;
+      }
+      await sql`
+        UPDATE Guests
+        SET dietary = ${dietary}, child = ${child}, prewedding = ${attendingPreWedding}, rsvp = ${attendingWedding}
+        WHERE id = ${id}
+      `;
+      childExistingIdx++;
     }
 
     // Handle additional guests (including children)
