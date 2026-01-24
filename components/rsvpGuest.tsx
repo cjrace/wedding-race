@@ -1,16 +1,4 @@
-import {
-  Fieldset,
-  Text,
-  TextInput,
-  Radio,
-  Group,
-  MantineProvider,
-  createTheme,
-} from "@mantine/core";
-
-const theme = createTheme({
-  cursorType: "pointer",
-});
+import { Fieldset, Text, TextInput, Radio, Group } from "@mantine/core";
 
 export interface RsvpGuestProps {
   guest: {
@@ -34,7 +22,7 @@ export function RsvpGuest({
   preWedding = false,
 }: RsvpGuestProps) {
   return (
-    <MantineProvider theme={theme}>
+    <>
       <Fieldset key={guest.id} mb="md">
         {additional ? (
           <>
@@ -101,6 +89,6 @@ export function RsvpGuest({
           required={false}
         />
       </Fieldset>
-    </MantineProvider>
+    </>
   );
 }
