@@ -19,7 +19,7 @@ export default function SongRequests() {
         body: JSON.stringify({ song, artist }),
       });
       if (res.ok) {
-        setStatus("Request submitted!");
+        setStatus(`Request submitted for "${song}" by "${artist}"!`);
         setSong("");
         setArtist("");
       } else {
@@ -41,8 +41,8 @@ export default function SongRequests() {
         >
           wedding Spotify playlist
         </Anchor>
-        ! This will fire a request to Spotify to add the song to our playlist. It may
-        take a few minutes to appear there.
+        ! This will fire a request to Spotify to add the song to our playlist.
+        It may take a few minutes to appear there.
       </Text>
       <form onSubmit={handleSongRequest}>
         <TextInput
@@ -61,8 +61,12 @@ export default function SongRequests() {
           required
           mb="sm"
         />
-        <Button type="submit" color="myColor" fullWidth           className={styles.rsvpInvertHoverButton}
->
+        <Button
+          type="submit"
+          color="myColor"
+          fullWidth
+          className={styles.rsvpInvertHoverButton}
+        >
           Submit suggestion
         </Button>
       </form>
