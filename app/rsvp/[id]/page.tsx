@@ -13,6 +13,7 @@ import WeddingTimeline from "@/components/weddingTimeline";
 import RsvpFormClient from "@/components/rsvpFormClient";
 import playConfetti from "@/components/playconfetti";
 import { IconConfetti } from "@tabler/icons-react";
+import SongRequests from "@/components/songrequests";
 
 export async function generateMetadata() {
   return {
@@ -241,6 +242,8 @@ export default async function InvitePage(props: {
           An option to add music requests to our guest playlist on Spotify will
           magically appear here in a few weeks.
         </Text>
+
+        <SongRequests />
 
         <Divider my="sm" />
 
