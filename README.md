@@ -3,7 +3,9 @@
 
 # Wedding Race
 
-Not just any old wedding race, but the wedding of Race! Currently a static site holding overview information on the Wedding, it will be expanded to include the ability for guests to login, RVSP and do all kinds of other helpful things later in the year (hopefully...).
+Not just any old wedding race, but the wedding of Race! 
+
+Not the neatest codebase, or in line with what plan A, B, or C was, but it's vaguely functional...
 
 ## Getting Started
 
