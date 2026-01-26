@@ -50,6 +50,7 @@ export default function SongRequests() {
           src="https://open.spotify.com/embed/playlist/1xzE67dkT07HDsBP7JLi0D?utm_source=generator&theme=0"
           width="100%"
           height="152"
+          aria-label="current wedding spotify playlist"
           allowFullScreen
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
@@ -85,7 +86,7 @@ export default function SongRequests() {
           fullWidth
           className={styles.rsvpInvertHoverButton}
         >
-          Submit suggestion
+          Submit song suggestion
         </Button>
       </form>
       {status && <Text mt="sm">{status}</Text>}

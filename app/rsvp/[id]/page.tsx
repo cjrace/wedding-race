@@ -14,6 +14,7 @@ import RsvpFormClient from "@/components/rsvpFormClient";
 import playConfetti from "@/components/playconfetti";
 import { IconConfetti } from "@tabler/icons-react";
 import SongRequests from "@/components/songrequests";
+import QuizSuggestions from "@/components/quizsuggestions";
 
 export async function generateMetadata() {
   return {
@@ -204,9 +205,11 @@ export default async function InvitePage(props: {
               Quiz round suggestions
             </Title>
             <Text px={0} mb="md">
-              You'll be able to make suggestions for the pre-wedding quiz here
-              in a few weeks time.
+              Enter any suggestions you have for questions or rounds for the
+              pre-wedding quiz below!
             </Text>
+
+            <QuizSuggestions inviteId={id} />
           </>
         )}
 
