@@ -238,10 +238,6 @@ export default async function InvitePage(props: {
         <Title px={0} order={2}>
           Music requests
         </Title>
-        <Text px={0} mb="md">
-          An option to add music requests to our guest playlist on Spotify will
-          magically appear here in a few weeks.
-        </Text>
 
         <SongRequests />
 

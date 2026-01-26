@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Text, Anchor, TextInput, Button } from "@mantine/core";
+import { Text, Anchor, TextInput, Button, Divider } from "@mantine/core";
 import styles from "@/styles/rsvp.module.css";
 
 export default function SongRequests() {
@@ -13,7 +13,7 @@ export default function SongRequests() {
     e.preventDefault();
     setStatus(null);
     try {
-      const res = await fetch("/api/spotify-add", {
+      const res = await globalThis.fetch("/api/spotify-add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ song, artist }),
@@ -41,8 +41,26 @@ export default function SongRequests() {
         >
           wedding Spotify playlist
         </Anchor>
-        ! This will fire a request to Spotify to add the song to our playlist.
-        It may take a few minutes to appear there.
+        !
+      </Text>
+
+      <div style={{ width: "100%", margin: "0 auto" }}>
+        <iframe
+          style={{ borderRadius: "15px", minHeight: 80, border: "none" }}
+          src="https://open.spotify.com/embed/playlist/1xzE67dkT07HDsBP7JLi0D?utm_source=generator&theme=0"
+          width="100%"
+          height="152"
+          allowFullScreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <Divider my="sm" />
+
+      <Text px={0} mb="md">
+        Fill out the form below to fire a request to Spotify to add the song to
+        our playlist, it may take a few minutes to appear there.
       </Text>
       <form onSubmit={handleSongRequest}>
         <TextInput
