@@ -29,12 +29,6 @@ export default function HomepageContent() {
   return (
     <>
       <Center>
-        <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
-      </Center>
-
-      <Divider my="md" />
-
-      <Center>
         <Anchor
           href="/rsvp"
           style={{
@@ -75,12 +69,21 @@ export default function HomepageContent() {
         </Anchor>
       </Center>
 
+      <Divider my="md" />
+
+      <Center>
+        <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
+      </Center>
+
+      <Divider my="md" />
+
       <Grid>
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Center>
             <Image
               src={Us}
               alt="Cam and Laura dressed up fancy"
+              loading="eager"
               style={{
                 width: "100%",
                 height: "auto",

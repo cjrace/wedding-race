@@ -25,6 +25,7 @@ export default function HomePage() {
         <Image
           src={MainBanner}
           alt="Welcome to the Race Wedding"
+          loading="eager"
           style={{ width: "100%", height: "auto", borderRadius: "10px" }}
         />
       </h1>
