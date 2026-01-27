@@ -18,7 +18,7 @@ Styling and components
 
 1. Create a `.env.local` file
 
-Copy from the `.env.example` file and add the appropiate environment variables
+Copy from the `.env.example` file and add the appropriate environment variables
 
 2. Install [node.js](https://nodejs.org/en/download)
 
@@ -53,10 +53,6 @@ View other available commands for the project, including for running linting, fo
 ```bash
 yarn run
 ```
-
-## Pre-commit hooks
-
-[Husky](https://typicode.github.io/husky) is used to manage pre-commit hooks, currently this is used to enforce [Prettier](https://prettier.io/) formatting in the project.
 
 ## Deployment
 
