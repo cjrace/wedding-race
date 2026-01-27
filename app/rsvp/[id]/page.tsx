@@ -242,7 +242,7 @@ export default async function InvitePage(props: {
           Music requests
         </Title>
 
-        <SongRequests />
+        <SongRequests inviteId={id} />
 
         <Divider my="sm" />
 

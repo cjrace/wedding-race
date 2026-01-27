@@ -4,7 +4,11 @@ import React from "react";
 import { Text, Anchor, TextInput, Button, Divider } from "@mantine/core";
 import styles from "@/styles/rsvp.module.css";
 
-export default function SongRequests() {
+interface SongRequestsProps {
+  inviteId: string;
+}
+
+export default function SongRequests({ inviteId }: SongRequestsProps) {
   const [song, setSong] = React.useState("");
   const [artist, setArtist] = React.useState("");
   const [status, setStatus] = React.useState<string | null>(null);
@@ -16,7 +20,7 @@ export default function SongRequests() {
       const res = await globalThis.fetch("/api/spotify-add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ song, artist }),
+        body: JSON.stringify({ inviteId, song, artist }),
       });
       if (res.ok) {
         setStatus(`Request submitted for "${song}" by "${artist}"!`);
@@ -60,8 +64,13 @@ export default function SongRequests() {
       <Divider my="sm" />
 
       <Text px={0} mb="md">
-        Fill out the form below to fire a request to Spotify to add the song to
-        our playlist, it may take a few minutes to appear there.
+        Unfortunately Spotify's API is not accepting new connections, however,
+        we have our own custom form below where you can make suggestions and
+        then we will manually add them to the playlist for you!
+      </Text>
+      <Text px={0} mb="md">
+        Enter your song suggestions below (put 'unsure' if you don't know the
+        artist).
       </Text>
       <form onSubmit={handleSongRequest}>
         <TextInput
