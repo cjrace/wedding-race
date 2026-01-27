@@ -95,7 +95,8 @@ export default function InviteContent() {
       <Image
         src={Lola}
         alt="Lola invites you to RSVP"
-        style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" }}
+        loading="eager"
+        style={{ width: "100%", height: "auto", borderRadius: "10px" }}
       />
     </>
   );
