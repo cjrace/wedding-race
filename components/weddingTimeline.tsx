@@ -48,16 +48,6 @@ export default function WeddingTimeline({
 
             <Timeline bulletSize={30}>
               <Timeline.Item
-                title="3pm - Ceremony rehearsal"
-                bullet={<IconHeart />}
-              >
-                <Text c="gray.5" size="sm">
-                  Wedding party only, we&apos;ll do a quick run through and make
-                  sure everyone knows what they&apos;re doing.
-                </Text>
-              </Timeline.Item>
-
-              <Timeline.Item
                 title="4pm - Onsite guest check in"
                 bullet={<IconTent />}
               >
