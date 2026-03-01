@@ -2593,12 +2593,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:^8.3.14":
-  version: 8.3.14
-  resolution: "@mantine/hooks@npm:8.3.14"
+"@mantine/hooks@npm:^8.3.15":
+  version: 8.3.15
+  resolution: "@mantine/hooks@npm:8.3.15"
   peerDependencies:
     react: ^18.x || ^19.x
-  checksum: 10c0/80da7b07001accd87e8c22f99760998812ee9cc12ca178acfb96395298bab3fa038d1cd2375a88cc38ae7cb0bae0c5ffaed3b1e74cbf3221d5d203156e7ab68b
+  checksum: 10c0/e4b8af33243fbf5a09385874b8c0349acd8992b3b1d19551e22d5574b09f8871ec62c2254a48529c81e84b25a48888b38f98c1aec4d3ec0cfc47600c689e9327
   languageName: node
   linkType: hard
 
@@ -7006,7 +7006,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.28.5"
     "@jest/globals": "npm:^30.2.0"
     "@mantine/core": "npm:^8.3.14"
-    "@mantine/hooks": "npm:^8.3.14"
+    "@mantine/hooks": "npm:^8.3.15"
     "@neondatabase/serverless": "npm:^1.0.2"
     "@playwright/test": "npm:^1.58.1"
     "@tabler/icons-react": "npm:^3.36.1"
