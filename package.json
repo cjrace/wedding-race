@@ -28,6 +28,7 @@
     "@babel/preset-env": "^7.29.0",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
+    "@eslint/js": "10.0.1",
     "@jest/globals": "^30.2.0",
     "@playwright/test": "^1.58.1",
     "@testing-library/dom": "^10.4.1",
@@ -40,11 +41,12 @@
     "@types/node": "^25.2.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.54.0",
-    "@typescript-eslint/parser": "8.57.2",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/parser": "^8.57.2",
+    "@typescript-eslint/utils": "^8.57.2",
     "babel-jest": "^30.2.0",
-    "eslint": "^9.39.2",
-    "eslint-config-next": "^16.1.6",
+    "eslint": "^10.1.0",
+    "eslint-config-next": "^16.2.1",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
@@ -63,6 +65,17 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "resolutions": {
-    "tar": "^7.5.5"
+    "tar": "^7.5.5",
+    "minimatch": ">=10.2.4",
+    "@typescript-eslint/eslint-plugin": "8.57.2",
+    "@typescript-eslint/parser": "8.57.2",
+    "@typescript-eslint/utils": "8.57.2",
+    "@typescript-eslint/type-utils": "8.57.2",
+    "@typescript-eslint/types": "8.57.2",
+    "@typescript-eslint/typescript-estree": "8.57.2",
+    "@typescript-eslint/scope-manager": "8.57.2",
+    "@typescript-eslint/visitor-keys": "8.57.2",
+    "@typescript-eslint/project-service": "8.57.2",
+    "@typescript-eslint/tsconfig-utils": "8.57.2"
   }
 }
