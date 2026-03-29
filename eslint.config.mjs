@@ -5,6 +5,7 @@ import parser from "@typescript-eslint/parser";
 import tseslint from "@typescript-eslint/eslint-plugin";
 
 export default [
+  js.configs.recommended,
   {
     ignores: [
       "node_modules/",
@@ -38,10 +39,10 @@ export default [
       },
     },
     plugins: {
+      js,
       "@typescript-eslint": tseslint,
     },
     rules: {
-      ...js.configs.recommended.rules,
       ...next.rules,
       ...prettier.rules,
       // Optionally enable the rule:
