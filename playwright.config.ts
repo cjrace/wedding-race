@@ -70,5 +70,11 @@ export default defineConfig({
     command: "node .next/standalone/server.js",
     url: "http://127.0.0.1:3000",
     reuseExistingServer: !process.env.CI,
+    /* Override HOSTNAME so the server binds to 0.0.0.0 rather than the shell's HOSTNAME env var
+       (Git Bash on Windows sets HOSTNAME to the machine name which resolves to an IPv6 address,
+       causing the 127.0.0.1 health-check to fail and Playwright to time out) */
+    env: {
+      HOSTNAME: "0.0.0.0",
+    },
   },
 });
