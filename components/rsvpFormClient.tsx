@@ -101,7 +101,7 @@ export default function RsvpFormClient({
       });
       const data = await res.json();
       if (data.success) {
-        router.push(`/rsvp/${data.partyID}`);
+        router.push(`/your-invitation/${data.partyID}`);
         if (typeof window !== "undefined") {
           window.setTimeout(() => {
             window.scrollTo({ top: 0, behavior: "smooth" });

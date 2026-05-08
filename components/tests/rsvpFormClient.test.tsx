@@ -150,7 +150,9 @@ describe("RsvpFormClient", () => {
         expect(init.body).toBeInstanceOf(globalThis.FormData);
         expect((init.body as FormData).get("partyID")).toBe("p1");
 
-        await waitFor(() => expect(pushMock).toHaveBeenCalledWith("/rsvp/p1"));
+        await waitFor(() =>
+          expect(pushMock).toHaveBeenCalledWith("/your-invitation/p1"),
+        );
         expect(playConfettiMock).toHaveBeenCalledTimes(1);
       } finally {
         jest.useRealTimers();

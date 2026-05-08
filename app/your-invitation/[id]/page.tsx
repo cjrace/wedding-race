@@ -28,17 +28,12 @@ export default async function YourInvitationPage(props: {
   const params = await props.params;
   const id = typeof params?.id === "string" ? params.id : "";
 
-  const possible_ids_result = await sql`SELECT id FROM Invites`;
-  const possible_ids = possible_ids_result.map((row: Record<string, any>) =>
-    String(row.id),
-  );
-
-  if (!possible_ids.includes(id)) {
-    return notFound();
-  }
-
   const invite_result =
     await sql`SELECT partyname, maxguests, submitted, prewedding, children FROM Invites WHERE id = ${id}`;
+
+  if (invite_result.length === 0) {
+    return notFound();
+  }
 
   const partyName = invite_result[0].partyname;
   const maxGuests = invite_result[0].maxguests;
@@ -132,12 +127,7 @@ export default async function YourInvitationPage(props: {
 
       <Divider my="sm" />
 
-      {preWedding && (
-        <>
-          <Divider my="sm" />
-          <PreWeddingSection />
-        </>
-      )}
+      {preWedding && <PreWeddingSection />}
 
       <Divider my="sm" />
 

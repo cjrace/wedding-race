@@ -111,7 +111,7 @@ export default function VenueSection({ preWedding }: { preWedding: boolean }) {
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Image
             src={FullVillage}
-            alt="Cottages"
+            alt="Wedding village"
             style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" }}
           />
         </Grid.Col>

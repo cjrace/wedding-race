@@ -60,11 +60,6 @@ test("redirects /faqs to /your-invitation", async ({ page }) => {
   expect(page.url()).toContain("/your-invitation");
 });
 
-test("redirects /on-the-day to /your-invitation", async ({ page }) => {
-  await page.goto("/on-the-day");
-  expect(page.url()).toContain("/your-invitation");
-});
-
 test("redirects /venue to /your-invitation", async ({ page }) => {
   await page.goto("/venue");
   expect(page.url()).toContain("/your-invitation");

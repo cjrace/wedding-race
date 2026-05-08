@@ -61,7 +61,7 @@ export default function InviteContent() {
               aria-label="Enter invite code"
               value={inputValue}
               onChange={(e) => {
-                setInputValue(e.currentTarget.value.trim());
+                setInputValue(e.currentTarget.value);
                 if (error) setError(null);
               }}
               error={false}

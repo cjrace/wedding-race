@@ -18,11 +18,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/on-the-day",
-        destination: "/your-invitation",
-        permanent: true,
-      },
-      {
         source: "/venue",
         destination: "/your-invitation",
         permanent: true,
