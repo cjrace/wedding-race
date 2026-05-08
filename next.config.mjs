@@ -9,6 +9,9 @@ const nextConfig = {
     ],
   },
   output: "standalone",
+  outputFileTracingIncludes: {
+    "*": ["./node_modules/@img/sharp-*/lib/*"],
+  },
 };
 
 export default nextConfig;
