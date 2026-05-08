@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to agents such as Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Commands
 
@@ -15,6 +15,10 @@ yarn playwright test # Run E2E tests only (requires a built app)
 yarn test           # Full suite: prettier check, eslint, jest, next build, playwright
 yarn run            # List all available scripts
 ```
+
+## Assurance
+
+After all changes are made, run `yarn test` to pretty, lint, test building and run unit and UI tests on the project.
 
 ## Architecture
 
