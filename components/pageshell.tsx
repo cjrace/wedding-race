@@ -4,7 +4,10 @@ import { AppShell, Burger, Group, UnstyledButton, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../styles/pageshell.module.css";
 
-export const pages = ["Home", "RSVP", "Venue", "FAQs"];
+export const pages = [
+  { label: "Home", href: "/" },
+  { label: "Guest Information", href: "/your-invitation" },
+];
 
 export default function PageShell({ children }: { children: React.ReactNode }) {
   const [opened, { toggle }] = useDisclosure();
@@ -12,13 +15,13 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
   const renderPages = () =>
     pages.map((page) => (
       <UnstyledButton
-        key={page}
+        key={page.href}
         className={classes.control}
         component="a"
-        href={page === "Home" ? "/" : `/${page.toLowerCase()}`}
+        href={page.href}
         style={{ fontSize: "1.5rem", padding: "10px 20px" }}
       >
-        {page}
+        {page.label}
       </UnstyledButton>
     ));
 

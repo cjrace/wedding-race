@@ -12,18 +12,21 @@ test("has title", async ({ page }) => {
 test("has navbar", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.locator("nav")).toHaveText(pages.join(""));
+  await expect(page.locator("nav")).toHaveText(
+    pages.map((p) => p.label).join(""),
+  );
 });
 
 test("can navigate through each page", async ({ page }) => {
   await page.goto("/");
 
-  for (const pageName of pages) {
+  for (const { label } of pages) {
     await page
       .getByRole("banner")
-      .getByRole("link", { name: `${pageName}`, exact: true })
+      .getByRole("link", { name: label, exact: true })
       .click();
-    await expect(page.locator("body")).toContainText(pageName);
+    await expect(page.locator("body")).toContainText(label);
+    await page.goto("/");
   }
 });
 
@@ -33,11 +36,36 @@ test("can navigate using burger", async ({ page }) => {
   /* Go to a mobile viewport */
   await page.setViewportSize({ width: 375, height: 667 });
 
-  for (const pageName of pages) {
+  for (const { label } of pages) {
     const burgerButton = page.getByRole("banner").getByRole("button");
     await burgerButton.waitFor({ state: "visible" });
     await burgerButton.click({ force: true });
-    await page.getByRole("link", { name: `${pageName}`, exact: true }).click();
-    await expect(page.locator("body")).toContainText(pageName);
+    await page
+      .getByRole("navigation")
+      .getByRole("link", { name: label, exact: true })
+      .click();
+    await expect(page.locator("body")).toContainText(label);
+    await page.goto("/");
+    await page.setViewportSize({ width: 375, height: 667 });
   }
+});
+
+test("redirects /rsvp to /your-invitation", async ({ page }) => {
+  await page.goto("/rsvp");
+  expect(page.url()).toContain("/your-invitation");
+});
+
+test("redirects /faqs to /your-invitation", async ({ page }) => {
+  await page.goto("/faqs");
+  expect(page.url()).toContain("/your-invitation");
+});
+
+test("redirects /on-the-day to /your-invitation", async ({ page }) => {
+  await page.goto("/on-the-day");
+  expect(page.url()).toContain("/your-invitation");
+});
+
+test("redirects /venue to /your-invitation", async ({ page }) => {
+  await page.goto("/venue");
+  expect(page.url()).toContain("/your-invitation");
 });

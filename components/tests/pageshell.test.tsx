@@ -17,7 +17,7 @@ describe("Navbar", () => {
     const links = screen.getAllByRole("link");
 
     pages.forEach((page, index) => {
-      expect(links[index]).toHaveTextContent(page);
+      expect(links[index]).toHaveTextContent(page.label);
     });
   });
 

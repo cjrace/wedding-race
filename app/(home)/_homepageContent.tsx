@@ -10,16 +10,12 @@ import {
   Anchor,
   Button,
 } from "@mantine/core";
-import PageCard from "@/components/pagecard";
 import Countdown from "@/components/countdown";
 import Image from "next/image";
 import Us from "@/public/images/cam-and-laura.png";
-import Village from "@/public/images/village.png";
-import BreakfastTable from "@/public/images/breakfast-tables.png";
-import FAQ from "@/public/images/faq.png";
 import playConfetti from "@/components/playconfetti";
 import { IconConfetti } from "@tabler/icons-react";
-import styles from "@/styles/homepage.module.css";
+import styles from "@/styles/rsvp.module.css";
 
 export default function HomepageContent() {
   const weddingDateEnv = process.env.NEXT_PUBLIC_WEDDING_DATETIME
@@ -28,6 +24,12 @@ export default function HomepageContent() {
 
   return (
     <>
+      <Center>
+        <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
+      </Center>
+
+      <Divider my="md" />
+
       <Center>
         <Anchor
           href="/rsvp"
@@ -61,18 +63,11 @@ export default function HomepageContent() {
                 }}
                 className={styles.rsvpInvertHoverText}
               >
-                Time to RSVP! Let us know if you&apos;re coming and view your
-                itinerary 🎉
+                It&apos;s almost time! View your guest information!
               </Text>
             </Center>
           </Box>
         </Anchor>
-      </Center>
-
-      <Divider my="md" />
-
-      <Center>
-        <Countdown date={weddingDateEnv ?? new Date("2095-08-08T19:17:08Z")} />
       </Center>
 
       <Divider my="md" />
@@ -145,14 +140,23 @@ export default function HomepageContent() {
             </Text>
 
             <Text>
-              Feel free to explore the website to find all you need to know
-              about the event, accommodation, and those burning questions you
-              might have in the FAQs.
+              Enter your invite code on the
+              <Anchor
+                href="/your-invitation"
+                style={{
+                  padding: "0 0 0 4px", // force the anchor to match text spacing
+                  textDecoration: "underline",
+                }}
+              >
+                guest information
+              </Anchor>{" "}
+              page to find your personalised RSVP, the plan for the day, venue
+              and accommodation details, the timeline, music requests, and
+              everything else you need.
             </Text>
 
             <Text>
-              Thanks for stopping by, and we can&apos;t wait to celebrate with
-              you!
+              Thanks for stopping by, we can&apos;t wait to celebrate with you!
             </Text>
 
             <Text>
@@ -186,33 +190,6 @@ export default function HomepageContent() {
       </Grid>
 
       <Divider my="md" />
-
-      <Grid>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <PageCard
-            image={BreakfastTable}
-            title="RSVP"
-            description="Tell us if you're coming and any preferences you have!"
-            link="/rsvp"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <PageCard
-            image={Village}
-            title="Venue"
-            description="Want to know where you're going?"
-            link="/venue"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <PageCard
-            image={FAQ}
-            title="FAQs"
-            description="Got a question? We might have an answer!"
-            link="/faqs"
-          />
-        </Grid.Col>
-      </Grid>
     </>
   );
 }

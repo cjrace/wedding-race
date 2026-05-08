@@ -1,32 +1,16 @@
 "use client";
 
-import { Title, Text, Space, Grid, Divider, Anchor } from "@mantine/core";
+import { Title, Text, Divider, Anchor, Grid } from "@mantine/core";
 import Image from "next/image";
 import FullVillage from "@/public/images/full-village.png";
 import Cottages from "@/public/images/cottages.png";
-import OverlayCard from "@/components/overlaycard";
-import PizzaOven from "@/public/images/pizza-oven.png";
-import GetReadyHut from "@/public/images/get-ready-hut.png";
-import BreakfastShack from "@/public/images/breakfast-shack.png";
 
-export default function VenueContent() {
+export default function VenueSection({ preWedding }: { preWedding: boolean }) {
   return (
-    <>
-      <Text>
-        Our wedding celebration will be over multiple days. Check out the{" "}
-        <Anchor
-          style={{ padding: "0px", textDecoration: "underline" }}
-          href="/rsvp"
-        >
-          RSVP page
-        </Anchor>{" "}
-        and enter your invite code for more details about the plans for each
-        day.
-      </Text>
+    <section id="venue">
+      <Title order={2}>Venue and accommodation</Title>
 
-      <Divider my="md" />
-
-      <Title order={2}>Venue</Title>
+      <Title order={3}>Venue</Title>
 
       <Grid>
         <Grid.Col span={{ base: 12, md: 7 }}>
@@ -68,7 +52,7 @@ export default function VenueContent() {
 
       <Divider my="md" />
 
-      <Title order={2}>Wedding village</Title>
+      <Title order={3}>Wedding village</Title>
 
       <Grid align="center">
         <Grid.Col span={{ base: 12, md: 7 }}>
@@ -113,9 +97,14 @@ export default function VenueContent() {
           </Text>
 
           <Text>
-            You'll get the details for booking accommodation on site when you
-            RSVP, if you have any questions as you're booking or need support,
-            just let us know.
+            See the{" "}
+            <Anchor
+              style={{ padding: "0px", textDecoration: "underline" }}
+              href="#booking-accommodation"
+            >
+              booking accommodation section
+            </Anchor>{" "}
+            below for details on how to secure your pod.
           </Text>
         </Grid.Col>
 
@@ -130,7 +119,7 @@ export default function VenueContent() {
 
       <Divider my="md" />
 
-      <Title order={2}>On site cottages</Title>
+      <Title order={3}>On site cottages</Title>
 
       <Grid>
         <Grid.Col span={{ base: 12, md: 7 }}>
@@ -161,7 +150,7 @@ export default function VenueContent() {
 
       <Divider my="md" />
 
-      <Title order={2}>Local hotels</Title>
+      <Title order={3}>Local hotels</Title>
 
       <Text>
         If you&apos;d prefer a local hotel, we&apos;d recommend looking in
@@ -171,39 +160,57 @@ export default function VenueContent() {
 
       <Text>
         Any taxis will need to be pre-booked, let us know if you need help with
-        finding recommended local taxi companies.
+        finding recommended local taxi companies. TODO UPDATE THIS.
       </Text>
 
       <Divider my="md" />
 
-      <Grid>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="pizzaOven"
-            image={PizzaOven}
-            overlay="At the pre-wedding village party we'll be serving
-                    freshly made pizzas from our oven, hot and delicious!"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="gettingReady"
-            image={GetReadyHut}
-            overlay="The pods all have plenty of space but for something more
-                    sociable you can get ready together in the makeup hut!"
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <OverlayCard
-            cardKey="breakfastShack"
-            image={BreakfastShack}
-            overlay="Self-serve breakfast will be available for everyone staying
-                    at the wedding village."
-          />
-        </Grid.Col>
-      </Grid>
+      <Title order={3} id="booking-accommodation">
+        Booking accommodation
+      </Title>
 
-      <Space h="xl" />
-    </>
+      <Text>
+        To book on-site accommodation please use the Venue&apos;s{" "}
+        <Anchor
+          href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbook.bedful.com%2Fglamping%2Fuk%2Fengland%2Fnorth-east-england%2Fnorth-yorkshire%2Fnorthallerton%2F11850-lake-henry-ltd%3Fparent_id%3D11273264&data=05%7C02%7C%7C27ea965b2dd649e9000d08de121ef0d3%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638968121370698456%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=DE1tjtoXStposChaEIVVijLEmdw0EATwlGFIizKvO7g%3D&reserved=0"
+          target="_blank"
+          px={0}
+          style={{ textDecoration: "underline" }}
+        >
+          booking portal
+        </Anchor>
+        . There are a range of different pod styles available, all of which
+        feature full sized beds with plenty of space to get ready and it
+        includes breakfast!
+      </Text>
+
+      <Text>
+        The portal defaults to booking for a two-night stay (8th &amp; 9th),
+        {preWedding && (
+          <>
+            &nbsp;though we understand not everyone can get time away for the
+            whole three days so if you can only join us for the one night please
+            remember to check and change this to just the 9th if necessary!
+          </>
+        )}
+        {!preWedding && (
+          <>
+            &nbsp;please remember to change this to just the 9th before booking.
+            If you are travelling far and would like to stay the night of the
+            8th as well, please feel free to do so, just let us know so we know
+            to expect you the night before!
+          </>
+        )}
+      </Text>
+
+      <Text style={{ fontStyle: "italic" }}>
+        Note: If you&apos;d prefer to stay off site, please be aware that venue
+        restrictions mean only guests staying in the village are able to remain
+        there after {preWedding && <>10pm the night before and </>}
+        midnight on the night of the wedding. There are local airbnbs, and there
+        is one cottage on site (though limited to six guests / three rooms). Let
+        us know ASAP if you&apos;d want to make use of the cottage.
+      </Text>
+    </section>
   );
 }

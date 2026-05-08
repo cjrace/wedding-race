@@ -34,7 +34,7 @@ export default function InviteContent() {
       });
       const data = await res.json();
       if (data.success) {
-        router.replace(`/rsvp/${trimmedValue.toLowerCase()}`);
+        router.replace(`/your-invitation/${trimmedValue.toLowerCase()}`);
       } else {
         setError(
           "Invite code not found. Contact us if you believe this is an error.",
@@ -51,8 +51,7 @@ export default function InviteContent() {
     <>
       <Stack>
         <Text id="invite-code-description" px={0}>
-          Enter your invite code below to access your RSVP form and view your
-          itinerary.
+          Enter your invite code below to access your invitation page.
         </Text>
         <form onSubmit={handleSubmit}>
           <Group>
