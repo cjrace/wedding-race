@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/copy-standalone-assets.mjs",
     "start": "node .next/standalone/server.js",
     "lint": "eslint app components styles types",
     "pretty": "prettier . --write",
-    "test": "prettier . --write && eslint app components styles types && jest && next build && playwright test",
+    "test": "prettier . --write && eslint app components styles types && jest && yarn build && playwright test",
     "prepare": "husky"
   },
   "dependencies": {
