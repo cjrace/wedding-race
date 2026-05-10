@@ -38,40 +38,41 @@ export default function GettingSoonLetter() {
       <Text px={0} mb="md">
         <strong>Wedding morning (not staying on site?)</strong>
         <br />
-        You can arrive whenever you like, head straight to the wedding village and join the party!
-        We'll be serving mimosas from 11am, and there'll be plenty of guests
-        around to celebrate with ahead of the ceremony.
+        You can arrive whenever you like, head straight to the wedding village
+        and join the party! We'll be serving mimosas from 11am, and there'll be
+        plenty of guests around to celebrate with ahead of the ceremony.
       </Text>
 
       <Text px={0} mb="md">
         <strong>Wedding morning (staying on site?)</strong>
         <br />
-        Self-serve breakfast will be available for village guests in the morning (7am-10am).
-        After that, the games will still be out, music will be on, and there's a
-        dedicated makeup hut if you'd like to get ready somewhere sociable.
-        We'll be serving mimosas from 11am, so you can celebrate with other guests andtoast to the day ahead.
+        Self-serve breakfast will be available for village guests in the morning
+        (7am-10am). After that, the games will still be out, music will be on,
+        and there's a dedicated makeup hut if you'd like to get ready somewhere
+        sociable. We'll be serving mimosas from 11am, so you can celebrate with
+        other guests andtoast to the day ahead.
       </Text>
 
       <Text px={0} mb="md">
         <strong>The ceremony</strong>
         <br />
         Guests will be seated at 12:45pm, so please make sure you're at the
-        venue and ready by then. Seating
-        is open after the front row (reserved for the wedding party), so sit
-        wherever feels right. There's no Laura side or Cam side, many of our
-        friends are shared between us! The ceremony starts at 1pm, and from
-        there we'll be celebrating together until midnight. For those staying in
-        the village, the party continues by the firepits after that!
+        venue and ready by then. Seating is open after the front row (reserved
+        for the wedding party), so sit wherever feels right. There's no Laura
+        side or Cam side, many of our friends are shared between us! The
+        ceremony starts at 1pm, and from there we'll be celebrating together
+        until midnight. For those staying in the village, the party continues by
+        the firepits after that!
       </Text>
 
       <Text px={0} mb="md">
         <strong>Getting there & getting around</strong>
         <br />
         Lake Henry is just 15 minutes off the A1, and reachable by train via
-        Darlington or Northallerton. Main parking is by the wedding village, with overflow parking near the tipi. If you need a taxi at any
-        point, the venue recommends pre-booking in advance. The following firms are suggested by the venue, but you can use any company:  
-        - Firm A
-        - Firm B
+        Darlington or Northallerton. Main parking is by the wedding village,
+        with overflow parking near the tipi. If you need a taxi at any point,
+        the venue recommends pre-booking in advance. The following firms are
+        suggested by the venue, but you can use any company: - Firm A - Firm B
       </Text>
 
       <Text px={0} mb="md">
@@ -81,15 +82,14 @@ export default function GettingSoonLetter() {
         towels, plugs for your gadgets, and heating if the evening calls for it.
         There's self-service tea and coffee available throughout your stay, plus
         a food prep area and fridges if you want to bring anything extra. We'll
-        also provide maps of the local area if you fancy a walk or run during your
-        stay. Checkout on Wednesday 10th June is at 11am.
+        also provide maps of the local area if you fancy a walk or run during
+        your stay. Checkout on Wednesday 10th June is at 11am.
       </Text>
 
       <Text px={0} mb="md">
         <strong>Gifts</strong>
-        <br />
-        A few of you have been asking, so thank you! Your presence really is
-        enough, but if you'd like to give something, we've set up a PayPal
+        <br />A few of you have been asking, so thank you! Your presence really
+        is enough, but if you'd like to give something, we've set up a PayPal
         where you can contribute to our first family holiday. Any amount is
         gratefully received and hugely appreciated.
       </Text>
@@ -125,10 +125,10 @@ export default function GettingSoonLetter() {
       </Text>
 
       <Text px={0} mb="md">
-        <strong>Children:</strong> For your little ones we'll have
-        dedicated children's food at the wedding breakfast, high chairs for
-        under-5s, a soft play area in the tipi, and a quiet retreat space in one
-        of the cottages. 
+        <strong>Children:</strong> For your little ones we'll have dedicated
+        children's food at the wedding breakfast, high chairs for under-5s, a
+        soft play area in the tipi, and a quiet retreat space in one of the
+        cottages.
       </Text>
 
       <Text px={0} mb="md">

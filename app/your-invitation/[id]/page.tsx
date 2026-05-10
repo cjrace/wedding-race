@@ -50,9 +50,7 @@ export default async function YourInvitationPage(props: {
 
   return (
     <>
-
-    <GettingSoonLetter />
-
+      <GettingSoonLetter />
 
       <Divider my="sm" />
 
@@ -116,7 +114,6 @@ export default async function YourInvitationPage(props: {
 
       <Divider my="sm" />
 
-
       <section id="timeline">
         <Title px={0} order={2}>
           Your wedding timeline
@@ -139,8 +136,6 @@ export default async function YourInvitationPage(props: {
           </Text>
           <SongRequests inviteId={id} />
         </Paper>
-
-
       </section>
 
       <Divider my="sm" />
