@@ -49,7 +49,7 @@ export default async function YourInvitationPage(props: {
 
   return (
     <>
-      <GettingSoonLetter />
+      <GettingSoonLetter preWedding={preWedding} />
 
       <Divider my="sm" />
 

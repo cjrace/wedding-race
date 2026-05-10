@@ -1,21 +1,26 @@
 "use client";
 
-import { Title, Text, Divider, Center, Button } from "@mantine/core";
+import { Title, Text, Divider, Center, Button, Anchor } from "@mantine/core";
 import { IconConfetti } from "@tabler/icons-react";
 import playConfetti from "./playconfetti";
 
-export default function GettingSoonLetter() {
+export default function GettingSoonLetter({
+  preWedding,
+}: {
+  preWedding: boolean;
+}) {
   return (
     <section id="getting-soon-letter">
       <Title px={0} order={2}>
-        The wedding is soon!
+        The wedding is fast approaching!
       </Title>
 
       <Text px={0} mb="md">
         We can't wait to see you. It's nearly time! Here's everything you need
         to know to help you plan, pack, and get properly excited.
       </Text>
-<Center>
+
+      <Center>
         <Button
           variant="default"
           radius="lg"
@@ -27,48 +32,63 @@ export default function GettingSoonLetter() {
         </Button>
       </Center>
 
+      {preWedding && (
+        <Text px={0} mb="md">
+          <Title px={0} order={4}>
+            The night before: join us at the village!
+          </Title>
+          <br />
+          On-site guests can check in from 4pm on Monday 8th June, with
+          festivities kicking off from 5pm. We'll have lawn games, music, and a
+          pub quiz starting at 8pm. Not staying on site? You're still very
+          welcome and we'd love for you to join us, just note that venue rules
+          mean non-staying guests will need to head off by 10pm.
+        </Text>
+      )}
+
+      {preWedding && (
+        <Text px={0} mb="md">
+          <Title px={0} order={4}>
+            Food & drink the night before
+          </Title>
+          <br />
+          We'll have pizza ovens going all evening, drinks fridges stocked with
+          beer and wine, and maybe a cocktail or two. Feel free to bring your
+          own drinks or anything extra if you'd like something specific; there
+          are bottle fridges in the village to store whatever you bring. Just a
+          heads up: no outside food or drink at the tipi on the wedding day
+          itself, we've got the caterers and bar fully covered for that!
+        </Text>
+      )}
 
       <Text px={0} mb="md">
-        <strong>The night before: join us at the village!</strong>
-        <br />
-        On-site guests can check in from 4pm on Monday 8th June, with
-        festivities kicking off from 5pm. We'll have lawn games, music, and a
-        pub quiz starting at 8pm. Not staying on site? You're still very welcome
-        and we'd love for you to join us, just note that venue rules mean
-        non-staying guests will need to head off by 10pm.
-      </Text>
-
-      <Text px={0} mb="md">
-        <strong>Food & drink the night before</strong>
-        <br />
-        We'll have pizza ovens going all evening, drinks fridges stocked with
-        beer and wine, and maybe a cocktail or two. Feel free to bring your own
-        drinks or anything extra if you'd like something specific; there are
-        bottle fridges in the village to store whatever you bring. Just a heads
-        up: no outside food or drink at the tipi on the wedding day itself,
-        we've got the caterers and bar fully covered for that!
-      </Text>
-
-      <Text px={0} mb="md">
-        <strong>Wedding morning (not staying on site?)</strong>
+        <Title px={0} order={4}>
+          Wedding morning (not staying on site)
+        </Title>
         <br />
         You can arrive whenever you like, head straight to the wedding village
         and join the party! We'll be serving mimosas from 11am, and there'll be
         plenty of guests around to celebrate with ahead of the ceremony.
       </Text>
 
-      <Text px={0} mb="md">
-        <strong>Wedding morning (staying on site?)</strong>
-        <br />
-        Self-serve breakfast will be available for village guests in the morning
-        (7am-10am). After that, the games will still be out, music will be on,
-        and there's a dedicated makeup hut if you'd like to get ready somewhere
-        sociable. We'll be serving mimosas from 11am, so you can celebrate with
-        other guests and toast to the day ahead.
-      </Text>
+      {preWedding && (
+        <Text px={0} mb="md">
+          <Title px={0} order={4}>
+            Wedding morning (staying on site)
+          </Title>
+          <br />
+          Self-serve breakfast will be available for village guests in the
+          morning (7am-10am). After that, the games will still be out, music
+          will be on, and there's a dedicated makeup hut if you'd like to get
+          ready somewhere sociable. We'll be serving mimosas from 11am, so you
+          can celebrate with other guests and toast to the day ahead.
+        </Text>
+      )}
 
       <Text px={0} mb="md">
-        <strong>The ceremony</strong>
+        <Title px={0} order={4}>
+          The ceremony
+        </Title>
         <br />
         Guests will be seated at 12:45pm, so please make sure you're at the
         venue and ready by then. Seating is open after the front row (reserved
@@ -80,7 +100,9 @@ export default function GettingSoonLetter() {
       </Text>
 
       <Text px={0} mb="md">
-        <strong>Getting there & getting around</strong>
+        <Title px={0} order={4}>
+          Getting there & getting around
+        </Title>
         <br />
         Lake Henry is just 15 minutes off the A1, and reachable by train via
         Darlington or Northallerton. Main parking is by the wedding village,
@@ -90,7 +112,9 @@ export default function GettingSoonLetter() {
       </Text>
 
       <Text px={0} mb="md">
-        <strong>Staying on site: what's included</strong>
+        <Title px={0} order={4}>
+          Staying on site: what's included
+        </Title>
         <br />
         Your pod comes with everything you need: a comfortable bed, bedding,
         towels, plugs for your gadgets, and heating if the evening calls for it.
@@ -101,7 +125,9 @@ export default function GettingSoonLetter() {
       </Text>
 
       <Text px={0} mb="md">
-        <strong>Gifts</strong>
+        <Title px={0} order={4}>
+          Gifts
+        </Title>
         <br />A few of you have been asking, so thank you! Your presence really
         is enough, but if you'd like to give something, we've set up a PayPal
         where you can contribute to our first family holiday. Any amount is
@@ -123,33 +149,53 @@ export default function GettingSoonLetter() {
       </Title>
 
       <Text px={0} mb="md">
-        <strong>What to wear:</strong> For the wedding day, dress to impress.
-        Most guests will be in suits and dresses. It'll be summer, so make sure
-        you're comfortable too. The village has gravel paths between the pods,
-        so if rain is forecast you might want to pack a second pair of shoes for
-        the evening.
+        <Title px={0} order={4}>
+          What to wear
+        </Title>{" "}
+        For the wedding day, dress to impress. Most guests will be in suits and
+        dresses. It'll be summer, so make sure you're comfortable too. Although
+        the aim is to be outside, you shouldn't need any special footwear. The
+        village does have gravel paths between the pods, so if rain is forecast
+        you might want to pack a second pair of shoes for comfort, though it's
+        not essential.
       </Text>
 
       <Text px={0} mb="md">
-        <strong>Photos:</strong> We'd love for everyone to be fully present
-        during the ceremony, so please hold off on photos while we're saying our
-        vows. Our photographer has it covered. Anywhere else throughout the day
-        and night, snap away! We've set up a shared Google Photos album so
-        everyone can pool their pictures.
+        <Title px={0} order={4}>
+          Photos
+        </Title>{" "}
+        We'd love for everyone to be fully present during the ceremony, so
+        please hold off on photos while we're saying our vows. Our photographer
+        has it covered. Anywhere else throughout the day and night, snap away!
       </Text>
 
       <Text px={0} mb="md">
-        <strong>Children:</strong> For your little ones we'll have dedicated
-        children's food at the wedding breakfast, high chairs for under-5s, a
-        soft play area in the tipi, and a quiet retreat space in one of the
-        cottages.
+        Add any photos you take to our shared{" "}
+        <Anchor
+          href="https://photos.app.goo.gl/GvyQND53UQbxKsAA6"
+          target="_blank"
+        >
+          Google Photos album
+        </Anchor>
+        .
       </Text>
 
       <Text px={0} mb="md">
-        <strong>House rules:</strong> A couple of venue restrictions to be aware
-        of: no fireworks (the venue is close to local farms and wildlife), and
-        no dogs in the wedding village. Thanks for helping us keep the venue
-        happy!
+        <Title px={0} order={4}>
+          Children
+        </Title>{" "}
+        For your little ones we'll have dedicated children's food at the wedding
+        breakfast, high chairs for under-5s, a soft play area in the tipi, and a
+        quiet retreat space in one of the cottages.
+      </Text>
+
+      <Text px={0} mb="md">
+        <Title px={0} order={4}>
+          House rules
+        </Title>{" "}
+        A couple of venue restrictions to be aware of: no fireworks (the venue
+        is close to local farms and wildlife), and no dogs in the wedding
+        village. Thanks for helping us keep the venue happy!
       </Text>
 
       <Text px={0} mb="md">
