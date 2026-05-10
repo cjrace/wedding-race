@@ -40,7 +40,7 @@ yarn dev
 
 [Prettier](https://prettier.io/) is used for code formatting, [ESLint](https://eslint.org/) is used for linting, [Jest](https://jestjs.io/) is used for testing components and basic end to end tests have been set up using [Playwright](https://playwright.dev/).
 
-To format all scripts, run linting checks, run jest tests, compile a production build, and then run the end to end tests run:
+To format all scripts, run linting checks, run jest tests, compile a production build, and then run the end to end tests all in a single command, run:
 
 ```bash
 yarn test
@@ -57,5 +57,3 @@ yarn run
 ## Deployment
 
 Deploys are automatically triggered from pushes to the main branch through [Vercel](https://vercel.com/) to https://www.wedding-race.com/.
-
-The docker containers and previous backend project where originally deployed in Google Cloud Run, but are not currently in use. If you want to edit any of the infrastructure in Google Cloud you'll likely want to install the [Google Cloud SDK](https://cloud.google.com/sdk?hl=en).
