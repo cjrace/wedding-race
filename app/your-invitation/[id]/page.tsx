@@ -4,7 +4,6 @@ import { Title, Text, Divider, Space, Paper } from "@mantine/core";
 import WeddingTimeline from "@/components/weddingTimeline";
 import RsvpFormClient from "@/components/rsvpFormClient";
 import SongRequests from "@/components/songrequests";
-import WelcomeSection from "@/components/welcomeSection";
 import GettingSoonLetter from "@/components/getting-soon-letter";
 
 export async function generateMetadata() {

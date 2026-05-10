@@ -1,6 +1,8 @@
 "use client";
 
-import { Title, Text, Divider } from "@mantine/core";
+import { Title, Text, Divider, Center, Button } from "@mantine/core";
+import { IconConfetti } from "@tabler/icons-react";
+import playConfetti from "./playconfetti";
 
 export default function GettingSoonLetter() {
   return (
@@ -13,6 +15,18 @@ export default function GettingSoonLetter() {
         We can't wait to see you. It's nearly time! Here's everything you need
         to know to help you plan, pack, and get properly excited.
       </Text>
+<Center>
+        <Button
+          variant="default"
+          radius="lg"
+          my="md"
+          onClick={playConfetti}
+          rightSection={<IconConfetti />}
+        >
+          Practice your confetti
+        </Button>
+      </Center>
+
 
       <Text px={0} mb="md">
         <strong>The night before: join us at the village!</strong>
@@ -50,7 +64,7 @@ export default function GettingSoonLetter() {
         (7am-10am). After that, the games will still be out, music will be on,
         and there's a dedicated makeup hut if you'd like to get ready somewhere
         sociable. We'll be serving mimosas from 11am, so you can celebrate with
-        other guests andtoast to the day ahead.
+        other guests and toast to the day ahead.
       </Text>
 
       <Text px={0} mb="md">
