@@ -142,7 +142,7 @@ export default function HomepageContent() {
             <Text>
               Enter your invite code on the
               <Anchor
-                href="/your-invitation"
+                href="/guest-information"
                 style={{
                   padding: "0 0 0 4px", // force the anchor to match text spacing
                   textDecoration: "underline",

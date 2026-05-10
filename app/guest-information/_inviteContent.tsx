@@ -34,7 +34,7 @@ export default function InviteContent() {
       });
       const data = await res.json();
       if (data.success) {
-        router.replace(`/your-invitation/${trimmedValue.toLowerCase()}`);
+        router.replace(`/guest-information/${trimmedValue.toLowerCase()}`);
       } else {
         setError(
           "Invite code not found. Contact us if you believe this is an error.",

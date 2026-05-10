@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen, userEvent, waitFor } from "../../test-utils";
 import { axe } from "jest-axe";
-import InviteContent from "../../app/your-invitation/_inviteContent";
+import InviteContent from "../../app/guest-information/_inviteContent";
 
 const fetchMock = jest.fn();
 const replaceMock = jest.fn();
@@ -54,7 +54,7 @@ describe("InviteContent", () => {
     );
   });
 
-  it("navigates to /your-invitation/<code> on success and trims+lowercases", async () => {
+  it("navigates to /guest-information/<code> on success and trims+lowercases", async () => {
     fetchMock.mockResolvedValueOnce({ json: async () => ({ success: true }) });
     render(<InviteContent />);
     // The component trims on every keystroke; pad with non-whitespace and rely on lowercase.
@@ -66,7 +66,7 @@ describe("InviteContent", () => {
     expect(url).toBe("/api/checkInvite");
     expect(init.method).toBe("POST");
     expect(JSON.parse(init.body)).toEqual({ inviteCode: "abc123" });
-    expect(replaceMock).toHaveBeenCalledWith("/your-invitation/abc123");
+    expect(replaceMock).toHaveBeenCalledWith("/guest-information/abc123");
   });
 
   it("renders a server-error message when fetch rejects", async () => {

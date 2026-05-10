@@ -4,22 +4,22 @@ const nextConfig = {
     return [
       {
         source: "/rsvp",
-        destination: "/your-invitation",
+        destination: "/guest-information",
         permanent: true,
       },
       {
         source: "/rsvp/:id",
-        destination: "/your-invitation/:id",
+        destination: "/guest-information/:id",
         permanent: true,
       },
       {
         source: "/faqs",
-        destination: "/your-invitation",
+        destination: "/guest-information",
         permanent: true,
       },
       {
         source: "/venue",
-        destination: "/your-invitation",
+        destination: "/guest-information",
         permanent: true,
       },
     ];

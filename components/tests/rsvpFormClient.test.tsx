@@ -151,7 +151,7 @@ describe("RsvpFormClient", () => {
         expect((init.body as FormData).get("partyID")).toBe("p1");
 
         await waitFor(() =>
-          expect(pushMock).toHaveBeenCalledWith("/your-invitation/p1"),
+          expect(pushMock).toHaveBeenCalledWith("/guest-information/p1"),
         );
         expect(playConfettiMock).toHaveBeenCalledTimes(1);
       } finally {

@@ -6,7 +6,7 @@ import classes from "../styles/pageshell.module.css";
 
 export const pages = [
   { label: "Home", href: "/" },
-  { label: "Guest Information", href: "/your-invitation" },
+  { label: "Guest Information", href: "/guest-information" },
 ];
 
 export default function PageShell({ children }: { children: React.ReactNode }) {
