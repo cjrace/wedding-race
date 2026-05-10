@@ -4,13 +4,8 @@ import { Title, Text, Divider, Space, Paper } from "@mantine/core";
 import WeddingTimeline from "@/components/weddingTimeline";
 import RsvpFormClient from "@/components/rsvpFormClient";
 import SongRequests from "@/components/songrequests";
-import QuizSuggestions from "@/components/quizsuggestions";
 import WelcomeSection from "@/components/welcomeSection";
-import OnTheDaySection from "@/components/onTheDaySection";
-import VenueSection from "@/components/venueSection";
-import PreWeddingSection from "@/components/preWeddingSection";
-import GiftsSection from "@/components/giftsSection";
-import OverlayCardGrid from "@/components/overlayCardGrid";
+import GettingSoonLetter from "@/components/getting-soon-letter";
 
 export async function generateMetadata() {
   return {
@@ -55,7 +50,9 @@ export default async function YourInvitationPage(props: {
 
   return (
     <>
-      <WelcomeSection submitted={submitted} />
+
+    <GettingSoonLetter />
+
 
       <Divider my="sm" />
 
@@ -119,17 +116,6 @@ export default async function YourInvitationPage(props: {
 
       <Divider my="sm" />
 
-      <OnTheDaySection />
-
-      <Divider my="sm" />
-
-      <VenueSection preWedding={preWedding} />
-
-      <Divider my="sm" />
-
-      {preWedding && <PreWeddingSection />}
-
-      <Divider my="sm" />
 
       <section id="timeline">
         <Title px={0} order={2}>
@@ -154,28 +140,10 @@ export default async function YourInvitationPage(props: {
           <SongRequests inviteId={id} />
         </Paper>
 
-        {preWedding && (
-          <Paper withBorder p="lg" my="md" style={{ borderColor: "#F9AA8E" }}>
-            <Title px={0} order={2}>
-              Quiz round suggestions
-            </Title>
-            <Text px={0} mb="md">
-              🧠 <strong>Joining us the night before?</strong> Help us build the
-              pub quiz. Suggest a round, a category, or a single brilliantly
-              cheeky question.
-            </Text>
-            <QuizSuggestions inviteId={id} />
-          </Paper>
-        )}
+
       </section>
 
       <Divider my="sm" />
-
-      <GiftsSection />
-
-      <Divider my="md" />
-
-      <OverlayCardGrid />
 
       <Space h="xl" />
       <Space h="xl" />
