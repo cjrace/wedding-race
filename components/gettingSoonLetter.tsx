@@ -27,10 +27,18 @@ export default function GettingSoonLetter({
           </Title>
           <Text px={0} mb="md">
             On-site guests can check in from 4pm on Monday 8th June, with
-            festivities kicking off from 5pm. We'll have lawn games, music, and
-            a pub quiz starting at 8pm. Not staying on site? You're still very
-            welcome and we'd love for you to join us, just note that venue rules
-            mean non-staying guests will need to head off by 10pm.
+            festivities kicking off from 5pm. Don't worry if you can't make 
+            it that early, just join whenever you're able! 
+            We'll have lawn games, music, and a pub quiz starting at 8pm. 
+            The pods are all yours from the moment you check in so feel free to
+            relax and join in with the rest of the village for as much or as little
+            as you like. 
+          </Text>
+
+          <Text px={0} mb="md">
+            Not staying on site? You're still very welcome and we'd love for you to 
+            join us, just note that venue rules mean non-staying guests will need 
+            to head off by 10pm.
           </Text>
 
           <Title px={0} order={4}>
@@ -46,24 +54,30 @@ export default function GettingSoonLetter({
           </Text>
         </>
       )}
-      <Title px={0} order={4}>
-        Wedding morning (not staying on site)
-      </Title>
-      <Text px={0} mb="md">
-        You can arrive whenever you like from 10am, head straight to the wedding
-        village and join the party! We'll be serving mimosas from 11am, and
-        there'll be plenty of guests around to celebrate with ahead of the
-        ceremony.
-      </Text>
-      <Text px={0} mb="md">
-        Guests will be seated at 12:30pm, so make sure you are ready in the
-        village before then. You'll then be walked up to the ceremony area and
-        seated.
-      </Text>
+
+      {!preWedding && (
+        <>
+            <Title px={0} order={4}>
+              Wedding morning 
+            </Title>
+            <Text px={0} mb="md">
+              You can arrive whenever you like from 10am, head straight to the wedding
+              village and join the party! We'll be serving mimosas from 11am, and
+              there'll be plenty of guests around to celebrate with ahead of the
+              ceremony.
+            </Text>
+            <Text px={0} mb="md">
+              Guests will be seated at 12:30pm, so make sure you are ready in the
+              village before then. You'll then be walked up to the ceremony area and
+              seated.
+            </Text>
+        </>
+      )}
+
       {preWedding && (
         <>
           <Title px={0} order={4}>
-            Wedding morning (staying on site)
+            Wedding morning 
           </Title>
           <Text px={0} mb="md">
             Self-serve breakfast will be available for village guests in the
@@ -74,6 +88,7 @@ export default function GettingSoonLetter({
           </Text>
         </>
       )}
+
       <Title px={0} order={4}>
         The ceremony
       </Title>
@@ -96,6 +111,9 @@ export default function GettingSoonLetter({
         the venue recommends pre-booking in advance. The following firms are
         suggested by the venue, but you can use any company: - Firm A - Firm B
       </Text>
+
+      {preWedding && (
+        <>
       <Title px={0} order={4}>
         Staying on site: what's included
       </Title>
@@ -107,6 +125,9 @@ export default function GettingSoonLetter({
         also provide maps of the local area if you fancy a walk or run during
         your stay. Checkout on Wednesday 10th June is at 11am.
       </Text>
+      </>
+      )}
+      
       <Title px={0} order={4}>
         Gifts
       </Title>

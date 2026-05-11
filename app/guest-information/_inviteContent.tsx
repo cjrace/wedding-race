@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Lola from "@/public/images/Lola.png";
+import Lola from "@/public/images/Lola-excited.png";
 import styles from "@/styles/rsvp.module.css";
 
 export default function InviteContent() {
