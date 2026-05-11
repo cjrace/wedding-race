@@ -6,13 +6,15 @@ import playConfetti from "./playconfetti";
 
 export default function GettingSoonLetter({
   preWedding,
+  partyName,
 }: {
   preWedding: boolean;
+  partyName: string;
 }) {
   return (
     <section id="getting-soon-letter">
       <Title px={0} order={2}>
-        The wedding is fast approaching!
+        Hey {partyName}, the wedding is fast approaching!
       </Title>
       <Text px={0} mb="md">
         We can't wait to see you. It's nearly time! Here's everything you need
