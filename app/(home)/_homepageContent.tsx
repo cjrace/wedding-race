@@ -32,7 +32,7 @@ export default function HomepageContent() {
 
       <Center>
         <Anchor
-          href="/rsvp"
+          href="/guest-information"
           style={{
             textDecoration: "none",
             width: "100%",

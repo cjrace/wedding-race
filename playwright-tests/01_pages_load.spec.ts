@@ -51,16 +51,19 @@ test("can navigate using burger", async ({ page }) => {
 });
 
 test("redirects /rsvp to /guest-information", async ({ page }) => {
-  await page.goto("/rsvp");
+  const response = await page.goto("/rsvp");
+  expect(response?.request().redirectedFrom()?.url()).toContain("/rsvp");
   expect(page.url()).toContain("/guest-information");
 });
 
 test("redirects /faqs to /guest-information", async ({ page }) => {
-  await page.goto("/faqs");
+  const response = await page.goto("/faqs");
+  expect(response?.request().redirectedFrom()?.url()).toContain("/faqs");
   expect(page.url()).toContain("/guest-information");
 });
 
 test("redirects /venue to /guest-information", async ({ page }) => {
-  await page.goto("/venue");
+  const response = await page.goto("/venue");
+  expect(response?.request().redirectedFrom()?.url()).toContain("/venue");
   expect(page.url()).toContain("/guest-information");
 });
