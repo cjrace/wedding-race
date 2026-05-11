@@ -4,7 +4,6 @@ import { Title, Text, Divider, Space, Paper } from "@mantine/core";
 import WeddingTimeline from "@/components/weddingTimeline";
 import SongRequests from "@/components/songrequests";
 import GettingSoonLetter from "@/components/gettingSoonLetter";
-import VenueSection from "@/components/venueSection";
 
 export async function generateMetadata() {
   return {
@@ -37,7 +36,11 @@ export default async function YourInvitationPage(props: {
 
   return (
     <>
-      <GettingSoonLetter preWedding={preWedding} partyName={partyName} />
+      <GettingSoonLetter
+        preWedding={preWedding}
+        partyName={partyName}
+        inviteId={id}
+      />
 
       <Divider my="sm" />
 
@@ -80,35 +83,6 @@ export default async function YourInvitationPage(props: {
           catering team.
         </Text>
       </section>
-
-      <Divider my="sm" />
-
-      <section id="timeline">
-        <Title px={0} order={2}>
-          Your wedding timeline
-        </Title>
-        <WeddingTimeline preWedding={preWedding} />
-      </section>
-
-      <Divider my="sm" />
-
-      <section id="requests">
-        <Paper withBorder p="lg" my="md" style={{ borderColor: "#F9AA8E" }}>
-          <Title px={0} order={2}>
-            Music requests
-          </Title>
-          <Text px={0} mb="md">
-            🎵 <strong>Help build the wedding playlist!</strong> Songs
-            you&apos;d love to hear, songs that are guaranteed to get you on the
-            dancefloor, songs we absolutely have to play.
-          </Text>
-          <SongRequests inviteId={id} />
-        </Paper>
-      </section>
-
-      <Divider my="sm" />
-
-      <VenueSection preWedding={preWedding} />
 
       <Divider my="sm" />
 
