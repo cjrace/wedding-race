@@ -145,13 +145,14 @@ export default function GuestInformation({
         <SongRequests inviteId={inviteId} />
       </section>
 
+      <Divider my="sm" />
       <section id="venue">
         <Title px={0} order={3}>
-          Getting to the venue
+          About the venue
         </Title>
         <Grid>
           <Grid.Col span={{ base: 12, md: 7 }}>
-            <Text px={0} mb="md">
+            <Text px={0}>
               <Anchor
                 style={{ padding: "0px", textDecoration: "underline" }}
                 href="https://alexander-weddings.co.uk/"
@@ -192,13 +193,11 @@ export default function GuestInformation({
           </Grid.Col>
         </Grid>
 
-        <Divider my="sm" />
-
-        <Title px={0} order={3}>
+        <Title px={0} order={4}>
           On-site accommodation
         </Title>
         <Text px={0} mb="md">
-          Your pod / cottage room comes with everything you need: a comfortable
+          Pod and cottage rooms come with everything you need: a comfortable
           bed, bedding, towels, plugs for your gadgets, and heating if the
           evening calls for it. There's self-service tea and coffee available
           throughout your stay, plus a food prep area and fridges if you want to
@@ -207,7 +206,7 @@ export default function GuestInformation({
           10th June is at 11am.
         </Text>
 
-        <Title px={0} order={3}>
+        <Title px={0} order={4}>
           Wedding village
         </Title>
         <Text px={0}>
