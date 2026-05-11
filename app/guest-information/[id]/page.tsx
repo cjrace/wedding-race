@@ -4,6 +4,7 @@ import { Title, Text, Divider, Space, Paper } from "@mantine/core";
 import WeddingTimeline from "@/components/weddingTimeline";
 import SongRequests from "@/components/songrequests";
 import GettingSoonLetter from "@/components/gettingSoonLetter";
+import VenueSection from "@/components/venueSection";
 
 export async function generateMetadata() {
   return {
@@ -104,6 +105,10 @@ export default async function YourInvitationPage(props: {
           <SongRequests inviteId={id} />
         </Paper>
       </section>
+
+      <Divider my="sm" />
+
+      <VenueSection preWedding={preWedding} />
 
       <Divider my="sm" />
 
