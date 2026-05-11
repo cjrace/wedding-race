@@ -1,7 +1,7 @@
 import sql from "@/db/neon";
 import { notFound } from "next/navigation";
 import { Title, Text, Divider, Space } from "@mantine/core";
-import GettingSoonLetter from "@/components/gettingSoonLetter";
+import GuestInformation from "@/components/guestInformation";
 
 export async function generateMetadata() {
   return {
@@ -74,7 +74,7 @@ export default async function YourInvitationPage(props: {
         </Text>
       </section>
       <Divider my="sm" />
-      <GettingSoonLetter
+      <GuestInformation
         preWedding={preWedding}
         partyName={partyName}
         inviteId={id}

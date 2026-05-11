@@ -14,7 +14,7 @@ import playConfetti from "./playconfetti";
 import WeddingTimeline from "./weddingTimeline";
 import SongRequests from "./songrequests";
 
-export default function GettingSoonLetter({
+export default function GuestInformation({
   preWedding,
   partyName,
   inviteId,
@@ -24,7 +24,7 @@ export default function GettingSoonLetter({
   inviteId: string;
 }) {
   return (
-    <section id="getting-soon-letter">
+    <section id="guest-information">
       <Title px={0} order={2}>
         Hey {partyName}, the wedding is fast approaching!
       </Title>
