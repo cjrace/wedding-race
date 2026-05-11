@@ -61,18 +61,36 @@ export default function WeddingTimeline({
                 bullet={<IconBalloon />}
               >
                 <Text c="gray.5" size="sm">
-                  Pre-wedding festivities start at the village, including music
-                  and games, homemade pizzas and plenty of drinks.
+                  Pre-wedding festivities kick off at the village with pizza
+                  ovens going all evening, drinks fridges stocked with beer and
+                  wine, and maybe a cocktail or two. We'll have lawn games,
+                  music and food. Don&apos;t worry if you can't make it that
+                  early, just join whenever you're able. Your pod is yours from
+                  check-in, so relax and dip in and out of the village as much
+                  or as little as you like. Feel free to bring your own drinks
+                  or anything extra you'd like; there are bottle fridges in the
+                  village to store whatever you bring.
                 </Text>
                 <Text c="gray.5" size="sm">
-                  Those not staying at the village are still welcome to join in,
-                  you&apos;ll just need to leave by 10pm.
+                  Not staying on site? You're still very welcome and we'd love
+                  for you to join us! Just note that venue rules mean off-site
+                  guests will need to head off by 10pm.
                 </Text>
               </Timeline.Item>
 
               <Timeline.Item title="8pm - Quiz" bullet={<IconPencilQuestion />}>
                 <Text c="gray.5" size="sm">
-                  Who doesn&apos;t love a quiz?
+                  Who doesn&apos;t love a quiz that brings the chance to win
+                  drinks tokens that can be redeemed at the bar the next day?
+                </Text>
+              </Timeline.Item>
+              <Timeline.Item
+                title="9pm - Whisky and hot chocolates"
+                bullet={<IconPencilQuestion />}
+              >
+                <Text c="gray.5" size="sm">
+                  What better way to end the night? Naturally, hot chocolates
+                  come with an optional splash of Baileys.
                 </Text>
               </Timeline.Item>
             </Timeline>
@@ -98,24 +116,33 @@ export default function WeddingTimeline({
                 bullet={<IconCoffee />}
               >
                 <Text c="gray.5" size="sm">
-                  Self-serve breakfast will be available for guests staying at
-                  the wedding village.
+                  There will be a self-serve breakfast available for village
+                  guests in the morning (7am-10am) where you can fill yourself
+                  up with lots of fuel for the big day ahead. After that, the
+                  rest of the guests will start gathering in the village, the
+                  games will still be out, music will be on, and there's a
+                  dedicated makeup hut if you'd like to get ready somewhere
+                  sociable.
                 </Text>
               </Timeline.Item>
             )}
 
+            {!preWedding && (
+              <Timeline.Item
+                title="10am - Day guest check in"
+                bullet={<IconTent />}
+              >
+                <Text c="gray.5" size="sm">
+                  You can arrive whenever you like from 10am, head straight to
+                  the wedding village and join the party! There'll be plenty of
+                  guests around to celebrate with ahead of the ceremony. Anyone
+                  staying on site will be able to check in to their pods from
+                  10am too.
+                </Text>
+              </Timeline.Item>
+            )}
             <Timeline.Item
-              title="10am - Onsite guest check in"
-              bullet={<IconTent />}
-            >
-              <Text c="gray.5" size="sm">
-                Anyone staying onsite for just the one night can check in from
-                10am.
-              </Text>
-            </Timeline.Item>
-
-            <Timeline.Item
-              title="11:45am - Village mimosas"
+              title="11am - Village mimosas"
               bullet={<IconGlassChampagne />}
             >
               <Text c="gray.5" size="sm">
@@ -124,12 +151,13 @@ export default function WeddingTimeline({
             </Timeline.Item>
 
             <Timeline.Item
-              title="12:45pm - Guests seated"
+              title="12:30pm - Guests seated"
               bullet={<IconClockHeart />}
             >
               <Text c="gray.5" size="sm">
-                Whether already on site or travelling from further afield, get
-                yourself seated ahead of our ceremony starting at 1pm!
+                Whether already on site or travelling from further afield, make
+                sure you are all ready in the village by 12:30pm before being
+                walked up to the ceremony area.
               </Text>
             </Timeline.Item>
 
@@ -142,6 +170,18 @@ export default function WeddingTimeline({
                 can expect the usual things, we&apos;ll feed you, there&apos;ll
                 be drinks, partying.
               </Text>
+              <Text c="gray.5" size="sm">
+                Seating is open after the front row (reserved for the wedding
+                party), so sit wherever feels right. There's no Laura side or
+                Cam side, many of our friends are shared between us!
+              </Text>
+              <Text c="gray.5" size="sm">
+                We know that many guests share our love of food - please note
+                that no outside food or drink is allowed at the main tipi. There
+                will be canapes during the drinks reception immediately after
+                the ceremony, the main wedding breakfast at 4:30pm and the
+                evening food served around 8-9pm.
+              </Text>
             </Timeline.Item>
 
             <Timeline.Item
@@ -149,10 +189,9 @@ export default function WeddingTimeline({
               bullet={<IconMoonStars />}
             >
               <Text c="gray.5" size="sm">
-                Our wedding day is over, and it&apos;s time for carriages for
-                anyone staying off-site, but for those staying in the village
-                they can either head straight to bed or continue the
-                celebrations by the firepits.
+                Guests staying on site can continue the celebrations by the fire
+                pits in the village, or time for carriages for anyone staying
+                off-site.
               </Text>
             </Timeline.Item>
           </Timeline>
@@ -176,14 +215,14 @@ export default function WeddingTimeline({
               bullet={<IconCoffee />}
             >
               <Text c="gray.5" size="sm">
-                Self-serve breakfast will be available for guests staying at the
-                wedding village.
+                Self-serve breakfast will be available for guests staying on
+                site from 7am to 10am.
               </Text>
             </Timeline.Item>
 
             <Timeline.Item title="11am - Check out" bullet={<IconHomeMove />}>
               <Text c="gray.5" size="sm">
-                Checkout for anyone staying on site is at 11am.
+                Checkout for all staying on site is at 11am.
               </Text>
             </Timeline.Item>
           </Timeline>

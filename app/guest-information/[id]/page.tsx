@@ -1,8 +1,6 @@
 import sql from "@/db/neon";
 import { notFound } from "next/navigation";
-import { Title, Text, Divider, Space, Paper } from "@mantine/core";
-import WeddingTimeline from "@/components/weddingTimeline";
-import SongRequests from "@/components/songrequests";
+import { Title, Text, Divider, Space } from "@mantine/core";
 import GettingSoonLetter from "@/components/gettingSoonLetter";
 
 export async function generateMetadata() {
@@ -36,20 +34,12 @@ export default async function YourInvitationPage(props: {
 
   return (
     <>
-      <GettingSoonLetter
-        preWedding={preWedding}
-        partyName={partyName}
-        inviteId={id}
-      />
-
-      <Divider my="sm" />
-
       <section id="rsvp">
         <Title px={0} order={2}>
           Your RSVP details
         </Title>
         <Text px={0} mb="md">
-          We have received your response for the following guests:
+          Here is a quick reminder of your RSVP details:
         </Text>
         {[...guests]
           .sort((a, b) => a.id - b.id)
@@ -83,6 +73,12 @@ export default async function YourInvitationPage(props: {
           catering team.
         </Text>
       </section>
+      <Divider my="sm" />
+      <GettingSoonLetter
+        preWedding={preWedding}
+        partyName={partyName}
+        inviteId={id}
+      />
 
       <Divider my="sm" />
 
