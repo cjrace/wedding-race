@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import Navbar, { pages } from "../pageshell";
 import { render } from "../../test-utils";
 import { screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 describe("Navbar", () => {
   const renderNavbar = () => render(<Navbar>{undefined}</Navbar>);
@@ -17,7 +18,7 @@ describe("Navbar", () => {
     const links = screen.getAllByRole("link");
 
     pages.forEach((page, index) => {
-      expect(links[index]).toHaveTextContent(page);
+      expect(links[index]).toHaveTextContent(page.label);
     });
   });
 
@@ -33,5 +34,10 @@ describe("Navbar", () => {
     renderNavbar();
     const headerText = screen.getByText("Wedding Race");
     expect(headerText).toBeInTheDocument();
+  });
+
+  it("has no axe violations in the default state", async () => {
+    const { container } = renderNavbar();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

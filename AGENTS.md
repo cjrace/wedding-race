@@ -26,7 +26,7 @@ Next.js App Router application for a wedding website.
 
 **Key directories:**
 
-- `app/` — Next.js pages and API routes. `(home)/` is the landing page group. `api/` handles RSVP submission, invite checking, Spotify, and quiz suggestions.
+- `app/` — Next.js pages and API routes. `(home)/` is the landing page group, `guest-information/` serves personalised guest info pages via invite code. `api/` handles RSVP submission, invite checking, and Spotify suggestions.
 - `components/` — Shared React components; unit tests live in `components/tests/`.
 - `styles/` — CSS modules and Mantine theme config.
 - `db/` — Neon serverless PostgreSQL connection (`db/neon.ts`). Falls back to a mock when `DATABASE_URL` is not set.

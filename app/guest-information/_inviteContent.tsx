@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Lola from "@/public/images/Lola.png";
+import Lola from "@/public/images/Lola-excited-1.png";
 import styles from "@/styles/rsvp.module.css";
 
 export default function InviteContent() {
@@ -34,7 +34,7 @@ export default function InviteContent() {
       });
       const data = await res.json();
       if (data.success) {
-        router.replace(`/rsvp/${trimmedValue.toLowerCase()}`);
+        router.replace(`/guest-information/${trimmedValue.toLowerCase()}`);
       } else {
         setError(
           "Invite code not found. Contact us if you believe this is an error.",
@@ -51,8 +51,7 @@ export default function InviteContent() {
     <>
       <Stack>
         <Text id="invite-code-description" px={0}>
-          Enter your invite code below to access your RSVP form and view your
-          itinerary.
+          Enter your invite code below to access your invitation page.
         </Text>
         <form onSubmit={handleSubmit}>
           <Group>
@@ -62,7 +61,7 @@ export default function InviteContent() {
               aria-label="Enter invite code"
               value={inputValue}
               onChange={(e) => {
-                setInputValue(e.currentTarget.value.trim());
+                setInputValue(e.currentTarget.value);
                 if (error) setError(null);
               }}
               error={false}

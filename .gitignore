@@ -88,3 +88,6 @@
 
 # Custom SQL scripts
 **/sql/
+
+# Next
+next-env.d.ts

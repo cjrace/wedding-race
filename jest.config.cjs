@@ -8,7 +8,7 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.cjs"],
   moduleNameMapper: {
     "^@/components/(.*)$": "<rootDir>/components/$1",
-    "^@/(.*)$": "<rootDir>/pages/$1",
+    "^@/(.*)$": "<rootDir>/$1",
   },
   testEnvironment: "jest-environment-jsdom",
   testPathIgnorePatterns: ["<rootDir>/playwright-tests/"],
