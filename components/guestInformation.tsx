@@ -8,11 +8,84 @@ import {
   Button,
   Anchor,
   Grid,
+  List,
 } from "@mantine/core";
 import { IconConfetti } from "@tabler/icons-react";
 import playConfetti from "./playconfetti";
 import WeddingTimeline from "./weddingTimeline";
 import SongRequests from "./songrequests";
+
+type Taxi = {
+  name: string;
+  displayPhone: string;
+  telPhone: string;
+  notes?: string;
+};
+
+type TaxiGroup = {
+  location: string;
+  taxis: Taxi[];
+};
+
+const taxiGroups: TaxiGroup[] = [
+  {
+    location: "Northallerton",
+    taxis: [
+      {
+        name: "Al's Taxi",
+        displayPhone: "07751 659372",
+        telPhone: "07751659372",
+        notes: "2 drivers available",
+      },
+      {
+        name: "Ecabs",
+        displayPhone: "07402 305055",
+        telPhone: "07402305055",
+        notes: "2 drivers available",
+      },
+      {
+        name: "Woodman Taxis",
+        displayPhone: "01677 424242",
+        telPhone: "01677424242",
+        notes: "2-3 drivers available",
+      },
+      {
+        name: "Rob's Taxis",
+        displayPhone: "07521 253401",
+        telPhone: "07521253401",
+        notes: "1 car and an 8-seater minibus.",
+      },
+    ],
+  },
+  {
+    location: "Richmond",
+    taxis: [
+      {
+        name: "Amalgamated Taxis",
+        displayPhone: "01748 825112",
+        telPhone: "01748825112",
+        notes: "Minibus and fleet cars.",
+      },
+      {
+        name: "Premier Taxis",
+        displayPhone: "01748 833434",
+        telPhone: "01748833434",
+        notes:
+          "Lots of drivers available. Pre-payment over the phone is required if you're not returning to Richmond, and there's a £12 surcharge to go in the opposite direction.",
+      },
+    ],
+  },
+  {
+    location: "Scotch Corner",
+    taxis: [
+      {
+        name: "Gill and Tony's Taxi",
+        displayPhone: "07775 911354",
+        telPhone: "07775911354",
+      },
+    ],
+  },
+];
 
 export default function GuestInformation({
   preWedding,
@@ -132,11 +205,37 @@ export default function GuestInformation({
         <Title px={0} order={4}>
           Pre-book any taxis
         </Title>
-        <Text px={0} mb="md">
-          If you need a taxi at any point, we strongly recommend pre-booking in
-          advance given the rural location. You should do this as soon as
-          possible.
+        <Text px={0}>
+          If you need a taxi at any point, we strongly recommend pre-booking
+          well in advance given the rural location, so arrange this as soon as
+          you can.
         </Text>
+        <Text px={0}>
+          The list below has been shared with us by the venue as the local taxi
+          companies they recommend, sorted by the base location of the company:
+        </Text>
+        {taxiGroups.map((group) => (
+          <div key={group.location}>
+            <Text px={0} fw={600} mt="xs">
+              {group.location}
+            </Text>
+            <List spacing="xs" mb="sm" withPadding>
+              {group.taxis.map((taxi) => (
+                <List.Item key={taxi.telPhone}>
+                  <strong>{taxi.name}</strong>:{" "}
+                  <Anchor
+                    px={0}
+                    href={`tel:${taxi.telPhone}`}
+                    style={{ textDecoration: "underline" }}
+                  >
+                    {taxi.displayPhone}
+                  </Anchor>{" "}
+                  {taxi.notes && <>| {taxi.notes}</>}
+                </List.Item>
+              ))}
+            </List>
+          </div>
+        ))}
 
         <Divider my="sm" />
         <Title px={0} order={3}>
