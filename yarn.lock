@@ -7469,7 +7469,7 @@ __metadata:
     react: "npm:^19.2.5"
     react-dom: "npm:^19.2.5"
     sharp: "npm:^0.34.5"
-    tar: "npm:7.5.11"
+    tar: "npm:7.5.16"
     ts-jest: "npm:^29.4.9"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^6.0.3"
