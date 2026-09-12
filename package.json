@@ -60,7 +60,9 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "resolutions": {
-    "postcss": ">=8.5.10",
+    "@babel/core": "^7.29.7",
+    "nanoid": "^3.3.18",
+    "postcss": ">=8.5.23",
     "tar": "^7.5.22",
     "minimatch": ">=10.2.4",
     "@typescript-eslint/eslint-plugin": "8.70.0",
@@ -74,6 +76,7 @@
     "@typescript-eslint/project-service": "8.70.0",
     "@typescript-eslint/tsconfig-utils": "8.70.0",
     "typescript-eslint": "8.70.0",
-    "picomatch": "^4.0.4"
+    "picomatch": "^4.0.4",
+    "ws": "^8.21.0"
   }
 }
