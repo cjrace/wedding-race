@@ -17,7 +17,8 @@ test("has navbar", async ({ page }) => {
   );
 });
 
-test("can navigate through each page", async ({ page }) => {
+test("can navigate through each page", async ({ page, isMobile }) => {
+  test.skip(isMobile, "Mobile navigation is covered by the burger test");
   await page.goto("/");
 
   for (const { label } of pages) {
