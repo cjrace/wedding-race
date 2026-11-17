@@ -17,7 +17,7 @@
     "@neondatabase/serverless": "^1.2.0",
     "@tabler/icons-react": "^3.50.0",
     "minimatch": "^11.0.3",
-    "next": "^16.4.3",
+    "next": "^16.4.5",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "sharp": "^0.35.5",
